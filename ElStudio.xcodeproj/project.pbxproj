@@ -14,6 +14,7 @@
 		62C2ACB51AE8FF5B008393DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C2ACB41AE8FF5B008393DE /* Images.xcassets */; };
 		62C2ACB81AE8FF5B008393DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C2ACB61AE8FF5B008393DE /* LaunchScreen.xib */; };
 		62C2ACC41AE8FF5C008393DE /* ElStudioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C2ACC31AE8FF5C008393DE /* ElStudioTests.m */; };
+		887437F51AED917F00D0BFD2 /* MakeOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887437F41AED917F00D0BFD2 /* MakeOrderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		62C2ACBD1AE8FF5C008393DE /* ElStudioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElStudioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C2ACC21AE8FF5C008393DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62C2ACC31AE8FF5C008393DE /* ElStudioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ElStudioTests.m; sourceTree = "<group>"; };
+		887437F31AED917F00D0BFD2 /* MakeOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeOrderViewController.h; sourceTree = "<group>"; };
+		887437F41AED917F00D0BFD2 /* MakeOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeOrderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		62C2ACA61AE8FF5B008393DE /* ElStudio */ = {
 			isa = PBXGroup;
 			children = (
+				887437F11AED912D00D0BFD2 /* ViewControllers */,
 				62C2ACAB1AE8FF5B008393DE /* AppDelegate.h */,
 				62C2ACAC1AE8FF5B008393DE /* AppDelegate.m */,
 				62C2ACAE1AE8FF5B008393DE /* ViewController.h */,
@@ -117,6 +121,23 @@
 				62C2ACC21AE8FF5C008393DE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		887437F11AED912D00D0BFD2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				887437F21AED914B00D0BFD2 /* MakeOrder */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		887437F21AED914B00D0BFD2 /* MakeOrder */ = {
+			isa = PBXGroup;
+			children = (
+				887437F31AED917F00D0BFD2 /* MakeOrderViewController.h */,
+				887437F41AED917F00D0BFD2 /* MakeOrderViewController.m */,
+			);
+			name = MakeOrder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62C2ACB01AE8FF5B008393DE /* ViewController.m in Sources */,
+				887437F51AED917F00D0BFD2 /* MakeOrderViewController.m in Sources */,
 				62C2ACAD1AE8FF5B008393DE /* AppDelegate.m in Sources */,
 				62C2ACAA1AE8FF5B008393DE /* main.m in Sources */,
 			);
@@ -346,6 +368,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ElStudio/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -356,6 +379,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ElStudio/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -414,6 +438,7 @@
 				62C2ACC91AE8FF5C008393DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		62C2ACCA1AE8FF5C008393DE /* Build configuration list for PBXNativeTarget "ElStudioTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +447,7 @@
 				62C2ACCC1AE8FF5C008393DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

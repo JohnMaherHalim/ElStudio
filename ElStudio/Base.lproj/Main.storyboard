@@ -1,25 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QNw-LM-SKW">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="FTh-Di-atq">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <navigationController id="QNw-LM-SKW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0sq-hZ-G3x">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Otx-Jd-g8A" kind="relationship" relationship="rootViewController" id="vYO-Wl-kvr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="33o-mN-lby" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-269" y="827"/>
+        </scene>
+        <!--Make Order View Controller-->
+        <scene sceneID="pUf-S1-LS3">
+            <objects>
+                <viewController id="Otx-Jd-g8A" customClass="MakeOrderViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="MYN-HR-SjR"/>
+                        <viewControllerLayoutGuide type="bottom" id="UCS-mV-Flh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="eBf-pw-ifr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XF6-kj-jix">
+                                <rect key="frame" x="195" y="285" width="211" height="30"/>
+                                <state key="normal" title="Pick">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="upload" destination="Otx-Jd-g8A" eventType="touchUpInside" id="v0p-zt-jxx"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WWM-bd-PoR">
+                                <rect key="frame" x="180" y="334" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="0D8-Ge-LLt"/>
+                                    <constraint firstAttribute="width" constant="240" id="3c3-SM-tYL"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2Y-pz-hKu">
+                                <rect key="frame" x="256" y="486" width="88" height="30"/>
+                                <state key="normal" title="Update">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="z2Y-pz-hKu" firstAttribute="top" secondItem="WWM-bd-PoR" secondAttribute="bottom" constant="24" id="1Iy-cP-P63"/>
+                            <constraint firstAttribute="centerX" secondItem="WWM-bd-PoR" secondAttribute="centerX" id="AgW-ML-0jS"/>
+                            <constraint firstAttribute="centerX" secondItem="XF6-kj-jix" secondAttribute="centerX" id="Drq-Cp-yo3"/>
+                            <constraint firstAttribute="centerY" secondItem="XF6-kj-jix" secondAttribute="centerY" id="Xkf-V2-Bwg"/>
+                            <constraint firstItem="WWM-bd-PoR" firstAttribute="top" secondItem="XF6-kj-jix" secondAttribute="bottom" constant="19" id="ZT4-RH-IJS"/>
+                            <constraint firstItem="z2Y-pz-hKu" firstAttribute="leading" secondItem="eBf-pw-ifr" secondAttribute="leadingMargin" constant="240" id="d6j-wL-WLt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z2Y-pz-hKu" secondAttribute="trailing" constant="240" id="eN2-Fy-zGF"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JpR-X3-nhr"/>
+                    <connections>
+                        <outlet property="myimg" destination="WWM-bd-PoR" id="Swr-d0-sdX"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pYd-wl-wR8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="458" y="835"/>
         </scene>
     </scenes>
 </document>
