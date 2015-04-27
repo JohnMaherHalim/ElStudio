@@ -8,6 +8,7 @@
 
 #import "MakeOrderViewController.h"
 
+
 @interface MakeOrderViewController ()
 
 @end
@@ -15,9 +16,12 @@
 @implementation MakeOrderViewController
 
 @synthesize myimg ; 
+@synthesize imgarray ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    imgarray = [[NSMutableArray alloc]init];
     // Do any additional setup after loading the view.
 }
 
@@ -27,7 +31,7 @@
 }
 
 -(IBAction)upload {
-	UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+	/*UIImagePickerController * picker = [[UIImagePickerController alloc] init];
 	
 	// Don't forget to add UIImagePickerControllerDelegate in your .h
 	picker.delegate = self;
@@ -36,7 +40,20 @@
 	picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
 	
 	
-	[self presentModalViewController:picker animated:YES];
+	[self presentModalViewController:picker animated:YES];*/
+    
+    ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initImagePicker];
+    elcPicker.maximumImagesCount = 4; //Set the maximum number of images to select, defaults to 4
+    elcPicker.returnsOriginalImage = NO; //Only return the fullScreenImage, not the fullResolutionImage
+    elcPicker.returnsImage = YES; //Return UIimage if YES. If NO, only return asset location information
+    elcPicker.onOrder = YES; //For multiple image selection, display and return selected order of images
+    elcPicker.imagePickerDelegate = self;
+    
+    //Present modally
+    [self presentViewController:elcPicker animated:YES completion:nil];
+    
+    // Release if not using ARC
+    
 }
 
 -(IBAction)RealUpload:(id)sender {
@@ -46,6 +63,34 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 	[picker dismissModalViewControllerAnimated:YES];
 	myimg.image = (UIImage*) [info objectForKey:UIImagePickerControllerOriginalImage];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"GoToImages"]) {
+        
+    }
+}
+
+
+- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info {
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    NSMutableArray *myimgs = [[NSMutableArray alloc]init];
+    
+    for (NSDictionary *curinfo in info) {
+        UIImage *img = (UIImage*) [curinfo objectForKey:UIImagePickerControllerOriginalImage];
+        [myimgs addObject:img];
+    }
+    
+    [self performSegueWithIdentifier:@"GoToImages"
+                              sender:nil];
+    
+}
+
+
+- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker {
+    
 }
 
 /*

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ELCImagePickerController.h"
 
-@interface MakeOrderViewController : UIViewController <UIImagePickerControllerDelegate>
+@interface MakeOrderViewController : UIViewController <UIImagePickerControllerDelegate,ELCImagePickerControllerDelegate>
 
-@property (nonatomic) IBOutlet UIImageView *myimg ; 
+@property (nonatomic) IBOutlet UIImageView *myimg ;
+@property (nonatomic) NSMutableArray *imgarray ; 
 
 -(IBAction)upload ;
 -(IBAction)RealUpload:(id)sender;
