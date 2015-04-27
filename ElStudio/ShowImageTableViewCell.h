@@ -1,5 +1,5 @@
 //
-//  ShowPhotosViewController.h
+//  ShowImageTableViewCell.h
 //  ElStudio
 //
 //  Created by John Maher on 4/27/15.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShowPhotosViewController : UIViewController
+@interface ShowImageTableViewCell : UITableViewCell
+
+@property (retain) IBOutlet UIImageView *oneimg ; 
 
 @end

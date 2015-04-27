@@ -7,6 +7,7 @@
 //
 
 #import "MakeOrderViewController.h"
+#import "ShowImagesViewController.h"
 
 
 @interface MakeOrderViewController ()
@@ -67,7 +68,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"GoToImages"]) {
-        
+        ShowImagesViewController *showimgs = [segue destinationViewController] ;
+       // [showimgs setImages:<#(NSMutableArray *)#>]
     }
 }
 
