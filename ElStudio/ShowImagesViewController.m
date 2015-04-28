@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    images = [[NSMutableArray alloc]init] ;
+   // images = [[NSMutableArray alloc]init] ;
     // Do any additional setup after loading the view.
 }
 

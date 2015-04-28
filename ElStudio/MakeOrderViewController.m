@@ -69,7 +69,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"GoToImages"]) {
         ShowImagesViewController *showimgs = [segue destinationViewController] ;
-       // [showimgs setImages:<#(NSMutableArray *)#>]
+        [showimgs setImages:imgarray];
     }
 }
 
@@ -78,11 +78,12 @@
     
     [picker dismissViewControllerAnimated:YES completion:nil];
     
-    NSMutableArray *myimgs = [[NSMutableArray alloc]init];
+    [imgarray removeAllObjects];
+   // NSMutableArray *myimgs = [[NSMutableArray alloc]init];
     
     for (NSDictionary *curinfo in info) {
         UIImage *img = (UIImage*) [curinfo objectForKey:UIImagePickerControllerOriginalImage];
-        [myimgs addObject:img];
+        [imgarray addObject:img];
     }
     
     [self performSegueWithIdentifier:@"GoToImages"
