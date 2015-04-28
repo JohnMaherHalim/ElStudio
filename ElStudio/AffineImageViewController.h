@@ -11,6 +11,9 @@
 @interface AffineImageViewController : UIViewController
 
 @property (retain) UIImage *myimage ;
-@property (retain) IBOutlet UIImageView *myimageview ; 
+@property (retain) IBOutlet UIImageView *myimageview ;
+
+- (IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer;
+- (IBAction)handleRotate:(UIRotationGestureRecognizer *)recognizer;
 
 @end

@@ -129,8 +129,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CJ2-6F-h1N">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CJ2-6F-h1N">
                                 <rect key="frame" x="107" y="150" width="393" height="381"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="86Z-Ii-WrQ" appends="YES" id="rvi-Lg-fie"/>
+                                    <outletCollection property="gestureRecognizers" destination="OJ1-Kz-waT" appends="YES" id="oKc-7i-v6P"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -147,6 +152,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYc-P1-UbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="86Z-Ii-WrQ">
+                    <connections>
+                        <action selector="handlePinch:" destination="U5m-ge-Ig6" id="cUw-B6-qmJ"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="OJ1-Kz-waT">
+                    <connections>
+                        <action selector="handleRotate:" destination="U5m-ge-Ig6" id="eL5-qv-4BD"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1291" y="1539"/>
         </scene>
