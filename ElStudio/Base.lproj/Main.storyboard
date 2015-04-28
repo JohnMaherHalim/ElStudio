@@ -110,11 +110,45 @@
                     <navigationItem key="navigationItem" id="wIN-1X-xLX"/>
                     <connections>
                         <outlet property="tableView" destination="hpp-s3-cxC" id="jsb-2c-845"/>
+                        <segue destination="U5m-ge-Ig6" kind="push" identifier="GoToAffineImage" id="IWU-cr-Vnl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPl-cg-S8H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1291" y="779"/>
+            <point key="canvasLocation" x="1257" y="785"/>
+        </scene>
+        <!--Affine Image View Controller-->
+        <scene sceneID="H4O-Jw-agr">
+            <objects>
+                <viewController id="U5m-ge-Ig6" customClass="AffineImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TWl-03-bPg"/>
+                        <viewControllerLayoutGuide type="bottom" id="cxK-ye-hj7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pas-M0-DHI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CJ2-6F-h1N">
+                                <rect key="frame" x="107" y="150" width="393" height="381"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CJ2-6F-h1N" firstAttribute="top" secondItem="TWl-03-bPg" secondAttribute="bottom" constant="86" id="R3F-8D-fyj"/>
+                            <constraint firstItem="CJ2-6F-h1N" firstAttribute="leading" secondItem="pas-M0-DHI" secondAttribute="leadingMargin" constant="91" id="RJM-Za-pc0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CJ2-6F-h1N" secondAttribute="trailing" constant="84" id="XaJ-Nu-58m"/>
+                            <constraint firstItem="cxK-ye-hj7" firstAttribute="top" secondItem="CJ2-6F-h1N" secondAttribute="bottom" constant="69" id="dEB-8I-4aP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="iQj-9I-s3N"/>
+                    <connections>
+                        <outlet property="myimageview" destination="CJ2-6F-h1N" id="goq-aF-sfd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WYc-P1-UbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1291" y="1539"/>
         </scene>
     </scenes>
 </document>

@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShowImagesViewController : UIViewController <UITableViewDataSource , UITableViewDelegate>
+@interface ShowImagesViewController : UIViewController <UITableViewDataSource , UITableViewDelegate> {
+    UIImage *imagetopass ; 
+}
 
 @property (retain) NSMutableArray *images ;
 @property (retain) IBOutlet UITableView *tableView ; 

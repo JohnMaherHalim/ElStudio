@@ -31,6 +31,7 @@
 		62C77D111AEEA04A00BB3D48 /* ShowImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C77D101AEEA04A00BB3D48 /* ShowImagesViewController.m */; };
 		62C77D151AEEA07700BB3D48 /* ShowImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C77D131AEEA07700BB3D48 /* ShowImageTableViewCell.m */; };
 		62C77D161AEEA07700BB3D48 /* ShowImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C77D141AEEA07700BB3D48 /* ShowImageTableViewCell.xib */; };
+		62C7C2E51AEF7B8700563DD6 /* AffineImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C7C2E41AEF7B8700563DD6 /* AffineImageViewController.m */; };
 		887437F51AED917F00D0BFD2 /* MakeOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 887437F41AED917F00D0BFD2 /* MakeOrderViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,8 @@
 		62C77D121AEEA07700BB3D48 /* ShowImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowImageTableViewCell.h; sourceTree = "<group>"; };
 		62C77D131AEEA07700BB3D48 /* ShowImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowImageTableViewCell.m; sourceTree = "<group>"; };
 		62C77D141AEEA07700BB3D48 /* ShowImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowImageTableViewCell.xib; sourceTree = "<group>"; };
+		62C7C2E31AEF7B8700563DD6 /* AffineImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AffineImageViewController.h; sourceTree = "<group>"; };
+		62C7C2E41AEF7B8700563DD6 /* AffineImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AffineImageViewController.m; sourceTree = "<group>"; };
 		887437F31AED917F00D0BFD2 /* MakeOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeOrderViewController.h; sourceTree = "<group>"; };
 		887437F41AED917F00D0BFD2 /* MakeOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeOrderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,9 +236,19 @@
 			name = ShowImages;
 			sourceTree = "<group>";
 		};
+		62C7C2E21AEF7B4B00563DD6 /* AffineImage */ = {
+			isa = PBXGroup;
+			children = (
+				62C7C2E31AEF7B8700563DD6 /* AffineImageViewController.h */,
+				62C7C2E41AEF7B8700563DD6 /* AffineImageViewController.m */,
+			);
+			name = AffineImage;
+			sourceTree = "<group>";
+		};
 		887437F11AED912D00D0BFD2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				62C7C2E21AEF7B4B00563DD6 /* AffineImage */,
 				62C77D0E1AEEA02E00BB3D48 /* ShowImages */,
 				887437F21AED914B00D0BFD2 /* MakeOrder */,
 			);
@@ -358,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62C77D011AEE905200BB3D48 /* ELCImagePickerDemoAppDelegate.m in Sources */,
+				62C7C2E51AEF7B8700563DD6 /* AffineImageViewController.m in Sources */,
 				62C77CF71AEE905200BB3D48 /* ELCAssetCell.m in Sources */,
 				62C77CFB1AEE905200BB3D48 /* ELCOverlayImageView.m in Sources */,
 				62C77CF51AEE905200BB3D48 /* ELCAlbumPickerController.m in Sources */,

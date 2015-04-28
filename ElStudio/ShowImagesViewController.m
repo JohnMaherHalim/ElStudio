@@ -8,6 +8,7 @@
 
 #import "ShowImagesViewController.h"
 #import "ShowImageTableViewCell.h"
+#import "AffineImageViewController.h"
 
 @interface ShowImagesViewController ()
 
@@ -48,6 +49,23 @@
     
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    imagetopass = [[UIImage alloc]init];
+    imagetopass = [images objectAtIndex:indexPath.row] ;
+    
+    [self performSegueWithIdentifier:@"GoToAffineImage"
+                              sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"GoToAffineImage"]) {
+        AffineImageViewController *affine = [segue destinationViewController] ;
+        //[showimgs setImages:imgarray];
+        [affine setMyimage:imagetopass]; 
+    }
 }
 
 /*
