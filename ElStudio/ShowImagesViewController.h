@@ -7,12 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GRRequestsManager.h"
 
-@interface ShowImagesViewController : UIViewController <UITableViewDataSource , UITableViewDelegate> {
-    UIImage *imagetopass ; 
+
+@interface ShowImagesViewController : UIViewController <UITableViewDataSource , UITableViewDelegate,GRRequestsManagerDelegate> {
+    UIImage *imagetopass ;
+	NSData *uploadData ; 
 }
 
 @property (retain) NSMutableArray *images ;
-@property (retain) IBOutlet UITableView *tableView ; 
+@property (retain) IBOutlet UITableView *tableView ;
+@property (nonatomic, strong) GRRequestsManager *requestsManager;
+
+-(IBAction)uploadfile:(id)sender;
 
 @end

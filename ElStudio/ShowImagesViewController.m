@@ -20,6 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	uploadData = [[NSData alloc]init];
+	
+	self.requestsManager = [[GRRequestsManager alloc] initWithHostname:@"ws.doctory.info"
+																  user:@"doctorym"
+															  password:@"toztoz1"];
+	
+	self.requestsManager.delegate = self;
+	
    // images = [[NSMutableArray alloc]init] ;
     // Do any additional setup after loading the view.
 }
@@ -68,14 +76,27 @@
     }
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(IBAction)uploadfile:(id)sender
+{
+	UIImage *img = [images objectAtIndex:0];
+	NSData *pngData = UIImagePNGRepresentation(img);
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
+	NSString *filePath = [documentsPath stringByAppendingPathComponent:@"image.png"]; //Add the file name
+	[pngData writeToFile:filePath atomically:YES]; //Write the file
+	
+	[self.requestsManager addRequestForUploadFileAtLocalPath:filePath toRemotePath:@"ImagesTest/source.png"];
+	
+	[self.requestsManager startProcessingRequests];
+	
 }
-*/
+
+- (void)requestsManager:(id<GRRequestsManagerProtocol>)requestsManager didCompleteUploadRequest:(id<GRDataExchangeRequestProtocol>)request {
+	NSLog(@"done");
+}
+
+
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AffineImageViewController.h"
+#import "BRRequestUpload.h"
 
 @interface AffineImageViewController ()
 
@@ -38,6 +39,8 @@
     recognizer.view.transform = CGAffineTransformRotate(recognizer.view.transform, recognizer.rotation);
     recognizer.rotation = 0;
 }
+
+
 
 /*
 #pragma mark - Navigation

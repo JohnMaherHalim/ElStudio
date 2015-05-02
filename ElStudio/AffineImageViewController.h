@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AffineImageViewController : UIViewController
+
+
+
+@interface AffineImageViewController : UIViewController 
 
 @property (retain) UIImage *myimage ;
 @property (retain) IBOutlet UIImageView *myimageview ;
