@@ -79,22 +79,76 @@
 
 -(IBAction)uploadfile:(id)sender
 {
-	UIImage *img = [images objectAtIndex:0];
-	NSData *pngData = UIImagePNGRepresentation(img);
+	//UIImage *img = [images objectAtIndex:0];
 	
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
-	NSString *filePath = [documentsPath stringByAppendingPathComponent:@"image.png"]; //Add the file name
-	[pngData writeToFile:filePath atomically:YES]; //Write the file
 	
-	[self.requestsManager addRequestForUploadFileAtLocalPath:filePath toRemotePath:@"ImagesTest/source.png"];
+	//Write the file
+	
+	[self.requestsManager addRequestForCreateDirectoryAtPath:@"ImagesTest/OrderNumTwo"];
+	int counter = 0 ;
+	
+	NSMutableArray *normimages = [self returnaffinedimages];
+	
+	for (UIImage* img in normimages) {
+		counter++ ;
+		NSData *pngData = UIImagePNGRepresentation(img);
+		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+		NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
+		NSString *filePath = [documentsPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.png",counter]]; //Add the file name
+		[pngData writeToFile:filePath atomically:YES];
+		[self.requestsManager addRequestForUploadFileAtLocalPath:filePath toRemotePath:[NSString stringWithFormat:@"ImagesTest/OrderNumTwo/%d.png",counter]];
+	}
+	
+	//[self.requestsManager addRequestForUploadFileAtLocalPath:filePath toRemotePath:@"ImagesTest/source.png"];
 	
 	[self.requestsManager startProcessingRequests];
+	
+	/*NSMutableArray *normimages = [self returnaffinedimages];
+	ShowImagesViewController *myself = [[ShowImagesViewController alloc]init] ;
+	[myself setImages:normimages];
+	[self.navigationController pushViewController:myself animated:YES];*/
+	
 	
 }
 
 - (void)requestsManager:(id<GRRequestsManagerProtocol>)requestsManager didCompleteUploadRequest:(id<GRDataExchangeRequestProtocol>)request {
 	NSLog(@"done");
+}
+
+-(NSMutableArray*)returnaffinedimages {
+	
+	NSMutableArray *affinedimages = [[NSMutableArray alloc]init] ;
+	
+	NSMutableArray *cells = [[NSMutableArray alloc] init];
+	for (NSInteger j = 0; j < [tableView numberOfSections]; ++j)
+	{
+		for (NSInteger i = 0; i < [tableView numberOfRowsInSection:j]; ++i)
+		{
+			[cells addObject:[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]]];
+		}
+	}
+	
+	for (ShowImageTableViewCell *cell in cells)
+	{
+		UIImage *myimg = [self imageWithView:cell.container];
+		[affinedimages addObject:myimg];
+		//UITextField *textField = [cell textField];
+		//NSLog(@"%@"; [textField text]);
+	}
+	
+	return affinedimages ;
+}
+
+- (UIImage *) imageWithView:(UIView *)view
+{
+	UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+	[view.layer renderInContext:UIGraphicsGetCurrentContext()];
+	
+	UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+	
+	UIGraphicsEndImageContext();
+	
+	return img;
 }
 
 

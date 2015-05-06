@@ -7,7 +7,7 @@
 //
 
 #import "AffineImageViewController.h"
-#import "BRRequestUpload.h"
+//#import "BRRequestUpload.h"
 
 @interface AffineImageViewController ()
 
@@ -38,6 +38,13 @@
 - (IBAction)handleRotate:(UIRotationGestureRecognizer *)recognizer {
     recognizer.view.transform = CGAffineTransformRotate(recognizer.view.transform, recognizer.rotation);
     recognizer.rotation = 0;
+}
+
+-(IBAction)scale:(UIPinchGestureRecognizer*)pinch
+{
+ 	float scale = pinch.scale;
+ 	myimageview.transform = CGAffineTransformScale(myimageview.transform, scale, scale);
+ 	pinch.scale = 1;
 }
 
 

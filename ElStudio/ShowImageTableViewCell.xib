@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,15 +14,31 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="39f-P4-fYM">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqQ-zV-EvS">
                         <rect key="frame" x="65" y="16" width="201" height="155"/>
-                    </imageView>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="39f-P4-fYM">
+                                <rect key="frame" x="0.0" y="0.0" width="201" height="155"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Mrr-a0-0s4" appends="YES" id="wdB-SF-hmk"/>
+                        </connections>
+                    </view>
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="container" destination="dqQ-zV-EvS" id="e73-Xf-ymK"/>
                 <outlet property="oneimg" destination="39f-P4-fYM" id="Lph-rR-sX8"/>
             </connections>
             <point key="canvasLocation" x="353" y="240.5"/>
         </tableViewCell>
+        <pinchGestureRecognizer id="Mrr-a0-0s4">
+            <connections>
+                <action selector="scale:" destination="KGk-i7-Jjw" id="Vgi-dN-W0q"/>
+            </connections>
+        </pinchGestureRecognizer>
     </objects>
 </document>

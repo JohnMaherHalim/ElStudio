@@ -10,6 +10,9 @@
 
 @interface ShowImageTableViewCell : UITableViewCell
 
-@property (retain) IBOutlet UIImageView *oneimg ; 
+@property (retain) IBOutlet UIImageView *oneimg ;
+@property (retain) IBOutlet UIView *container ;
+
+-(IBAction)scale:(UIPinchGestureRecognizer*)pinch;
 
 @end

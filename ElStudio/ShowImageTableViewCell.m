@@ -23,4 +23,11 @@
     // Configure the view for the selected state
 }
 
+-(IBAction)scale:(UIPinchGestureRecognizer*)pinch
+{
+	float scale = pinch.scale;
+	oneimg.transform = CGAffineTransformScale(oneimg.transform, scale, scale);
+	pinch.scale = 1;
+}
+
 @end

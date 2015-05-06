@@ -18,5 +18,6 @@
 
 - (IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer;
 - (IBAction)handleRotate:(UIRotationGestureRecognizer *)recognizer;
+-(IBAction)scale:(UIPinchGestureRecognizer*)pinch;
 
 @end

@@ -135,21 +135,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CJ2-6F-h1N">
-                                <rect key="frame" x="107" y="150" width="393" height="381"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfY-dd-CcR">
+                                <rect key="frame" x="225" y="225" width="150" height="150"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CJ2-6F-h1N">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="OJ1-Kz-waT" appends="YES" id="oKc-7i-v6P"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Sxa-VT-VlC"/>
+                                    <constraint firstAttribute="width" constant="150" id="tqx-AQ-UVg"/>
+                                </constraints>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="86Z-Ii-WrQ" appends="YES" id="rvi-Lg-fie"/>
-                                    <outletCollection property="gestureRecognizers" destination="OJ1-Kz-waT" appends="YES" id="oKc-7i-v6P"/>
+                                    <outletCollection property="gestureRecognizers" destination="xCv-Mg-vHU" appends="YES" id="46F-wL-znY"/>
+                                    <outletCollection property="gestureRecognizers" destination="Y5H-6q-pft" appends="YES" id="gHG-VT-zvC"/>
                                 </connections>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CJ2-6F-h1N" firstAttribute="top" secondItem="TWl-03-bPg" secondAttribute="bottom" constant="86" id="R3F-8D-fyj"/>
-                            <constraint firstItem="CJ2-6F-h1N" firstAttribute="leading" secondItem="pas-M0-DHI" secondAttribute="leadingMargin" constant="91" id="RJM-Za-pc0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CJ2-6F-h1N" secondAttribute="trailing" constant="84" id="XaJ-Nu-58m"/>
-                            <constraint firstItem="cxK-ye-hj7" firstAttribute="top" secondItem="CJ2-6F-h1N" secondAttribute="bottom" constant="69" id="dEB-8I-4aP"/>
+                            <constraint firstAttribute="centerX" secondItem="hfY-dd-CcR" secondAttribute="centerX" id="GEM-e4-1oN"/>
+                            <constraint firstAttribute="centerY" secondItem="hfY-dd-CcR" secondAttribute="centerY" id="hHB-xn-ILF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iQj-9I-s3N"/>
@@ -158,16 +170,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYc-P1-UbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pinchGestureRecognizer id="86Z-Ii-WrQ">
+                <rotationGestureRecognizer id="OJ1-Kz-waT"/>
+                <pinchGestureRecognizer id="xCv-Mg-vHU">
                     <connections>
-                        <action selector="handlePinch:" destination="U5m-ge-Ig6" id="cUw-B6-qmJ"/>
+                        <action selector="scale:" destination="U5m-ge-Ig6" id="wpY-2H-LFM"/>
                     </connections>
                 </pinchGestureRecognizer>
-                <rotationGestureRecognizer id="OJ1-Kz-waT">
-                    <connections>
-                        <action selector="handleRotate:" destination="U5m-ge-Ig6" id="eL5-qv-4BD"/>
-                    </connections>
-                </rotationGestureRecognizer>
+                <rotationGestureRecognizer id="Y5H-6q-pft"/>
             </objects>
             <point key="canvasLocation" x="1291" y="1539"/>
         </scene>
