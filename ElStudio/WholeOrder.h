@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Order.h" 
+#import "OrderItem.h"
 
 @interface WholeOrder : NSObject
 
 @property (nonatomic,retain) Order *myOrder ;
 
-
+-(void)addtoOrderItems:(OrderItem*)item ; 
 
 + (id)sharedManager;
 

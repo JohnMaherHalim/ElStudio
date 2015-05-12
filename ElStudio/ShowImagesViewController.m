@@ -10,6 +10,7 @@
 #import "ShowImageTableViewCell.h"
 #import "AffineImageViewController.h"
 #import "CurrentOrderManager.h"
+#import "WholeOrder.h"
 
 @interface ShowImagesViewController ()
 
@@ -76,6 +77,7 @@
         [affine setMyimage:imagetopass]; 
     } else if ([segue.identifier isEqualToString:@"GoToOrderItemThankYou"]) {
         [[CurrentOrderManager sharedManager]storeProductImages:images];
+        [[WholeOrder sharedManager]addtoOrderItems:[[CurrentOrderManager sharedManager]curOrderItem]];
     }
     
     
