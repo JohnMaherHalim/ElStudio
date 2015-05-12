@@ -3,4 +3,6 @@ dependencies: \
   /Users/johnmaher/ElStudio/ElStudio/MakeOrderViewController.h \
   /Users/johnmaher/ElStudio/ElStudio/Classes/ELCImagePicker/ELCImagePickerController.h \
   /Users/johnmaher/ElStudio/ElStudio/Classes/ELCImagePicker/ELCAssetSelectionDelegate.h \
-  /Users/johnmaher/ElStudio/ElStudio/ShowImagesViewController.h
+  /Users/johnmaher/ElStudio/ElStudio/ShowImagesViewController.h \
+  /Users/johnmaher/ElStudio/ElStudio/Classes/Sources/GRRequestsManager.h \
+  /Users/johnmaher/ElStudio/ElStudio/Classes/Sources/GRRequestsManagerProtocol.h

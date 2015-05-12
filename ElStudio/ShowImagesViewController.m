@@ -9,6 +9,7 @@
 #import "ShowImagesViewController.h"
 #import "ShowImageTableViewCell.h"
 #import "AffineImageViewController.h"
+#import "CurrentOrderManager.h"
 
 @interface ShowImagesViewController ()
 
@@ -73,7 +74,11 @@
         AffineImageViewController *affine = [segue destinationViewController] ;
         //[showimgs setImages:imgarray];
         [affine setMyimage:imagetopass]; 
+    } else if ([segue.identifier isEqualToString:@"GoToOrderItemThankYou"]) {
+        [[CurrentOrderManager sharedManager]storeProductImages:images];
     }
+    
+    
 }
 
 

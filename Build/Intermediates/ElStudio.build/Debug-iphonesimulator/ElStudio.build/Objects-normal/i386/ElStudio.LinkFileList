@@ -1,5 +1,6 @@
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/ELCImagePickerDemoAppDelegate.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/AffineImageViewController.o
+/Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/WholeOrder.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/ELCAssetCell.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/GRStreamInfo.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/ELCOverlayImageView.o
@@ -7,12 +8,16 @@
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/GRDeleteRequest.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/GRQueue.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/ELCImagePickerController.o
+/Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/OrderItem.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/ShowImageTableViewCell.o
+/Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/ProductsTableViewController.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/GRListingRequest.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/GRError.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/ELCConsole.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/ELCAssetTablePicker.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/ELCAsset.o
+/Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/Order.o
+/Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/CurrentOrderManager.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/GRDownloadRequest.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/ViewController.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/MakeOrderViewController.o

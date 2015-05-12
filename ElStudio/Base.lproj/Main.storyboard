@@ -15,12 +15,80 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Otx-Jd-g8A" kind="relationship" relationship="rootViewController" id="vYO-Wl-kvr"/>
+                        <segue destination="I1A-Gb-egz" kind="relationship" relationship="rootViewController" id="AFA-lC-qN0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33o-mN-lby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-143.46666666666667" y="782.89333333333332"/>
+            <point key="canvasLocation" x="-1026" y="676"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cY7-gW-JGY">
+            <objects>
+                <viewController id="I1A-Gb-egz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gXa-wA-MLk"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rr6-9s-iCn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yQx-Oh-sxm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jB-Pw-bHv">
+                                <rect key="frame" x="99" y="203" width="123" height="30"/>
+                                <state key="normal" title="Make Prints">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="XGu-Vs-Ct6" kind="push" id="5kg-cC-uH8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9A-23-fEe">
+                                <rect key="frame" x="129" y="285" width="63" height="30"/>
+                                <state key="normal" title="Cart">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="bQi-tb-PNJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wE8-BL-vZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-651" y="654"/>
+        </scene>
+        <!--Products Table View Controller-->
+        <scene sceneID="FbW-B6-LfZ">
+            <objects>
+                <tableViewController id="XGu-Vs-Ct6" customClass="ProductsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="JQH-1g-Klr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cMF-3g-yi6">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cMF-3g-yi6" id="0ta-eR-Jfg">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XGu-Vs-Ct6" id="T3c-eY-HgS"/>
+                            <outlet property="delegate" destination="XGu-Vs-Ct6" id="Jre-Jj-yGd"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="jH4-BA-hYe"/>
+                    <connections>
+                        <segue destination="Otx-Jd-g8A" kind="push" identifier="GoToPickImages" id="IWQ-N0-bsf"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l5n-F3-Z7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-249" y="654"/>
         </scene>
         <!--Make Order View Controller-->
         <scene sceneID="pUf-S1-LS3">
@@ -64,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pYd-wl-wR8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="238.93333333333334" y="790.4666666666667"/>
+            <point key="canvasLocation" x="174" y="665"/>
         </scene>
         <!--Show Images View Controller-->
         <scene sceneID="nGW-tG-XZA">
@@ -97,9 +165,9 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="wIN-1X-xLX">
-                        <barButtonItem key="rightBarButtonItem" title="Upload" id="Oth-W2-XBJ">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="Oth-W2-XBJ">
                             <connections>
-                                <action selector="uploadfile:" destination="ynv-tx-TWD" id="4GT-08-EPM"/>
+                                <segue destination="P0D-4k-HJL" kind="push" identifier="GoToOrderItemThankYou" id="k2s-QU-T9W"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -111,6 +179,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPl-cg-S8H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="670.39999999999998" y="743.13333333333333"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="JDT-xG-kT8">
+            <objects>
+                <viewController id="P0D-4k-HJL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KSn-lF-325"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qad-Po-1YB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RaX-qd-PBS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Success" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCG-co-iHl">
+                                <rect key="frame" x="122" y="180" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ws-Uw-8iy">
+                                <rect key="frame" x="98" y="331" width="124" height="30"/>
+                                <state key="normal" title="Go To Cart">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7r-ya-ofD">
+                                <rect key="frame" x="88" y="269" width="145" height="30"/>
+                                <state key="normal" title="Other Product ? ">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="hA2-Yc-ZEP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sd8-2S-rVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1073" y="751"/>
         </scene>
         <!--Affine Image View Controller-->
         <scene sceneID="H4O-Jw-agr">

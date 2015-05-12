@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6228FD1E1B021FF300B0D759 /* ProductsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD1D1B021FF300B0D759 /* ProductsTableViewController.m */; };
+		6228FD231B02253300B0D759 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD221B02253200B0D759 /* OrderItem.m */; };
+		6228FD261B0226D100B0D759 /* CurrentOrderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD251B0226D100B0D759 /* CurrentOrderManager.m */; };
+		6228FD291B0231E400B0D759 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD281B0231E400B0D759 /* Order.m */; };
+		6228FD2C1B02323600B0D759 /* WholeOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD2B1B02323600B0D759 /* WholeOrder.m */; };
 		62C2ACAA1AE8FF5B008393DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C2ACA91AE8FF5B008393DE /* main.m */; };
 		62C2ACAD1AE8FF5B008393DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C2ACAC1AE8FF5B008393DE /* AppDelegate.m */; };
 		62C2ACB01AE8FF5B008393DE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C2ACAF1AE8FF5B008393DE /* ViewController.m */; };
@@ -57,6 +62,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6228FD1C1B021FF300B0D759 /* ProductsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsTableViewController.h; sourceTree = "<group>"; };
+		6228FD1D1B021FF300B0D759 /* ProductsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsTableViewController.m; sourceTree = "<group>"; };
+		6228FD211B02253200B0D759 /* OrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItem.h; sourceTree = "<group>"; };
+		6228FD221B02253200B0D759 /* OrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItem.m; sourceTree = "<group>"; };
+		6228FD241B0226D100B0D759 /* CurrentOrderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentOrderManager.h; sourceTree = "<group>"; };
+		6228FD251B0226D100B0D759 /* CurrentOrderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentOrderManager.m; sourceTree = "<group>"; };
+		6228FD271B0231E400B0D759 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		6228FD281B0231E400B0D759 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		6228FD2A1B02323600B0D759 /* WholeOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WholeOrder.h; sourceTree = "<group>"; };
+		6228FD2B1B02323600B0D759 /* WholeOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WholeOrder.m; sourceTree = "<group>"; };
 		62C2ACA41AE8FF5B008393DE /* ElStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C2ACA81AE8FF5B008393DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62C2ACA91AE8FF5B008393DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -148,6 +163,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6228FD1B1B021F8300B0D759 /* ProductsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6228FD1C1B021FF300B0D759 /* ProductsTableViewController.h */,
+				6228FD1D1B021FF300B0D759 /* ProductsTableViewController.m */,
+			);
+			name = ProductsViewController;
+			sourceTree = "<group>";
+		};
+		6228FD1F1B02244400B0D759 /* Singeltons */ = {
+			isa = PBXGroup;
+			children = (
+				6228FD241B0226D100B0D759 /* CurrentOrderManager.h */,
+				6228FD251B0226D100B0D759 /* CurrentOrderManager.m */,
+				6228FD2A1B02323600B0D759 /* WholeOrder.h */,
+				6228FD2B1B02323600B0D759 /* WholeOrder.m */,
+			);
+			name = Singeltons;
+			sourceTree = "<group>";
+		};
+		6228FD201B0224E900B0D759 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6228FD211B02253200B0D759 /* OrderItem.h */,
+				6228FD221B02253200B0D759 /* OrderItem.m */,
+				6228FD271B0231E400B0D759 /* Order.h */,
+				6228FD281B0231E400B0D759 /* Order.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		62C2AC9B1AE8FF5B008393DE = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +215,8 @@
 		62C2ACA61AE8FF5B008393DE /* ElStudio */ = {
 			isa = PBXGroup;
 			children = (
+				6228FD201B0224E900B0D759 /* Models */,
+				6228FD1F1B02244400B0D759 /* Singeltons */,
 				62C77CD81AEE905100BB3D48 /* Classes */,
 				887437F11AED912D00D0BFD2 /* ViewControllers */,
 				62C2ACAB1AE8FF5B008393DE /* AppDelegate.h */,
@@ -329,6 +377,7 @@
 		887437F11AED912D00D0BFD2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6228FD1B1B021F8300B0D759 /* ProductsViewController */,
 				62C7C2E21AEF7B4B00563DD6 /* AffineImage */,
 				62C77D0E1AEEA02E00BB3D48 /* ShowImages */,
 				887437F21AED914B00D0BFD2 /* MakeOrder */,
@@ -453,6 +502,7 @@
 			files = (
 				62C77D011AEE905200BB3D48 /* ELCImagePickerDemoAppDelegate.m in Sources */,
 				62C7C2E51AEF7B8700563DD6 /* AffineImageViewController.m in Sources */,
+				6228FD2C1B02323600B0D759 /* WholeOrder.m in Sources */,
 				62C77CF71AEE905200BB3D48 /* ELCAssetCell.m in Sources */,
 				881CA3A41AF5307A0097FEBE /* GRStreamInfo.m in Sources */,
 				62C77CFB1AEE905200BB3D48 /* ELCOverlayImageView.m in Sources */,
@@ -461,12 +511,16 @@
 				881CA3A31AF5307A0097FEBE /* GRQueue.m in Sources */,
 				62C77CFA1AEE905200BB3D48 /* ELCImagePickerController.m in Sources */,
 				881CA39B1AF5307A0097FEBE /* README.md in Sources */,
+				6228FD231B02253300B0D759 /* OrderItem.m in Sources */,
 				62C77D151AEEA07700BB3D48 /* ShowImageTableViewCell.m in Sources */,
+				6228FD1E1B021FF300B0D759 /* ProductsTableViewController.m in Sources */,
 				881CA39F1AF5307A0097FEBE /* GRListingRequest.m in Sources */,
 				881CA3A21AF5307A0097FEBE /* GRError.m in Sources */,
 				62C77CF91AEE905200BB3D48 /* ELCConsole.m in Sources */,
 				62C77CF81AEE905200BB3D48 /* ELCAssetTablePicker.m in Sources */,
 				62C77CF61AEE905200BB3D48 /* ELCAsset.m in Sources */,
+				6228FD291B0231E400B0D759 /* Order.m in Sources */,
+				6228FD261B0226D100B0D759 /* CurrentOrderManager.m in Sources */,
 				881CA39E1AF5307A0097FEBE /* GRDownloadRequest.m in Sources */,
 				62C2ACB01AE8FF5B008393DE /* ViewController.m in Sources */,
 				887437F51AED917F00D0BFD2 /* MakeOrderViewController.m in Sources */,
