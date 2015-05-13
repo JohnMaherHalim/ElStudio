@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="-1026" y="676"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="cY7-gW-JGY">
             <objects>
-                <viewController id="I1A-Gb-egz" sceneMemberID="viewController">
+                <viewController id="I1A-Gb-egz" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gXa-wA-MLk"/>
                         <viewControllerLayoutGuide type="bottom" id="Rr6-9s-iCn"/>
@@ -40,7 +40,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="XGu-Vs-Ct6" kind="push" id="5kg-cC-uH8"/>
+                                    <segue destination="XGu-Vs-Ct6" kind="push" identifier="GoToProducts" id="5kg-cC-uH8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9A-23-fEe">
@@ -48,6 +48,9 @@
                                 <state key="normal" title="Cart">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="1E5-Z4-eJy" kind="push" identifier="GoToCart" id="em0-VY-vpt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,6 +61,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wE8-BL-vZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-651" y="654"/>
+        </scene>
+        <!--Cart-->
+        <scene sceneID="jdX-tL-2yO">
+            <objects>
+                <tableViewController id="1E5-Z4-eJy" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FSS-Jd-4hA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="go6-zr-ofN">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="go6-zr-ofN" id="EfX-pi-aSu">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1E5-Z4-eJy" id="Axb-i0-GqI"/>
+                            <outlet property="delegate" destination="1E5-Z4-eJy" id="2HL-iO-Nbc"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Cart" id="gyG-vS-Z5U"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UcQ-tx-8fh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-651" y="1388"/>
         </scene>
         <!--Products Table View Controller-->
         <scene sceneID="FbW-B6-LfZ">
@@ -167,7 +198,7 @@
                     <navigationItem key="navigationItem" id="wIN-1X-xLX">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="Oth-W2-XBJ">
                             <connections>
-                                <segue destination="P0D-4k-HJL" kind="modal" identifier="GoToOrderItemThankYou" id="k2s-QU-T9W"/>
+                                <segue destination="P0D-4k-HJL" kind="push" identifier="GoToOrderItemThankYou" id="k2s-QU-T9W"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -180,16 +211,16 @@
             </objects>
             <point key="canvasLocation" x="670.39999999999998" y="743.13333333333333"/>
         </scene>
-        <!--View Controller-->
+        <!--Current Thank You View Controller-->
         <scene sceneID="JDT-xG-kT8">
             <objects>
-                <viewController id="P0D-4k-HJL" sceneMemberID="viewController">
+                <viewController id="P0D-4k-HJL" customClass="CurrentThankYouViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KSn-lF-325"/>
                         <viewControllerLayoutGuide type="bottom" id="Qad-Po-1YB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RaX-qd-PBS">
-                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Success" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCG-co-iHl">
@@ -203,12 +234,18 @@
                                 <state key="normal" title="Go To Cart">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="gotocart" destination="P0D-4k-HJL" eventType="touchUpInside" id="tSZ-2e-bcA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7r-ya-ofD">
                                 <rect key="frame" x="88" y="269" width="145" height="30"/>
                                 <state key="normal" title="Other Product ? ">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="gotoOtherProduct:" destination="P0D-4k-HJL" eventType="touchUpInside" id="aPl-1D-gnb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

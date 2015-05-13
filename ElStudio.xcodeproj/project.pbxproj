@@ -12,6 +12,8 @@
 		6228FD261B0226D100B0D759 /* CurrentOrderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD251B0226D100B0D759 /* CurrentOrderManager.m */; };
 		6228FD291B0231E400B0D759 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD281B0231E400B0D759 /* Order.m */; };
 		6228FD2C1B02323600B0D759 /* WholeOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD2B1B02323600B0D759 /* WholeOrder.m */; };
+		6229AE6E1B03964E00EE7FD4 /* CurrentThankYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6229AE6D1B03964E00EE7FD4 /* CurrentThankYouViewController.m */; };
+		6229AE721B0398C900EE7FD4 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6229AE711B0398C900EE7FD4 /* HomeViewController.m */; };
 		62C2ACAA1AE8FF5B008393DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C2ACA91AE8FF5B008393DE /* main.m */; };
 		62C2ACAD1AE8FF5B008393DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C2ACAC1AE8FF5B008393DE /* AppDelegate.m */; };
 		62C2ACB01AE8FF5B008393DE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C2ACAF1AE8FF5B008393DE /* ViewController.m */; };
@@ -72,6 +74,10 @@
 		6228FD281B0231E400B0D759 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		6228FD2A1B02323600B0D759 /* WholeOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WholeOrder.h; sourceTree = "<group>"; };
 		6228FD2B1B02323600B0D759 /* WholeOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WholeOrder.m; sourceTree = "<group>"; };
+		6229AE6C1B03964E00EE7FD4 /* CurrentThankYouViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentThankYouViewController.h; sourceTree = "<group>"; };
+		6229AE6D1B03964E00EE7FD4 /* CurrentThankYouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentThankYouViewController.m; sourceTree = "<group>"; };
+		6229AE701B0398C800EE7FD4 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		6229AE711B0398C900EE7FD4 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		62C2ACA41AE8FF5B008393DE /* ElStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C2ACA81AE8FF5B008393DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62C2ACA91AE8FF5B008393DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -192,6 +198,24 @@
 				6228FD281B0231E400B0D759 /* Order.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		6229AE6B1B03961C00EE7FD4 /* CurrentThankYou */ = {
+			isa = PBXGroup;
+			children = (
+				6229AE6C1B03964E00EE7FD4 /* CurrentThankYouViewController.h */,
+				6229AE6D1B03964E00EE7FD4 /* CurrentThankYouViewController.m */,
+			);
+			name = CurrentThankYou;
+			sourceTree = "<group>";
+		};
+		6229AE6F1B03989E00EE7FD4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6229AE701B0398C800EE7FD4 /* HomeViewController.h */,
+				6229AE711B0398C900EE7FD4 /* HomeViewController.m */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 		62C2AC9B1AE8FF5B008393DE = {
@@ -377,6 +401,8 @@
 		887437F11AED912D00D0BFD2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6229AE6F1B03989E00EE7FD4 /* Home */,
+				6229AE6B1B03961C00EE7FD4 /* CurrentThankYou */,
 				6228FD1B1B021F8300B0D759 /* ProductsViewController */,
 				62C7C2E21AEF7B4B00563DD6 /* AffineImage */,
 				62C77D0E1AEEA02E00BB3D48 /* ShowImages */,
@@ -507,6 +533,7 @@
 				881CA3A41AF5307A0097FEBE /* GRStreamInfo.m in Sources */,
 				62C77CFB1AEE905200BB3D48 /* ELCOverlayImageView.m in Sources */,
 				62C77CF51AEE905200BB3D48 /* ELCAlbumPickerController.m in Sources */,
+				6229AE6E1B03964E00EE7FD4 /* CurrentThankYouViewController.m in Sources */,
 				881CA39D1AF5307A0097FEBE /* GRDeleteRequest.m in Sources */,
 				881CA3A31AF5307A0097FEBE /* GRQueue.m in Sources */,
 				62C77CFA1AEE905200BB3D48 /* ELCImagePickerController.m in Sources */,
@@ -524,6 +551,7 @@
 				881CA39E1AF5307A0097FEBE /* GRDownloadRequest.m in Sources */,
 				62C2ACB01AE8FF5B008393DE /* ViewController.m in Sources */,
 				887437F51AED917F00D0BFD2 /* MakeOrderViewController.m in Sources */,
+				6229AE721B0398C900EE7FD4 /* HomeViewController.m in Sources */,
 				881CA39A1AF5307A0097FEBE /* GRRequestsManager.m in Sources */,
 				62C2ACAD1AE8FF5B008393DE /* AppDelegate.m in Sources */,
 				62C77D111AEEA04A00BB3D48 /* ShowImagesViewController.m in Sources */,
