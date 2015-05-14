@@ -22,14 +22,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	uploadData = [[NSData alloc]init];
 	
+    uploadData = [[NSData alloc]init];
+    //[self setEditing:YES];
+    [self.tableView setEditing:YES];
 	self.requestsManager = [[GRRequestsManager alloc] initWithHostname:@"ws.doctory.info"
 																  user:@"doctorym"
 															  password:@"toztoz1"];
 	
 	self.requestsManager.delegate = self;
 	
+    
    // images = [[NSMutableArray alloc]init] ;
     // Do any additional setup after loading the view.
 }
@@ -68,6 +71,43 @@
     
     [self performSegueWithIdentifier:@"GoToAffineImage"
                               sender:nil];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    UIImage *stringToMove = [self.images objectAtIndex:sourceIndexPath.row];
+    [self.images removeObjectAtIndex:sourceIndexPath.row];
+    [self.images insertObject:stringToMove atIndex:destinationIndexPath.row];
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleNone;
+}
+
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    for(UIView* view in cell.subviews)
+    {
+        if([[[view class] description] isEqualToString:@"UITableViewCellReorderControl"])
+        {
+            // Creates a new subview the size of the entire cell
+            UIView *movedReorderControl = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetMaxX(view.frame), CGRectGetMaxY(view.frame))];
+            // Adds the reorder control view to our new subview
+            [movedReorderControl addSubview:view];
+            // Adds our new subview to the cell
+            [cell addSubview:movedReorderControl];
+            // CGStuff to move it to the left
+            CGSize moveLeft = CGSizeMake(movedReorderControl.frame.size.width - view.frame.size.width, movedReorderControl.frame.size.height - view.frame.size.height);
+            CGAffineTransform transform = CGAffineTransformIdentity;
+            transform = CGAffineTransformTranslate(transform, -moveLeft.width, -moveLeft.height);
+            // Performs the transform
+            [movedReorderControl setTransform:transform];
+        }
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
