@@ -10,4 +10,12 @@
 
 @implementation Order
 
+-(id)init {
+    if (self = [super init])
+    {
+        self.OrderItems = [[NSMutableArray alloc]init] ;
+    }
+    return self;
+}
+
 @end

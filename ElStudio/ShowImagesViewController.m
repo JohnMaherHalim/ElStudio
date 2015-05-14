@@ -77,7 +77,10 @@
         [affine setMyimage:imagetopass]; 
     } else if ([segue.identifier isEqualToString:@"GoToOrderItemThankYou"]) {
         [[CurrentOrderManager sharedManager]storeProductImages:images];
-        [[WholeOrder sharedManager]addtoOrderItems:[[CurrentOrderManager sharedManager]curOrderItem]];
+        OrderItem *orderitem = [[OrderItem alloc]init];
+        orderitem.ProductName = [[[CurrentOrderManager sharedManager]curOrderItem]ProductName];
+        orderitem.ProductImages = [[[CurrentOrderManager sharedManager]curOrderItem]ProductImages];
+        [[WholeOrder sharedManager]addtoOrderItems:orderitem];
     }
     
     

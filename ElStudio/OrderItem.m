@@ -10,4 +10,12 @@
 
 @implementation OrderItem
 
+-(id)init {
+    if (self = [super init])
+    {
+        self.ProductImages = [[NSMutableArray alloc]init] ;
+    }
+    return self;
+}
+
 @end

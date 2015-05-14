@@ -11,6 +11,8 @@
 @interface OrderItem : NSObject
 
 @property (nonatomic,retain) NSString *ProductName ;
-@property (nonatomic,retain) NSMutableArray *ProductImages ; 
+@property (nonatomic,retain) NSMutableArray *ProductImages ;
+
+-(id)init ;
 
 @end

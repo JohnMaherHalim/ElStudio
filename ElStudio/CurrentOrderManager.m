@@ -12,7 +12,7 @@
 
 
 + (id)sharedManager {
-    static OrderItem *sharedMyManager = nil;
+    static CurrentOrderManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
@@ -22,10 +22,21 @@
 
 -(void)storeProductName:(NSString*)productName  {
     self.curOrderItem.ProductName = productName ;
+    NSLog(@"%@",self.curOrderItem.ProductName);
 }
 
 -(void)storeProductImages:(NSMutableArray *)productImages {
     self.curOrderItem.ProductImages = productImages ;
+}
+
+-(id)init {
+    
+    
+    if (self = [super init])
+    {
+       self.curOrderItem = [[OrderItem alloc]init] ;
+    }
+    return self;
 }
 
 @end

@@ -65,7 +65,7 @@
         <!--Cart-->
         <scene sceneID="jdX-tL-2yO">
             <objects>
-                <tableViewController id="1E5-Z4-eJy" sceneMemberID="viewController">
+                <tableViewController id="1E5-Z4-eJy" customClass="CartTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FSS-Jd-4hA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,6 +85,9 @@
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Cart" id="gyG-vS-Z5U"/>
+                    <connections>
+                        <outlet property="tableView" destination="FSS-Jd-4hA" id="JCj-JH-JsI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UcQ-tx-8fh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

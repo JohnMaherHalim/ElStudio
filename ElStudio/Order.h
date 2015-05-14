@@ -10,6 +10,8 @@
 
 @interface Order : NSObject
 
-@property (nonatomic, retain) NSMutableArray *OrderItems ; 
+@property (nonatomic, retain) NSMutableArray *OrderItems ;
+
+-(id)init ;
 
 @end

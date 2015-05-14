@@ -1,30 +1,21 @@
 //
-//  ProductsTableViewController.m
+//  CartTableViewController.m
 //  ElStudio
 //
-//  Created by John Maher on 5/12/15.
+//  Created by John Maher on 5/14/15.
 //  Copyright (c) 2015 John Maher. All rights reserved.
 //
 
-#import "ProductsTableViewController.h"
-#import "CurrentOrderManager.h"
+#import "CartTableViewController.h"
 
-@interface ProductsTableViewController ()
+@interface CartTableViewController ()
 
 @end
 
-@implementation ProductsTableViewController
+@implementation CartTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    products = [[NSMutableArray alloc]init] ;
-    
-    [products addObject:@"Product 1"] ;
-    [products addObject:@"Product 2"];
-    [products addObject:@"Product 3"];
-    [products addObject:@"Product 4"];
-    [products addObject:@"Product 5"];
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -32,6 +23,16 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    orderItems = [[NSMutableArray alloc]init];
+    
+    orderItems = [[[WholeOrder sharedManager]myOrder]OrderItems];
+    
+    [self.tableView reloadData] ;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,13 +51,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [products count];
+    return [orderItems count] ;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier" forIndexPath:indexPath];
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
     
     if (cell == nil) {
@@ -64,19 +63,14 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    //OrderItem
-    [cell.textLabel setText:[products objectAtIndex:indexPath.row]];
+   // [cell.textLabel setText:[products objectAtIndex:indexPath.row]];
+    
+    OrderItem *orderitem = [orderItems objectAtIndex:indexPath.row] ;
+    [cell.textLabel setText:orderitem.ProductName];
     
     // Configure the cell...
     
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *productname = [products objectAtIndex:indexPath.row] ;
-    [[CurrentOrderManager sharedManager]storeProductName:productname] ;
-    
-     [self performSegueWithIdentifier: @"GoToPickImages" sender: self];
 }
 
 

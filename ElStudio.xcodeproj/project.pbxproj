@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		622307AA1B04B574009973AD /* CartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622307A91B04B574009973AD /* CartTableViewController.m */; };
 		6228FD1E1B021FF300B0D759 /* ProductsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD1D1B021FF300B0D759 /* ProductsTableViewController.m */; };
 		6228FD231B02253300B0D759 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD221B02253200B0D759 /* OrderItem.m */; };
 		6228FD261B0226D100B0D759 /* CurrentOrderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD251B0226D100B0D759 /* CurrentOrderManager.m */; };
@@ -64,6 +65,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		622307A81B04B574009973AD /* CartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableViewController.h; sourceTree = "<group>"; };
+		622307A91B04B574009973AD /* CartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableViewController.m; sourceTree = "<group>"; };
 		6228FD1C1B021FF300B0D759 /* ProductsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsTableViewController.h; sourceTree = "<group>"; };
 		6228FD1D1B021FF300B0D759 /* ProductsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsTableViewController.m; sourceTree = "<group>"; };
 		6228FD211B02253200B0D759 /* OrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItem.h; sourceTree = "<group>"; };
@@ -169,6 +172,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		622307A71B04B538009973AD /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				622307A81B04B574009973AD /* CartTableViewController.h */,
+				622307A91B04B574009973AD /* CartTableViewController.m */,
+			);
+			name = Cart;
+			sourceTree = "<group>";
+		};
 		6228FD1B1B021F8300B0D759 /* ProductsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +413,7 @@
 		887437F11AED912D00D0BFD2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				622307A71B04B538009973AD /* Cart */,
 				6229AE6F1B03989E00EE7FD4 /* Home */,
 				6229AE6B1B03961C00EE7FD4 /* CurrentThankYou */,
 				6228FD1B1B021F8300B0D759 /* ProductsViewController */,
@@ -545,6 +558,7 @@
 				881CA3A21AF5307A0097FEBE /* GRError.m in Sources */,
 				62C77CF91AEE905200BB3D48 /* ELCConsole.m in Sources */,
 				62C77CF81AEE905200BB3D48 /* ELCAssetTablePicker.m in Sources */,
+				622307AA1B04B574009973AD /* CartTableViewController.m in Sources */,
 				62C77CF61AEE905200BB3D48 /* ELCAsset.m in Sources */,
 				6228FD291B0231E400B0D759 /* Order.m in Sources */,
 				6228FD261B0226D100B0D759 /* CurrentOrderManager.m in Sources */,

@@ -18,4 +18,6 @@
 
 + (id)sharedManager;
 
+-(id)init ;
+
 @end

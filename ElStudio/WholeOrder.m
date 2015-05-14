@@ -11,16 +11,28 @@
 @implementation WholeOrder
 
 + (id)sharedManager {
-    static Order *sharedMyManager = nil;
+    static WholeOrder *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
+        
     });
+    
+   
     return sharedMyManager;
 }
 
 -(void)addtoOrderItems:(OrderItem*)item {
     [self.myOrder.OrderItems addObject:item] ;
+    int i = [self.myOrder.OrderItems count];
+}
+
+-(id)init {
+    if (self = [super init])
+    {
+        self.myOrder = [[Order alloc]init] ;
+    }
+    return self;
 }
 
 @end
