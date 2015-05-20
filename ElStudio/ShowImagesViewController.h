@@ -18,6 +18,8 @@
 @property (retain) NSMutableArray *images ;
 @property (retain) IBOutlet UITableView *tableView ;
 @property (nonatomic, strong) GRRequestsManager *requestsManager;
+@property BOOL editbool ; 
+@property int editnumberflag ; 
 
 
 -(IBAction)uploadfile:(id)sender;

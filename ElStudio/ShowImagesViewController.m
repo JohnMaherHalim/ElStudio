@@ -78,9 +78,27 @@
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    UIImage *stringToMove = [self.images objectAtIndex:sourceIndexPath.row];
-    [self.images removeObjectAtIndex:sourceIndexPath.row];
-    [self.images insertObject:stringToMove atIndex:destinationIndexPath.row];
+    if (self.editbool == false)
+        [self EditFirstTime:sourceIndexPath.row];
+    else
+        [self MoveExistingImageFrom:sourceIndexPath.row toDestination:destinationIndexPath.row inOrderItemNumber:self.editnumberflag];
+}
+
+-(void)EditFirstTime:(NSInteger)index {
+    UIImage *stringToMove = [self.images objectAtIndex:index];
+    [self.images removeObjectAtIndex:index];
+    [self.images insertObject:stringToMove atIndex:index];
+}
+
+-(void)MoveExistingImageFrom:(NSInteger)index toDestination:(NSInteger)DestIndex inOrderItemNumber:(int)number {
+    OrderItem *OrderItemtobemodified = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:number];
+    UIImage *stringToMove = [OrderItemtobemodified.ProductImages objectAtIndex:index];
+    [OrderItemtobemodified.ProductImages removeObjectAtIndex:index];
+    [OrderItemtobemodified.ProductImages insertObject:stringToMove atIndex:DestIndex];
+   // OrderItemtobemodified.ProductName = @"Product 1" ;
+    
+    [[[[WholeOrder sharedManager]myOrder]OrderItems]replaceObjectAtIndex:number withObject:OrderItemtobemodified];
+    
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath

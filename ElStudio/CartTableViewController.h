@@ -10,7 +10,8 @@
 #import "WholeOrder.h"
 
 @interface CartTableViewController : UITableViewController {
-    NSMutableArray *orderItems ; 
+    NSMutableArray *orderItems ;
+    NSInteger globalindex ;
 }
 
 @property (nonatomic , retain) IBOutlet UITableView *tableView ; 

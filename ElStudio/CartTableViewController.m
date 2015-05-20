@@ -7,6 +7,7 @@
 //
 
 #import "CartTableViewController.h"
+#import "ShowImagesViewController.h"
 
 @interface CartTableViewController ()
 
@@ -71,6 +72,23 @@
     // Configure the cell...
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    globalindex = indexPath.row ;
+    [self performSegueWithIdentifier: @"GoToModifyExistingItem" sender: self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"GoToModifyExistingItem"]){
+        ShowImagesViewController *images = [segue destinationViewController];
+        int myInt = (int) globalindex;
+        [images setEditnumberflag:myInt] ;
+        [images setEditbool:true]; 
+        OrderItem *orderitem = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:globalindex];
+        [images setImages:orderitem.ProductImages];
+        
+    }
 }
 
 

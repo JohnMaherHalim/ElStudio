@@ -87,11 +87,12 @@
                     <navigationItem key="navigationItem" title="Cart" id="gyG-vS-Z5U"/>
                     <connections>
                         <outlet property="tableView" destination="FSS-Jd-4hA" id="JCj-JH-JsI"/>
+                        <segue destination="ynv-tx-TWD" kind="push" identifier="GoToModifyExistingItem" id="VSM-OF-3rF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UcQ-tx-8fh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-651" y="1388"/>
+            <point key="canvasLocation" x="240" y="1420"/>
         </scene>
         <!--Products Table View Controller-->
         <scene sceneID="FbW-B6-LfZ">
@@ -323,4 +324,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="VSM-OF-3rF"/>
+    </inferredMetricsTieBreakers>
 </document>
