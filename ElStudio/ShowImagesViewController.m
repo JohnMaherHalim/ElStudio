@@ -174,7 +174,7 @@
         OrderItem *orderitem = [[OrderItem alloc]init];
         orderitem.ProductName = [[[CurrentOrderManager sharedManager]curOrderItem]ProductName];
         orderitem.ProductImages = [[[CurrentOrderManager sharedManager]curOrderItem]ProductImages];
-        orderitem.ImagesCounts = [[[CurrentOrderManager sharedManager]curOrderItem]ImagesCounts];  
+        orderitem.ImagesCounts = [[[CurrentOrderManager sharedManager]curOrderItem]ImagesCounts];
         [[WholeOrder sharedManager]addtoOrderItems:orderitem];
     }
     
