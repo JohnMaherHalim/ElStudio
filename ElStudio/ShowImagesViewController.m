@@ -39,8 +39,16 @@
             [self.counts addObject:initial];
         }
     }
-    
-    
+	
+	if (!self.scales) {
+		self.scales = [[NSMutableArray alloc]init] ;
+		for (UIImage *img in images) {
+			NSNumber *initial = [NSNumber numberWithInt:1];
+			[self.scales addObject:initial];
+		}
+	}
+	
+	
    // images = [[NSMutableArray alloc]init] ;
     // Do any additional setup after loading the view.
 }
@@ -71,6 +79,8 @@
     cell.index = indexPath.row ;
     NSNumber *cellcounter = [self.counts objectAtIndex:indexPath.row] ;
     [cell.counter setText:[cellcounter stringValue]];
+	NSNumber *cellScale = [self.scales objectAtIndex:indexPath.row];
+	[cell ModifyAccordingToSavedScale:cellScale]; 
     
     return cell;
 }
@@ -88,6 +98,11 @@
     int value = [number intValue];
     number = [NSNumber numberWithInt:value - 1];
     [self.counts replaceObjectAtIndex:index withObject:number];
+}
+
+-(void)SaveImageScale:(NSNumber*)scale AtIndex:(NSInteger)index {
+	[self.scales replaceObjectAtIndex:index withObject:scale];
+	//[self.tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -120,6 +135,10 @@
     NSNumber *number = [self.counts objectAtIndex:index];
     [self.counts removeObjectAtIndex:index];
     [self.counts insertObject:number atIndex:Destindex] ;
+	
+	NSNumber *number1 = [self.scales objectAtIndex:index];
+	[self.scales removeObjectAtIndex:index];
+	[self.scales insertObject:number1 atIndex:Destindex] ;
 }
 
 -(void)MoveExistingImageFrom:(NSInteger)index toDestination:(NSInteger)DestIndex inOrderItemNumber:(int)number {
@@ -131,7 +150,10 @@
     NSNumber *counts = [OrderItemtobemodified.ImagesCounts objectAtIndex:index];
     [OrderItemtobemodified.ImagesCounts removeObjectAtIndex:index];
     [OrderItemtobemodified.ImagesCounts insertObject:counts atIndex:DestIndex];
-    
+	NSNumber *scale = [OrderItemtobemodified.ImagesScales objectAtIndex:index];
+	[OrderItemtobemodified.ImagesScales removeObjectAtIndex:index];
+	[OrderItemtobemodified.ImagesScales insertObject:scale atIndex:DestIndex];
+	
     [[[[WholeOrder sharedManager]myOrder]OrderItems]replaceObjectAtIndex:number withObject:OrderItemtobemodified];
     
 }
@@ -171,10 +193,12 @@
     } else if ([segue.identifier isEqualToString:@"GoToOrderItemThankYou"]) {
         [[CurrentOrderManager sharedManager]storeProductImages:images];
         [[CurrentOrderManager sharedManager]storeImagesCounts:self.counts];
+		[[CurrentOrderManager sharedManager]storeScales:self.scales];
         OrderItem *orderitem = [[OrderItem alloc]init];
         orderitem.ProductName = [[[CurrentOrderManager sharedManager]curOrderItem]ProductName];
         orderitem.ProductImages = [[[CurrentOrderManager sharedManager]curOrderItem]ProductImages];
         orderitem.ImagesCounts = [[[CurrentOrderManager sharedManager]curOrderItem]ImagesCounts];
+		orderitem.ImagesScales = [[[CurrentOrderManager sharedManager]curOrderItem]ImagesScales];
         [[WholeOrder sharedManager]addtoOrderItems:orderitem];
     }
     

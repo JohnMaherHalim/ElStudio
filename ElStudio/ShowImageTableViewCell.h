@@ -18,6 +18,7 @@
 @property NSInteger index ; 
 
 -(IBAction)scale:(UIPinchGestureRecognizer*)pinch;
+-(void)ModifyAccordingToSavedScale:(NSNumber*)scale ; 
 -(IBAction)IncreaseCount:(id)sender;
 -(IBAction)DecreaseCount:(id)sender;
 

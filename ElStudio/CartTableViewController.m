@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+	self.tableView.allowsMultipleSelectionDuringEditing = NO ;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -88,8 +88,24 @@
         OrderItem *orderitem = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:globalindex];
         [images setImages:orderitem.ProductImages];
         [images setCounts:orderitem.ImagesCounts];
+		[images setScales:orderitem.ImagesScales]; 
         
     }
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+	// Return YES if you want the specified item to be editable.
+	return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
+		[orderItems removeObjectAtIndex:indexPath.row];
+		[self.tableView reloadData] ; 
+		//NSLog(@"Hi") ;
+		//add code here for when you hit delete
+	}
 }
 
 

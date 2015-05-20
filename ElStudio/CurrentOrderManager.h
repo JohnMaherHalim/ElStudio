@@ -15,7 +15,8 @@
 
 -(void)storeProductName:(NSString*)productName ;
 -(void)storeProductImages:(NSMutableArray*)productImages ;
--(void)storeImagesCounts:(NSMutableArray*)imagecounts ; 
+-(void)storeImagesCounts:(NSMutableArray*)imagecounts ;
+-(void)storeScales:(NSMutableArray*)imagesscales ; 
 
 + (id)sharedManager;
 

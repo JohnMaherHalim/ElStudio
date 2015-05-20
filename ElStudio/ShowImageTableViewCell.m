@@ -23,11 +23,19 @@
     // Configure the view for the selected state
 }
 
+-(void)ModifyAccordingToSavedScale:(NSNumber*)scale {
+	float myscale = [scale floatValue] ;
+	oneimg.transform = CGAffineTransformScale(oneimg.transform, myscale, myscale);
+}
+
 -(IBAction)scale:(UIPinchGestureRecognizer*)pinch
 {
 	float scale = pinch.scale;
+	float realscale = oneimg.frame.size.width / self.container.frame.size.width ;
+	NSNumber *ScaleToBeSent = [NSNumber numberWithFloat:realscale] ;
 	oneimg.transform = CGAffineTransformScale(oneimg.transform, scale, scale);
 	pinch.scale = 1;
+	[self.delegate SaveImageScale:ScaleToBeSent AtIndex:self.index];
 }
 
 -(IBAction)IncreaseCount:(id)sender {

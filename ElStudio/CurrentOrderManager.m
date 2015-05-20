@@ -33,6 +33,10 @@
     self.curOrderItem.ImagesCounts = imagecounts ;
 }
 
+-(void)storeScales:(NSMutableArray*)imagesscales {
+	self.curOrderItem.ImagesScales = imagesscales ; 
+}
+
 -(id)init {
     
     

@@ -15,6 +15,7 @@
     {
         self.ProductImages = [[NSMutableArray alloc]init] ;
         self.ImagesCounts = [[NSMutableArray alloc]init] ;
+		self.ImagesScales = [[NSMutableArray alloc]init]; 
     }
     return self;
 }

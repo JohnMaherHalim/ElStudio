@@ -16,7 +16,8 @@
 }
 
 @property (retain) NSMutableArray *images ;
-@property (retain) NSMutableArray *counts ; 
+@property (retain) NSMutableArray *counts ;
+@property (retain) NSMutableArray *scales ; 
 @property (retain) IBOutlet UITableView *tableView ;
 @property (nonatomic, strong) GRRequestsManager *requestsManager;
 @property BOOL editbool ; 
@@ -26,5 +27,6 @@
 -(IBAction)uploadfile:(id)sender;
 -(void)PlusOne:(NSInteger)index ;
 -(void)MinusOne:(NSInteger)index ;
+-(void)SaveImageScale:(NSNumber*)scale AtIndex:(NSInteger)index;
 
 @end
