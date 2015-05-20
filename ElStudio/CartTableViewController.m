@@ -87,6 +87,7 @@
         [images setEditbool:true]; 
         OrderItem *orderitem = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:globalindex];
         [images setImages:orderitem.ProductImages];
+        [images setCounts:orderitem.ImagesCounts];
         
     }
 }

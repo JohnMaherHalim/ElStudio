@@ -14,6 +14,7 @@
     if (self = [super init])
     {
         self.ProductImages = [[NSMutableArray alloc]init] ;
+        self.ImagesCounts = [[NSMutableArray alloc]init] ;
     }
     return self;
 }

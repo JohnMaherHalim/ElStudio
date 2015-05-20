@@ -29,6 +29,10 @@
     self.curOrderItem.ProductImages = productImages ;
 }
 
+-(void)storeImagesCounts:(NSMutableArray*)imagecounts {
+    self.curOrderItem.ImagesCounts = imagecounts ;
+}
+
 -(id)init {
     
     

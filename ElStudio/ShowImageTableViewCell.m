@@ -30,4 +30,21 @@
 	pinch.scale = 1;
 }
 
+-(IBAction)IncreaseCount:(id)sender {
+    int countnum = [self.counter.text intValue]; ;
+    countnum++ ;
+    [self.counter setText:[NSString stringWithFormat:@"%d",countnum]];
+    [self.delegate PlusOne:self.index];
+    
+}
+
+-(IBAction)DecreaseCount:(id)sender {
+    int countnum = [self.counter.text intValue]; ;
+    if (countnum > 1){
+        countnum-- ;
+        [self.counter setText:[NSString stringWithFormat:@"%d",countnum]];
+        [self.delegate MinusOne:self.index];
+    }
+}
+
 @end

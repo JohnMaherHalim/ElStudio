@@ -32,6 +32,14 @@
 	
 	self.requestsManager.delegate = self;
 	
+    if (!self.counts) {
+        self.counts = [[NSMutableArray alloc]init] ;
+        for (UIImage *img in images) {
+            NSNumber *initial = [NSNumber numberWithInt:1];
+            [self.counts addObject:initial];
+        }
+    }
+    
     
    // images = [[NSMutableArray alloc]init] ;
     // Do any additional setup after loading the view.
@@ -58,10 +66,28 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ShowImageTableViewCell" owner:self options:nil];
         cell = (ShowImageTableViewCell *)[nib objectAtIndex:0];
     }
+    cell.delegate = self ;
     cell.oneimg.image = [images objectAtIndex:indexPath.row];
-    
+    cell.index = indexPath.row ;
+    NSNumber *cellcounter = [self.counts objectAtIndex:indexPath.row] ;
+    [cell.counter setText:[cellcounter stringValue]];
     
     return cell;
+}
+
+-(void)PlusOne:(NSInteger)index {
+    NSNumber *number = [self.counts objectAtIndex:index];
+    int value = [number intValue];
+    number = [NSNumber numberWithInt:value + 1];
+    [self.counts replaceObjectAtIndex:index withObject:number];
+    
+}
+
+-(void)MinusOne:(NSInteger)index  {
+    NSNumber *number = [self.counts objectAtIndex:index];
+    int value = [number intValue];
+    number = [NSNumber numberWithInt:value - 1];
+    [self.counts replaceObjectAtIndex:index withObject:number];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -79,15 +105,21 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     if (self.editbool == false)
-        [self EditFirstTime:sourceIndexPath.row];
+        [self EditFirstTime:sourceIndexPath.row ToDestination:destinationIndexPath.row];
     else
         [self MoveExistingImageFrom:sourceIndexPath.row toDestination:destinationIndexPath.row inOrderItemNumber:self.editnumberflag];
+    
+    [self.tableView reloadData] ; 
 }
 
--(void)EditFirstTime:(NSInteger)index {
+-(void)EditFirstTime:(NSInteger)index ToDestination:(NSInteger)Destindex{
     UIImage *stringToMove = [self.images objectAtIndex:index];
     [self.images removeObjectAtIndex:index];
-    [self.images insertObject:stringToMove atIndex:index];
+    [self.images insertObject:stringToMove atIndex:Destindex];
+    
+    NSNumber *number = [self.counts objectAtIndex:index];
+    [self.counts removeObjectAtIndex:index];
+    [self.counts insertObject:number atIndex:Destindex] ;
 }
 
 -(void)MoveExistingImageFrom:(NSInteger)index toDestination:(NSInteger)DestIndex inOrderItemNumber:(int)number {
@@ -96,6 +128,9 @@
     [OrderItemtobemodified.ProductImages removeObjectAtIndex:index];
     [OrderItemtobemodified.ProductImages insertObject:stringToMove atIndex:DestIndex];
    // OrderItemtobemodified.ProductName = @"Product 1" ;
+    NSNumber *counts = [OrderItemtobemodified.ImagesCounts objectAtIndex:index];
+    [OrderItemtobemodified.ImagesCounts removeObjectAtIndex:index];
+    [OrderItemtobemodified.ImagesCounts insertObject:counts atIndex:DestIndex];
     
     [[[[WholeOrder sharedManager]myOrder]OrderItems]replaceObjectAtIndex:number withObject:OrderItemtobemodified];
     
@@ -135,9 +170,11 @@
         [affine setMyimage:imagetopass]; 
     } else if ([segue.identifier isEqualToString:@"GoToOrderItemThankYou"]) {
         [[CurrentOrderManager sharedManager]storeProductImages:images];
+        [[CurrentOrderManager sharedManager]storeImagesCounts:self.counts];
         OrderItem *orderitem = [[OrderItem alloc]init];
         orderitem.ProductName = [[[CurrentOrderManager sharedManager]curOrderItem]ProductName];
         orderitem.ProductImages = [[[CurrentOrderManager sharedManager]curOrderItem]ProductImages];
+        orderitem.ImagesCounts = [[[CurrentOrderManager sharedManager]curOrderItem]ImagesCounts];  
         [[WholeOrder sharedManager]addtoOrderItems:orderitem];
     }
     
