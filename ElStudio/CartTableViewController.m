@@ -102,7 +102,10 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 		[orderItems removeObjectAtIndex:indexPath.row];
-		[self.tableView reloadData] ; 
+		[self.tableView reloadData] ;
+		
+		[[[[WholeOrder sharedManager]myOrder]OrderItems]removeObjectAtIndex:indexPath.row];
+		[[WholeOrder sharedManager]SaveMyOrder] ;
 		//NSLog(@"Hi") ;
 		//add code here for when you hit delete
 	}

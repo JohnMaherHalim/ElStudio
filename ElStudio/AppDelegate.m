@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "WholeOrder.h"
 
 @interface AppDelegate ()
 
@@ -17,8 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    NSLog(@"Hello");
+	
+	
+	
+    //NSLog(@"Hello");
+	[[WholeOrder sharedManager]loadMyOrder];
     
     return YES;
 }

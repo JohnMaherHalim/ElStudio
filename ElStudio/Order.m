@@ -18,4 +18,13 @@
     return self;
 }
 
+- (void) encodeWithCoder:(NSCoder *)encoder {
+	[encoder encodeObject:self.OrderItems forKey:@"OrderItems"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+	self.OrderItems = [decoder decodeObjectForKey:@"OrderItems"];
+	return self; 
+}
+
 @end

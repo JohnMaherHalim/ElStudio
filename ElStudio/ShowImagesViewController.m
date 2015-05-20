@@ -155,6 +155,7 @@
 	[OrderItemtobemodified.ImagesScales insertObject:scale atIndex:DestIndex];
 	
     [[[[WholeOrder sharedManager]myOrder]OrderItems]replaceObjectAtIndex:number withObject:OrderItemtobemodified];
+	[[WholeOrder sharedManager]SaveMyOrder] ;
     
 }
 
@@ -200,6 +201,7 @@
         orderitem.ImagesCounts = [[[CurrentOrderManager sharedManager]curOrderItem]ImagesCounts];
 		orderitem.ImagesScales = [[[CurrentOrderManager sharedManager]curOrderItem]ImagesScales];
         [[WholeOrder sharedManager]addtoOrderItems:orderitem];
+		[[WholeOrder sharedManager]SaveMyOrder]; 
     }
     
     

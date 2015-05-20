@@ -20,4 +20,7 @@
 
 -(id)init ;
 
+- (BOOL)SaveMyOrder;
+- (BOOL)loadMyOrder;
+
 @end

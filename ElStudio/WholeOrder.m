@@ -35,4 +35,31 @@
     return self;
 }
 
+- (NSString *)getChacheDirectoryPath	{
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+	return [paths objectAtIndex:0];
+}
+
+- (BOOL)SaveMyOrder	{
+	
+	NSString *cacheDirectory 	= [self getChacheDirectoryPath];
+	NSString *ConfessorsFile		= [cacheDirectory stringByAppendingPathComponent:@"MyOrder.dat"];
+	return [NSKeyedArchiver archiveRootObject:self.myOrder toFile:ConfessorsFile];
+}
+
+- (BOOL)loadMyOrder	{
+	
+	//	Cache
+	
+	NSString *cacheDirectory	= [self getChacheDirectoryPath];
+	NSString *ConfessorsFile		= [cacheDirectory stringByAppendingPathComponent:@"MyOrder.dat"];
+	
+	if ([[NSFileManager defaultManager] fileExistsAtPath:ConfessorsFile])
+		self.myOrder = [NSKeyedUnarchiver unarchiveObjectWithFile:ConfessorsFile] ;
+	
+	
+	return (self.myOrder.OrderItems.count != 0);
+}
+
 @end

@@ -20,4 +20,19 @@
     return self;
 }
 
+- (void) encodeWithCoder:(NSCoder *)encoder {
+	[encoder encodeObject:self.ProductName forKey:@"ProductName"];
+	[encoder encodeObject:self.ProductImages forKey:@"ProductImages"];
+	[encoder encodeObject:self.ImagesCounts forKey:@"ImagesCounts"];
+	[encoder encodeObject:self.ImagesScales forKey:@"ImagesScales"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+	self.ProductName = [decoder decodeObjectForKey:@"ProductName"];
+	self.ProductImages = [decoder decodeObjectForKey:@"ProductImages"];
+	self.ImagesCounts = [decoder decodeObjectForKey:@"ImagesCounts"];
+	self.ImagesScales = [decoder decodeObjectForKey:@"ImagesScales"];
+	return self;
+}
+
 @end

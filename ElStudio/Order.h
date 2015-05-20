@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Order : NSObject
+@interface Order : NSObject<NSCoding>
 
 @property (nonatomic, retain) NSMutableArray *OrderItems ;
 
