@@ -14,6 +14,8 @@
     NSInteger globalindex ;
 }
 
-@property (nonatomic , retain) IBOutlet UITableView *tableView ; 
+@property (nonatomic , retain) IBOutlet UITableView *tableView ;
+
+-(IBAction)UploadOrder:(id)sender;
 
 @end

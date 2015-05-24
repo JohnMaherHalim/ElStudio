@@ -15,6 +15,29 @@
 		6228FD2C1B02323600B0D759 /* WholeOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD2B1B02323600B0D759 /* WholeOrder.m */; };
 		6229AE6E1B03964E00EE7FD4 /* CurrentThankYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6229AE6D1B03964E00EE7FD4 /* CurrentThankYouViewController.m */; };
 		6229AE721B0398C900EE7FD4 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6229AE711B0398C900EE7FD4 /* HomeViewController.m */; };
+		628930421B11E98100076F3F /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930161B11E98100076F3F /* ioapi.c */; };
+		628930431B11E98200076F3F /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930181B11E98100076F3F /* unzip.c */; };
+		628930441B11E98200076F3F /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 6289301A1B11E98100076F3F /* zip.c */; };
+		628930451B11E98200076F3F /* FileInZipInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6289301E1B11E98100076F3F /* FileInZipInfo.m */; };
+		628930461B11E98200076F3F /* ZipException.m in Sources */ = {isa = PBXBuildFile; fileRef = 628930201B11E98100076F3F /* ZipException.m */; };
+		628930471B11E98200076F3F /* ZipFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 628930221B11E98100076F3F /* ZipFile.m */; };
+		628930481B11E98200076F3F /* ZipReadStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 628930241B11E98100076F3F /* ZipReadStream.m */; };
+		628930491B11E98200076F3F /* ZipWriteStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 628930261B11E98100076F3F /* ZipWriteStream.m */; };
+		6289304A1B11E98200076F3F /* adler32.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930281B11E98100076F3F /* adler32.c */; };
+		6289304B1B11E98200076F3F /* compress.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930291B11E98100076F3F /* compress.c */; };
+		6289304C1B11E98200076F3F /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = 6289302A1B11E98100076F3F /* crc32.c */; };
+		6289304D1B11E98200076F3F /* deflate.c in Sources */ = {isa = PBXBuildFile; fileRef = 6289302C1B11E98100076F3F /* deflate.c */; };
+		6289304E1B11E98200076F3F /* gzclose.c in Sources */ = {isa = PBXBuildFile; fileRef = 6289302E1B11E98100076F3F /* gzclose.c */; };
+		6289304F1B11E98200076F3F /* gzlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930301B11E98100076F3F /* gzlib.c */; };
+		628930501B11E98200076F3F /* gzread.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930311B11E98100076F3F /* gzread.c */; };
+		628930511B11E98200076F3F /* gzwrite.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930321B11E98100076F3F /* gzwrite.c */; };
+		628930521B11E98200076F3F /* infback.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930331B11E98100076F3F /* infback.c */; };
+		628930531B11E98200076F3F /* inffast.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930341B11E98100076F3F /* inffast.c */; };
+		628930541B11E98200076F3F /* inflate.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930371B11E98100076F3F /* inflate.c */; };
+		628930551B11E98200076F3F /* inftrees.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930391B11E98100076F3F /* inftrees.c */; };
+		628930561B11E98200076F3F /* trees.c in Sources */ = {isa = PBXBuildFile; fileRef = 6289303B1B11E98100076F3F /* trees.c */; };
+		628930571B11E98200076F3F /* uncompr.c in Sources */ = {isa = PBXBuildFile; fileRef = 6289303D1B11E98100076F3F /* uncompr.c */; };
+		628930581B11E98200076F3F /* zutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930401B11E98100076F3F /* zutil.c */; };
 		62C2ACAA1AE8FF5B008393DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C2ACA91AE8FF5B008393DE /* main.m */; };
 		62C2ACAD1AE8FF5B008393DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C2ACAC1AE8FF5B008393DE /* AppDelegate.m */; };
 		62C2ACB01AE8FF5B008393DE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C2ACAF1AE8FF5B008393DE /* ViewController.m */; };
@@ -81,6 +104,50 @@
 		6229AE6D1B03964E00EE7FD4 /* CurrentThankYouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentThankYouViewController.m; sourceTree = "<group>"; };
 		6229AE701B0398C800EE7FD4 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		6229AE711B0398C900EE7FD4 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		628930131B11E98100076F3F /* ARCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCHelper.h; sourceTree = "<group>"; };
+		628930151B11E98100076F3F /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		628930161B11E98100076F3F /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		628930171B11E98100076F3F /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		628930181B11E98100076F3F /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		628930191B11E98100076F3F /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		6289301A1B11E98100076F3F /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		6289301B1B11E98100076F3F /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		6289301D1B11E98100076F3F /* FileInZipInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileInZipInfo.h; sourceTree = "<group>"; };
+		6289301E1B11E98100076F3F /* FileInZipInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileInZipInfo.m; sourceTree = "<group>"; };
+		6289301F1B11E98100076F3F /* ZipException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipException.h; sourceTree = "<group>"; };
+		628930201B11E98100076F3F /* ZipException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipException.m; sourceTree = "<group>"; };
+		628930211B11E98100076F3F /* ZipFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipFile.h; sourceTree = "<group>"; };
+		628930221B11E98100076F3F /* ZipFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipFile.m; sourceTree = "<group>"; };
+		628930231B11E98100076F3F /* ZipReadStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipReadStream.h; sourceTree = "<group>"; };
+		628930241B11E98100076F3F /* ZipReadStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipReadStream.m; sourceTree = "<group>"; };
+		628930251B11E98100076F3F /* ZipWriteStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipWriteStream.h; sourceTree = "<group>"; };
+		628930261B11E98100076F3F /* ZipWriteStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipWriteStream.m; sourceTree = "<group>"; };
+		628930281B11E98100076F3F /* adler32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = adler32.c; sourceTree = "<group>"; };
+		628930291B11E98100076F3F /* compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = compress.c; sourceTree = "<group>"; };
+		6289302A1B11E98100076F3F /* crc32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crc32.c; sourceTree = "<group>"; };
+		6289302B1B11E98100076F3F /* crc32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crc32.h; sourceTree = "<group>"; };
+		6289302C1B11E98100076F3F /* deflate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = deflate.c; sourceTree = "<group>"; };
+		6289302D1B11E98100076F3F /* deflate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deflate.h; sourceTree = "<group>"; };
+		6289302E1B11E98100076F3F /* gzclose.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gzclose.c; sourceTree = "<group>"; };
+		6289302F1B11E98100076F3F /* gzguts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gzguts.h; sourceTree = "<group>"; };
+		628930301B11E98100076F3F /* gzlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gzlib.c; sourceTree = "<group>"; };
+		628930311B11E98100076F3F /* gzread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gzread.c; sourceTree = "<group>"; };
+		628930321B11E98100076F3F /* gzwrite.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gzwrite.c; sourceTree = "<group>"; };
+		628930331B11E98100076F3F /* infback.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = infback.c; sourceTree = "<group>"; };
+		628930341B11E98100076F3F /* inffast.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = inffast.c; sourceTree = "<group>"; };
+		628930351B11E98100076F3F /* inffast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inffast.h; sourceTree = "<group>"; };
+		628930361B11E98100076F3F /* inffixed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inffixed.h; sourceTree = "<group>"; };
+		628930371B11E98100076F3F /* inflate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = inflate.c; sourceTree = "<group>"; };
+		628930381B11E98100076F3F /* inflate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inflate.h; sourceTree = "<group>"; };
+		628930391B11E98100076F3F /* inftrees.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = inftrees.c; sourceTree = "<group>"; };
+		6289303A1B11E98100076F3F /* inftrees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inftrees.h; sourceTree = "<group>"; };
+		6289303B1B11E98100076F3F /* trees.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = trees.c; sourceTree = "<group>"; };
+		6289303C1B11E98100076F3F /* trees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trees.h; sourceTree = "<group>"; };
+		6289303D1B11E98100076F3F /* uncompr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uncompr.c; sourceTree = "<group>"; };
+		6289303E1B11E98100076F3F /* zconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zconf.h; sourceTree = "<group>"; };
+		6289303F1B11E98100076F3F /* zlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zlib.h; sourceTree = "<group>"; };
+		628930401B11E98100076F3F /* zutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zutil.c; sourceTree = "<group>"; };
+		628930411B11E98100076F3F /* zutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zutil.h; sourceTree = "<group>"; };
 		62C2ACA41AE8FF5B008393DE /* ElStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C2ACA81AE8FF5B008393DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62C2ACA91AE8FF5B008393DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -230,6 +297,78 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
+		628930121B11E98100076F3F /* ARCHelper */ = {
+			isa = PBXGroup;
+			children = (
+				628930131B11E98100076F3F /* ARCHelper.h */,
+			);
+			path = ARCHelper;
+			sourceTree = "<group>";
+		};
+		628930141B11E98100076F3F /* MiniZip */ = {
+			isa = PBXGroup;
+			children = (
+				628930151B11E98100076F3F /* crypt.h */,
+				628930161B11E98100076F3F /* ioapi.c */,
+				628930171B11E98100076F3F /* ioapi.h */,
+				628930181B11E98100076F3F /* unzip.c */,
+				628930191B11E98100076F3F /* unzip.h */,
+				6289301A1B11E98100076F3F /* zip.c */,
+				6289301B1B11E98100076F3F /* zip.h */,
+			);
+			path = MiniZip;
+			sourceTree = "<group>";
+		};
+		6289301C1B11E98100076F3F /* Objective-Zip */ = {
+			isa = PBXGroup;
+			children = (
+				6289301D1B11E98100076F3F /* FileInZipInfo.h */,
+				6289301E1B11E98100076F3F /* FileInZipInfo.m */,
+				6289301F1B11E98100076F3F /* ZipException.h */,
+				628930201B11E98100076F3F /* ZipException.m */,
+				628930211B11E98100076F3F /* ZipFile.h */,
+				628930221B11E98100076F3F /* ZipFile.m */,
+				628930231B11E98100076F3F /* ZipReadStream.h */,
+				628930241B11E98100076F3F /* ZipReadStream.m */,
+				628930251B11E98100076F3F /* ZipWriteStream.h */,
+				628930261B11E98100076F3F /* ZipWriteStream.m */,
+			);
+			path = "Objective-Zip";
+			sourceTree = "<group>";
+		};
+		628930271B11E98100076F3F /* ZLib */ = {
+			isa = PBXGroup;
+			children = (
+				628930281B11E98100076F3F /* adler32.c */,
+				628930291B11E98100076F3F /* compress.c */,
+				6289302A1B11E98100076F3F /* crc32.c */,
+				6289302B1B11E98100076F3F /* crc32.h */,
+				6289302C1B11E98100076F3F /* deflate.c */,
+				6289302D1B11E98100076F3F /* deflate.h */,
+				6289302E1B11E98100076F3F /* gzclose.c */,
+				6289302F1B11E98100076F3F /* gzguts.h */,
+				628930301B11E98100076F3F /* gzlib.c */,
+				628930311B11E98100076F3F /* gzread.c */,
+				628930321B11E98100076F3F /* gzwrite.c */,
+				628930331B11E98100076F3F /* infback.c */,
+				628930341B11E98100076F3F /* inffast.c */,
+				628930351B11E98100076F3F /* inffast.h */,
+				628930361B11E98100076F3F /* inffixed.h */,
+				628930371B11E98100076F3F /* inflate.c */,
+				628930381B11E98100076F3F /* inflate.h */,
+				628930391B11E98100076F3F /* inftrees.c */,
+				6289303A1B11E98100076F3F /* inftrees.h */,
+				6289303B1B11E98100076F3F /* trees.c */,
+				6289303C1B11E98100076F3F /* trees.h */,
+				6289303D1B11E98100076F3F /* uncompr.c */,
+				6289303E1B11E98100076F3F /* zconf.h */,
+				6289303F1B11E98100076F3F /* zlib.h */,
+				628930401B11E98100076F3F /* zutil.c */,
+				628930411B11E98100076F3F /* zutil.h */,
+			);
+			path = ZLib;
+			sourceTree = "<group>";
+		};
 		62C2AC9B1AE8FF5B008393DE = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +435,10 @@
 		62C77CD81AEE905100BB3D48 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				628930121B11E98100076F3F /* ARCHelper */,
+				628930141B11E98100076F3F /* MiniZip */,
+				6289301C1B11E98100076F3F /* Objective-Zip */,
+				628930271B11E98100076F3F /* ZLib */,
 				881CA3801AF5307A0097FEBE /* Sources */,
 				62C77CD91AEE905200BB3D48 /* ELCImagePicker */,
 				62C77CF11AEE905200BB3D48 /* ELCImagePickerDemoAppDelegate.h */,
@@ -539,37 +682,60 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				628930571B11E98200076F3F /* uncompr.c in Sources */,
+				628930521B11E98200076F3F /* infback.c in Sources */,
+				628930451B11E98200076F3F /* FileInZipInfo.m in Sources */,
+				628930481B11E98200076F3F /* ZipReadStream.m in Sources */,
 				62C77D011AEE905200BB3D48 /* ELCImagePickerDemoAppDelegate.m in Sources */,
 				62C7C2E51AEF7B8700563DD6 /* AffineImageViewController.m in Sources */,
 				6228FD2C1B02323600B0D759 /* WholeOrder.m in Sources */,
 				62C77CF71AEE905200BB3D48 /* ELCAssetCell.m in Sources */,
+				628930581B11E98200076F3F /* zutil.c in Sources */,
 				881CA3A41AF5307A0097FEBE /* GRStreamInfo.m in Sources */,
 				62C77CFB1AEE905200BB3D48 /* ELCOverlayImageView.m in Sources */,
+				628930421B11E98100076F3F /* ioapi.c in Sources */,
 				62C77CF51AEE905200BB3D48 /* ELCAlbumPickerController.m in Sources */,
 				6229AE6E1B03964E00EE7FD4 /* CurrentThankYouViewController.m in Sources */,
 				881CA39D1AF5307A0097FEBE /* GRDeleteRequest.m in Sources */,
 				881CA3A31AF5307A0097FEBE /* GRQueue.m in Sources */,
 				62C77CFA1AEE905200BB3D48 /* ELCImagePickerController.m in Sources */,
 				881CA39B1AF5307A0097FEBE /* README.md in Sources */,
+				6289304D1B11E98200076F3F /* deflate.c in Sources */,
+				628930541B11E98200076F3F /* inflate.c in Sources */,
 				6228FD231B02253300B0D759 /* OrderItem.m in Sources */,
+				628930561B11E98200076F3F /* trees.c in Sources */,
 				62C77D151AEEA07700BB3D48 /* ShowImageTableViewCell.m in Sources */,
+				628930551B11E98200076F3F /* inftrees.c in Sources */,
+				6289304C1B11E98200076F3F /* crc32.c in Sources */,
 				6228FD1E1B021FF300B0D759 /* ProductsTableViewController.m in Sources */,
 				881CA39F1AF5307A0097FEBE /* GRListingRequest.m in Sources */,
+				6289304B1B11E98200076F3F /* compress.c in Sources */,
+				628930501B11E98200076F3F /* gzread.c in Sources */,
+				6289304A1B11E98200076F3F /* adler32.c in Sources */,
 				881CA3A21AF5307A0097FEBE /* GRError.m in Sources */,
 				62C77CF91AEE905200BB3D48 /* ELCConsole.m in Sources */,
+				628930431B11E98200076F3F /* unzip.c in Sources */,
 				62C77CF81AEE905200BB3D48 /* ELCAssetTablePicker.m in Sources */,
 				622307AA1B04B574009973AD /* CartTableViewController.m in Sources */,
 				62C77CF61AEE905200BB3D48 /* ELCAsset.m in Sources */,
 				6228FD291B0231E400B0D759 /* Order.m in Sources */,
 				6228FD261B0226D100B0D759 /* CurrentOrderManager.m in Sources */,
+				628930441B11E98200076F3F /* zip.c in Sources */,
+				6289304F1B11E98200076F3F /* gzlib.c in Sources */,
+				628930531B11E98200076F3F /* inffast.c in Sources */,
 				881CA39E1AF5307A0097FEBE /* GRDownloadRequest.m in Sources */,
+				6289304E1B11E98200076F3F /* gzclose.c in Sources */,
 				62C2ACB01AE8FF5B008393DE /* ViewController.m in Sources */,
 				887437F51AED917F00D0BFD2 /* MakeOrderViewController.m in Sources */,
 				6229AE721B0398C900EE7FD4 /* HomeViewController.m in Sources */,
+				628930511B11E98200076F3F /* gzwrite.c in Sources */,
 				881CA39A1AF5307A0097FEBE /* GRRequestsManager.m in Sources */,
 				62C2ACAD1AE8FF5B008393DE /* AppDelegate.m in Sources */,
+				628930491B11E98200076F3F /* ZipWriteStream.m in Sources */,
 				62C77D111AEEA04A00BB3D48 /* ShowImagesViewController.m in Sources */,
 				881CA3A11AF5307A0097FEBE /* GRUploadRequest.m in Sources */,
+				628930471B11E98200076F3F /* ZipFile.m in Sources */,
+				628930461B11E98200076F3F /* ZipException.m in Sources */,
 				62C2ACAA1AE8FF5B008393DE /* main.m in Sources */,
 				62C77D021AEE905200BB3D48 /* ELCImagePickerDemoViewController.m in Sources */,
 				881CA39C1AF5307A0097FEBE /* GRCreateDirectoryRequest.m in Sources */,

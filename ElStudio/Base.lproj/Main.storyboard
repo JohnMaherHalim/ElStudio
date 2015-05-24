@@ -84,7 +84,13 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Cart" id="gyG-vS-Z5U"/>
+                    <navigationItem key="navigationItem" title="Cart" id="gyG-vS-Z5U">
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="buq-jq-NDp">
+                            <connections>
+                                <action selector="UploadOrder:" destination="1E5-Z4-eJy" id="1v5-kY-4rA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="FSS-Jd-4hA" id="JCj-JH-JsI"/>
                         <segue destination="ynv-tx-TWD" kind="push" identifier="GoToModifyExistingItem" id="VSM-OF-3rF"/>

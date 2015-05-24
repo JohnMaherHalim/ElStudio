@@ -8,6 +8,8 @@
 
 #import "CartTableViewController.h"
 #import "ShowImagesViewController.h"
+#import "ZipFile.h"
+#import "ZipWriteStream.h"
 
 @interface CartTableViewController ()
 
@@ -111,6 +113,26 @@
 	}
 }
 
+
+-(IBAction)UploadOrder:(id)sender {
+    OrderItem *OrderItemtobemodified = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:0];
+    
+    
+    ZipFile *zipFile= [[ZipFile alloc] initWithFileName:@"test.zip" mode:ZipFileModeCreate];
+    int counter = 0 ;
+    
+    for (UIImage* img in OrderItemtobemodified.ProductImages) {
+        NSData *pngData = UIImagePNGRepresentation(img);
+        NSString *varstring = [NSString stringWithFormat:@"%d.png",counter];
+        ZipWriteStream *stream= [zipFile writeFileInZipWithName:varstring compressionLevel:ZipCompressionLevelBest];
+        [stream writeData:pngData];
+        [stream finishedWriting];
+    }
+    
+    
+    
+   
+}
 
 /*
 // Override to support conditional editing of the table view.

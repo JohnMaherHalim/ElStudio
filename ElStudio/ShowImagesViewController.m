@@ -128,7 +128,7 @@
 
 -(void)SaveImageScale:(NSNumber*)scale AtIndex:(NSInteger)index {
 	[self.scales replaceObjectAtIndex:index withObject:scale];
-    [self modifyScalestoEditedOrder] ; 
+    [self modifyScalestoEditedOrder] ;
 	//[self.tableView reloadData];
 }
 
