@@ -85,23 +85,50 @@
     return cell;
 }
 
+-(void)modifyCountstoEditedOrder {
+    if (self.editbool) {
+        OrderItem *OrderItemtobemodified = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:self.editnumberflag];
+        OrderItemtobemodified.ImagesCounts = self.counts ;
+        [[[[WholeOrder sharedManager]myOrder]OrderItems]replaceObjectAtIndex:self.editnumberflag withObject:OrderItemtobemodified];
+        [[WholeOrder sharedManager]SaveMyOrder] ;
+    }
+}
+
 -(void)PlusOne:(NSInteger)index {
     NSNumber *number = [self.counts objectAtIndex:index];
     int value = [number intValue];
     number = [NSNumber numberWithInt:value + 1];
     [self.counts replaceObjectAtIndex:index withObject:number];
     
+    [self modifyCountstoEditedOrder] ;
+    
+    
 }
+
+
 
 -(void)MinusOne:(NSInteger)index  {
     NSNumber *number = [self.counts objectAtIndex:index];
     int value = [number intValue];
     number = [NSNumber numberWithInt:value - 1];
     [self.counts replaceObjectAtIndex:index withObject:number];
+    
+    [self modifyCountstoEditedOrder] ;
+    
+}
+
+-(void)modifyScalestoEditedOrder {
+    if (self.editbool) {
+        OrderItem *OrderItemtobemodified = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:self.editnumberflag];
+        OrderItemtobemodified.ImagesScales = self.scales ;
+        [[[[WholeOrder sharedManager]myOrder]OrderItems]replaceObjectAtIndex:self.editnumberflag withObject:OrderItemtobemodified];
+        [[WholeOrder sharedManager]SaveMyOrder] ;
+    }
 }
 
 -(void)SaveImageScale:(NSNumber*)scale AtIndex:(NSInteger)index {
 	[self.scales replaceObjectAtIndex:index withObject:scale];
+    [self modifyScalestoEditedOrder] ; 
 	//[self.tableView reloadData];
 }
 
