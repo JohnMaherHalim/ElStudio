@@ -7,6 +7,7 @@
 //
 
 #import "AffineImageViewController.h"
+#import "UIDeviceHardware.h"
 //#import "BRRequestUpload.h"
 
 @interface AffineImageViewController ()
@@ -47,6 +48,58 @@
  	pinch.scale = 1;
 }
 
+-(IBAction)ModifyImage:(id)sender {
+    int height = 4 ;
+    int width = 4;
+    
+    UIImage *img = [self ModifyTheImage:myimage inHeightInches:height andWidthInches:width];
+    
+    self.resultimageheight.constant = img.size.height ;
+    self.resultimagewidth.constant = img.size.width ; 
+    
+    [self.resultimageview setImage:img] ;
+    
+    
+}
+
+
+-(UIImage*)ModifyTheImage:(UIImage*)firstimg inHeightInches:(int)height andWidthInches:(int)width {
+    UIImage *img = [[UIImage alloc]init];
+    
+    int ppi = 326 ;
+    
+   UIDeviceHardware *h=[[UIDeviceHardware alloc] init];
+    NSString *currentDevice = [h platformString] ;
+    
+   /* if ([currentDevice isEqualToString:@"iPhone 4S"]) {
+        ppi = 326 ;
+    } else if ([currentDevice isEqualToString:@"iPhone 5 (GSM)"] || [currentDevice isEqualToString:@"iPhone 5 (GSM+CDMA)"]|| [currentDevice isEqualToString:@"iPhone 5c (GSM)"]|| [currentDevice isEqualToString:@"iPhone 5c (GSM+CDMA)"]|| [currentDevice isEqualToString:@"iPhone 5s (GSM)"]|| [currentDevice isEqualToString:@"iPhone 5s (GSM+CDMA)"]){
+        ppi = 326 ;
+    } else if ([currentDevice isEqualToString:@"iPhone 6"]) {
+        ppi = 326 ;
+    } else */
+    if ([currentDevice isEqualToString:@"iPhone 6 Plus"]) {
+        ppi = 401 ;
+    }
+    
+    int HeightInPixels = height * ppi ;
+    int WidthInPixels = width * ppi ;
+    
+    img = [self imageWithImage:firstimg scaledToSize:CGSizeMake(WidthInPixels, HeightInPixels)];
+    
+    return img ;
+}
+
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
+    // Pass 1.0 to force exact pixel size.
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
 
 
 /*

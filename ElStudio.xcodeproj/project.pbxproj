@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		621741B61B14A0A200CFD754 /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 621741B51B14A0A200CFD754 /* UIDeviceHardware.m */; };
 		622307AA1B04B574009973AD /* CartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622307A91B04B574009973AD /* CartTableViewController.m */; };
 		6228FD1E1B021FF300B0D759 /* ProductsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD1D1B021FF300B0D759 /* ProductsTableViewController.m */; };
 		6228FD231B02253300B0D759 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD221B02253200B0D759 /* OrderItem.m */; };
@@ -88,6 +89,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		621741B41B14A0A200CFD754 /* UIDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
+		621741B51B14A0A200CFD754 /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
 		622307A81B04B574009973AD /* CartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableViewController.h; sourceTree = "<group>"; };
 		622307A91B04B574009973AD /* CartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableViewController.m; sourceTree = "<group>"; };
 		6228FD1C1B021FF300B0D759 /* ProductsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsTableViewController.h; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 				6228FD251B0226D100B0D759 /* CurrentOrderManager.m */,
 				6228FD2A1B02323600B0D759 /* WholeOrder.h */,
 				6228FD2B1B02323600B0D759 /* WholeOrder.m */,
+				621741B41B14A0A200CFD754 /* UIDeviceHardware.h */,
+				621741B51B14A0A200CFD754 /* UIDeviceHardware.m */,
 			);
 			name = Singeltons;
 			sourceTree = "<group>";
@@ -729,6 +734,7 @@
 				887437F51AED917F00D0BFD2 /* MakeOrderViewController.m in Sources */,
 				6229AE721B0398C900EE7FD4 /* HomeViewController.m in Sources */,
 				628930511B11E98200076F3F /* gzwrite.c in Sources */,
+				621741B61B14A0A200CFD754 /* UIDeviceHardware.m in Sources */,
 				881CA39A1AF5307A0097FEBE /* GRRequestsManager.m in Sources */,
 				62C2ACAD1AE8FF5B008393DE /* AppDelegate.m in Sources */,
 				628930491B11E98200076F3F /* ZipWriteStream.m in Sources */,

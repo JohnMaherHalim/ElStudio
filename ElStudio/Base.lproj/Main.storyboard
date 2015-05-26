@@ -301,16 +301,43 @@
                                     <outletCollection property="gestureRecognizers" destination="Y5H-6q-pft" appends="YES" id="gHG-VT-zvC"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbA-cu-ZHX">
+                                <rect key="frame" x="85" y="367" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="NWo-bv-JOw"/>
+                                </constraints>
+                                <state key="normal" title="Modify">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ModifyImage:" destination="U5m-ge-Ig6" eventType="touchUpInside" id="fII-Hd-hS4"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r88-1f-ZO5">
+                                <rect key="frame" x="40" y="414" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="CAp-ZD-UEk"/>
+                                    <constraint firstAttribute="width" constant="240" id="J4w-lN-TRC"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lbA-cu-ZHX" secondAttribute="trailing" constant="85" id="0ky-fl-nuk"/>
+                            <constraint firstItem="lbA-cu-ZHX" firstAttribute="leading" secondItem="pas-M0-DHI" secondAttribute="leading" constant="85" id="0uS-WB-qjj"/>
                             <constraint firstAttribute="centerX" secondItem="hfY-dd-CcR" secondAttribute="centerX" id="GEM-e4-1oN"/>
+                            <constraint firstItem="lbA-cu-ZHX" firstAttribute="top" secondItem="hfY-dd-CcR" secondAttribute="bottom" constant="8" id="YVV-0c-fRd"/>
+                            <constraint firstItem="r88-1f-ZO5" firstAttribute="top" secondItem="lbA-cu-ZHX" secondAttribute="bottom" constant="17" id="YbV-bl-xdr"/>
                             <constraint firstAttribute="centerY" secondItem="hfY-dd-CcR" secondAttribute="centerY" id="hHB-xn-ILF"/>
+                            <constraint firstItem="r88-1f-ZO5" firstAttribute="leading" secondItem="pas-M0-DHI" secondAttribute="leading" constant="40" id="iz8-j7-rx5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iQj-9I-s3N"/>
                     <connections>
                         <outlet property="myimageview" destination="CJ2-6F-h1N" id="goq-aF-sfd"/>
+                        <outlet property="resultimageheight" destination="CAp-ZD-UEk" id="uey-FZ-Xwm"/>
+                        <outlet property="resultimageview" destination="r88-1f-ZO5" id="Vqu-7d-SXH"/>
+                        <outlet property="resultimagewidth" destination="J4w-lN-TRC" id="1D6-em-MhC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYc-P1-UbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -322,7 +349,7 @@
                 </pinchGestureRecognizer>
                 <rotationGestureRecognizer id="Y5H-6q-pft"/>
             </objects>
-            <point key="canvasLocation" x="688.5333333333333" y="1456.9200000000001"/>
+            <point key="canvasLocation" x="688" y="1456"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

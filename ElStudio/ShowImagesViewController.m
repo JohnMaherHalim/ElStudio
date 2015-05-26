@@ -26,6 +26,7 @@
     uploadData = [[NSData alloc]init];
     //[self setEditing:YES];
     [self.tableView setEditing:YES];
+    [self.tableView setAllowsSelectionDuringEditing:YES]; 
 	self.requestsManager = [[GRRequestsManager alloc] initWithHostname:@"ws.doctory.info"
 																  user:@"doctorym"
 															  password:@"toztoz1"];

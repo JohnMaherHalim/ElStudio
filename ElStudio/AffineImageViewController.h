@@ -15,9 +15,13 @@
 
 @property (retain) UIImage *myimage ;
 @property (retain) IBOutlet UIImageView *myimageview ;
+@property (retain) IBOutlet UIImageView *resultimageview ;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *resultimageheight;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *resultimagewidth;
 
 - (IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer;
 - (IBAction)handleRotate:(UIRotationGestureRecognizer *)recognizer;
 -(IBAction)scale:(UIPinchGestureRecognizer*)pinch;
+-(IBAction)ModifyImage:(id)sender;
 
 @end
