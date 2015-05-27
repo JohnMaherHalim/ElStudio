@@ -21,6 +21,16 @@
     [super viewDidLoad];
     
 	self.tableView.allowsMultipleSelectionDuringEditing = NO ;
+    
+    self.requestsManager = [[GRRequestsManager alloc] initWithHostname:@"ws.elstud.io"
+                                                                  user:@"elstudioproject"
+                                                              password:@"7Qrs54msdoe355"];
+    
+   /* self.requestsManager = [[GRRequestsManager alloc] initWithHostname:@"tarawah.com"
+                                                                  user:@"minafaye"
+                                                              password:@"doctorypass"];*/
+    
+    self.requestsManager.delegate = self;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -113,12 +123,22 @@
 	}
 }
 
+- (NSString *)getChacheDirectoryPath	{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    return [paths objectAtIndex:0];
+}
 
 -(IBAction)UploadOrder:(id)sender {
     OrderItem *OrderItemtobemodified = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:0];
     
+    NSString *cacheDirectory 	= [self getChacheDirectoryPath];
+    NSString *ImagesZipFile		= [cacheDirectory stringByAppendingPathComponent:@"test.zip"];
+    NSString *WebConfigtrial = [cacheDirectory stringByAppendingPathComponent:@"Web.config"];
     
-    ZipFile *zipFile= [[ZipFile alloc] initWithFileName:@"test.zip" mode:ZipFileModeCreate];
+    [[NSFileManager defaultManager]createFileAtPath:ImagesZipFile contents:nil attributes:nil];
+    
+    ZipFile *zipFile= [[ZipFile alloc] initWithFileName:ImagesZipFile mode:ZipFileModeCreate];
     int counter = 0 ;
     
     for (UIImage* img in OrderItemtobemodified.ProductImages) {
@@ -129,9 +149,39 @@
         [stream finishedWriting];
     }
     
-    
-    
+    NSString *OrderDirectory = @"ws.elstud.io/UserIDOrderID" ;
+    NSString *ProductName = @"ws.elstud.io/UserIDOrderID/Product1" ;  //[NSString stringWithFormat:@"%@/%@",OrderDirectory, OrderItemtobemodified.ProductName];
+    NSString *Images = [NSString stringWithFormat:@"%@/test.zip",ProductName];
+   // [self.requestsManager addRequestForDownloadFileAtRemotePath:@"ws.elstud.io/Web.config" toLocalPath:WebConfigtrial];
+    [self.requestsManager addRequestForCreateDirectoryAtPath:OrderDirectory];
+    [self.requestsManager addRequestForCreateDirectoryAtPath:ProductName];
+    //[self.requestsManager addRequestForCreateDirectoryAtPath:Images];
+    [self.requestsManager addRequestForUploadFileAtLocalPath:ImagesZipFile toRemotePath:Images];
+    [self.requestsManager startProcessingRequests];
    
+}
+
+- (void)requestsManager:(id<GRRequestsManagerProtocol>)requestsManager didCompleteUploadRequest:(id<GRDataExchangeRequestProtocol>)request {
+    NSLog(@"done");
+}
+
+
+- (void)requestsManager:(id<GRRequestsManagerProtocol>)requestsManager didFailWritingFileAtPath:(NSString *)path forRequest:(id<GRDataExchangeRequestProtocol>)request error:(NSError *)error {
+    NSLog(@"error") ;
+}
+
+/**
+ @brief Called to notify the delegate that a given request failed.
+ @param requestsManager The requests manager.
+ @param request The request.
+ @param error The error reporterd.
+ */
+- (void)requestsManager:(id<GRRequestsManagerProtocol>)requestsManager didFailRequest:(id<GRRequestProtocol>)request withError:(NSError *)error {
+    NSLog(@"error") ;
+}
+
+- (void)requestsManager:(id<GRRequestsManagerProtocol>)requestsManager didCompleteDownloadRequest:(id<GRDataExchangeRequestProtocol>)request {
+    NSLog(@"Download Success") ; 
 }
 
 /*

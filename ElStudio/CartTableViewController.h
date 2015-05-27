@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "WholeOrder.h"
+#import "GRRequestsManager.h"
 
-@interface CartTableViewController : UITableViewController {
+@interface CartTableViewController : UITableViewController<GRRequestsManagerDelegate> {
     NSMutableArray *orderItems ;
     NSInteger globalindex ;
 }
 
 @property (nonatomic , retain) IBOutlet UITableView *tableView ;
+@property (nonatomic, strong) GRRequestsManager *requestsManager;
 
 -(IBAction)UploadOrder:(id)sender;
 
