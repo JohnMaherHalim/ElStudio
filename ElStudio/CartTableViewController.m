@@ -133,7 +133,7 @@
     OrderItem *OrderItemtobemodified = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:0];
     
     NSString *cacheDirectory 	= [self getChacheDirectoryPath];
-    NSString *ImagesZipFile		= [cacheDirectory stringByAppendingPathComponent:@"test.zip"];
+    NSString *ImagesZipFile		= [cacheDirectory stringByAppendingPathComponent:@"test1.zip"];
     NSString *WebConfigtrial = [cacheDirectory stringByAppendingPathComponent:@"Web.config"];
     
     [[NSFileManager defaultManager]createFileAtPath:ImagesZipFile contents:nil attributes:nil];
@@ -141,20 +141,25 @@
     ZipFile *zipFile= [[ZipFile alloc] initWithFileName:ImagesZipFile mode:ZipFileModeCreate];
     int counter = 0 ;
     
+    
     for (UIImage* img in OrderItemtobemodified.ProductImages) {
         NSData *pngData = UIImagePNGRepresentation(img);
         NSString *varstring = [NSString stringWithFormat:@"%d.png",counter];
         ZipWriteStream *stream= [zipFile writeFileInZipWithName:varstring compressionLevel:ZipCompressionLevelBest];
         [stream writeData:pngData];
         [stream finishedWriting];
+        counter++ ;
     }
+    
+    [zipFile close] ;
+    
     
     NSString *OrderDirectory = @"ws.elstud.io/UserIDOrderID" ;
     NSString *ProductName = @"ws.elstud.io/UserIDOrderID/Product1" ;  //[NSString stringWithFormat:@"%@/%@",OrderDirectory, OrderItemtobemodified.ProductName];
-    NSString *Images = [NSString stringWithFormat:@"%@/test.zip",ProductName];
+    NSString *Images = [NSString stringWithFormat:@"%@/test1.zip",ProductName];
    // [self.requestsManager addRequestForDownloadFileAtRemotePath:@"ws.elstud.io/Web.config" toLocalPath:WebConfigtrial];
-    [self.requestsManager addRequestForCreateDirectoryAtPath:OrderDirectory];
-    [self.requestsManager addRequestForCreateDirectoryAtPath:ProductName];
+    //[self.requestsManager addRequestForCreateDirectoryAtPath:OrderDirectory];
+    //[self.requestsManager addRequestForCreateDirectoryAtPath:ProductName];
     //[self.requestsManager addRequestForCreateDirectoryAtPath:Images];
     [self.requestsManager addRequestForUploadFileAtLocalPath:ImagesZipFile toRemotePath:Images];
     [self.requestsManager startProcessingRequests];
