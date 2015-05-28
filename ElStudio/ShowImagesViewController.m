@@ -218,7 +218,11 @@
     if ([segue.identifier isEqualToString:@"GoToAffineImage"]) {
         AffineImageViewController *affine = [segue destinationViewController] ;
         //[showimgs setImages:imgarray];
-        [affine setMyimage:imagetopass]; 
+        OrderItem *OrderItemtobemodified = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:0];
+        NSNumber *scale = [OrderItemtobemodified.ImagesScales objectAtIndex:1];
+        float myscale = [scale floatValue];
+        UIImage *resultimage = [self imageByCroppingImage:imagetopass toSize:CGSizeMake(imagetopass.size.width/myscale, imagetopass.size.height/myscale)];
+        [affine setMyimage:resultimage];
     } else if ([segue.identifier isEqualToString:@"GoToOrderItemThankYou"]) {
         [[CurrentOrderManager sharedManager]storeProductImages:images];
         [[CurrentOrderManager sharedManager]storeImagesCounts:self.counts];
@@ -233,6 +237,20 @@
     }
     
     
+}
+
+- (UIImage *)imageByCroppingImage:(UIImage *)image toSize:(CGSize)size
+{
+    double x = (image.size.width - size.width) / 2.0 + 150;
+    double y = (image.size.height - size.height) / 2.0 - 100 ;
+    
+    CGRect cropRect = CGRectMake(x, y, size.height, size.width);
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
+    
+    UIImage *cropped = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    
+    return cropped;
 }
 
 

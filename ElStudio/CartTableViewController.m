@@ -10,6 +10,7 @@
 #import "ShowImagesViewController.h"
 #import "ZipFile.h"
 #import "ZipWriteStream.h"
+#import "UIDeviceHardware.h"
 
 @interface CartTableViewController ()
 
@@ -132,22 +133,33 @@
 -(IBAction)UploadOrder:(id)sender {
     OrderItem *OrderItemtobemodified = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:0];
     
+    
+    NSString *ZipFileName = @"test3.zip" ;
+    
     NSString *cacheDirectory 	= [self getChacheDirectoryPath];
-    NSString *ImagesZipFile		= [cacheDirectory stringByAppendingPathComponent:@"test1.zip"];
+    NSString *ImagesZipFile		= [cacheDirectory stringByAppendingPathComponent:ZipFileName];
     NSString *WebConfigtrial = [cacheDirectory stringByAppendingPathComponent:@"Web.config"];
     
     [[NSFileManager defaultManager]createFileAtPath:ImagesZipFile contents:nil attributes:nil];
     
     ZipFile *zipFile= [[ZipFile alloc] initWithFileName:ImagesZipFile mode:ZipFileModeCreate];
     int counter = 0 ;
+    //int imagestosendcounter = 0 ;
     
     
     for (UIImage* img in OrderItemtobemodified.ProductImages) {
-        NSData *pngData = UIImagePNGRepresentation(img);
-        NSString *varstring = [NSString stringWithFormat:@"%d.png",counter];
+        NSNumber *thisimagescalea = [OrderItemtobemodified.ImagesScales objectAtIndex:counter] ;
+        float thisimagescale = [thisimagescalea floatValue] ;
+        UIImage *croppedimage = [self imageByCroppingImage:img toSize:CGSizeMake(img.size.width/thisimagescale, img.size.height/thisimagescale)];
+        UIImage *modifiedimage = [self ModifyTheImage:croppedimage inHeightInches:2 andWidthInches:2];
+        //NSData *pngData = UIImagePNGRepresentation(modifiedimage);
+        NSData *jpgData = UIImageJPEGRepresentation(modifiedimage, 1);
+        NSString *varstring = [NSString stringWithFormat:@"%d.jpg",counter];
         ZipWriteStream *stream= [zipFile writeFileInZipWithName:varstring compressionLevel:ZipCompressionLevelBest];
-        [stream writeData:pngData];
+        //if (counter == 0) {
+        [stream writeData:jpgData];
         [stream finishedWriting];
+        //}
         counter++ ;
     }
     
@@ -156,7 +168,7 @@
     
     NSString *OrderDirectory = @"ws.elstud.io/UserIDOrderID" ;
     NSString *ProductName = @"ws.elstud.io/UserIDOrderID/Product1" ;  //[NSString stringWithFormat:@"%@/%@",OrderDirectory, OrderItemtobemodified.ProductName];
-    NSString *Images = [NSString stringWithFormat:@"%@/test1.zip",ProductName];
+    NSString *Images = [NSString stringWithFormat:@"%@/%@",ProductName,ZipFileName];
    // [self.requestsManager addRequestForDownloadFileAtRemotePath:@"ws.elstud.io/Web.config" toLocalPath:WebConfigtrial];
     //[self.requestsManager addRequestForCreateDirectoryAtPath:OrderDirectory];
     //[self.requestsManager addRequestForCreateDirectoryAtPath:ProductName];
@@ -164,6 +176,60 @@
     [self.requestsManager addRequestForUploadFileAtLocalPath:ImagesZipFile toRemotePath:Images];
     [self.requestsManager startProcessingRequests];
    
+}
+
+-(UIImage*)ModifyTheImage:(UIImage*)firstimg inHeightInches:(int)height andWidthInches:(int)width {
+    UIImage *img = [[UIImage alloc]init];
+    
+   // int ppi = 326 ;
+    int ppi = 72 ; 
+    UIDeviceHardware *h=[[UIDeviceHardware alloc] init];
+    NSString *currentDevice = [h platformString] ;
+    
+    /* if ([currentDevice isEqualToString:@"iPhone 4S"]) {
+     ppi = 326 ;
+     } else if ([currentDevice isEqualToString:@"iPhone 5 (GSM)"] || [currentDevice isEqualToString:@"iPhone 5 (GSM+CDMA)"]|| [currentDevice isEqualToString:@"iPhone 5c (GSM)"]|| [currentDevice isEqualToString:@"iPhone 5c (GSM+CDMA)"]|| [currentDevice isEqualToString:@"iPhone 5s (GSM)"]|| [currentDevice isEqualToString:@"iPhone 5s (GSM+CDMA)"]){
+     ppi = 326 ;
+     } else if ([currentDevice isEqualToString:@"iPhone 6"]) {
+     ppi = 326 ;
+     } else */
+    if ([currentDevice isEqualToString:@"iPhone 6 Plus"]) {
+        ppi = 401 ;
+    }
+    
+    int HeightInPixels = height * ppi ;
+    int WidthInPixels = width * ppi ;
+    
+    img = [self imageWithImage:firstimg scaledToSize:CGSizeMake(WidthInPixels, HeightInPixels)];
+    
+    
+    
+    return img ;
+}
+
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
+    // Pass 1.0 to force exact pixel size.
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+- (UIImage *)imageByCroppingImage:(UIImage *)image toSize:(CGSize)size
+{
+    double x = (image.size.width - size.width) / 2.0 ;
+    double y = (image.size.height - size.height) / 2.0 ;
+    
+    CGRect cropRect = CGRectMake(x, y, size.height, size.width);
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
+    
+    UIImage *cropped = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    
+    return cropped;
 }
 
 - (void)requestsManager:(id<GRRequestsManagerProtocol>)requestsManager didCompleteUploadRequest:(id<GRDataExchangeRequestProtocol>)request {
