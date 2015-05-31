@@ -25,6 +25,10 @@
     NSLog(@"%@",self.curOrderItem.ProductName);
 }
 
+-(void)storeProduct:(Product*)prod {
+    self.curOrderItem.product = prod ;
+}
+
 -(void)storeProductImages:(NSMutableArray *)productImages {
     self.curOrderItem.ProductImages = productImages ;
 }

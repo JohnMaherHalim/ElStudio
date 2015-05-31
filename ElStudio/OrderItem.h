@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Product.h"
 
 @interface OrderItem : NSObject
 
 @property (nonatomic,retain) NSString *ProductName ;
+@property (nonatomic,retain) Product *product ;
 @property (nonatomic,retain) NSMutableArray *ProductImages ;
 @property (nonatomic,retain) NSMutableArray *ImagesCounts ;
 @property (nonatomic,retain) NSMutableArray *ImagesScales ;

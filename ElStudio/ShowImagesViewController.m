@@ -229,6 +229,7 @@
 		[[CurrentOrderManager sharedManager]storeScales:self.scales];
         OrderItem *orderitem = [[OrderItem alloc]init];
         orderitem.ProductName = [[[CurrentOrderManager sharedManager]curOrderItem]ProductName];
+        orderitem.product = [[[CurrentOrderManager sharedManager]curOrderItem]product];
         orderitem.ProductImages = [[[CurrentOrderManager sharedManager]curOrderItem]ProductImages];
         orderitem.ImagesCounts = [[[CurrentOrderManager sharedManager]curOrderItem]ImagesCounts];
 		orderitem.ImagesScales = [[[CurrentOrderManager sharedManager]curOrderItem]ImagesScales];

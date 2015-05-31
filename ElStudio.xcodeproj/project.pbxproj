@@ -41,6 +41,8 @@
 		622E47DA1B1B129500E4C5E3 /* IKMediaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E47D81B1B129500E4C5E3 /* IKMediaCell.m */; };
 		622E47DD1B1B1EDF00E4C5E3 /* IKCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E47DC1B1B1EDF00E4C5E3 /* IKCollectionViewController.m */; };
 		622E47E01B1B22A700E4C5E3 /* IKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E47DF1B1B22A700E4C5E3 /* IKLoginViewController.m */; };
+		6232EAB21B1B8D9D000A7860 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 6232EAB11B1B8D9D000A7860 /* Product.m */; };
+		6232EAB51B1B9375000A7860 /* ProductsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6232EAB41B1B9375000A7860 /* ProductsStore.m */; };
 		628930421B11E98100076F3F /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930161B11E98100076F3F /* ioapi.c */; };
 		628930431B11E98200076F3F /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930181B11E98100076F3F /* unzip.c */; };
 		628930441B11E98200076F3F /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 6289301A1B11E98100076F3F /* zip.c */; };
@@ -183,6 +185,10 @@
 		622E47DC1B1B1EDF00E4C5E3 /* IKCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKCollectionViewController.m; sourceTree = "<group>"; };
 		622E47DE1B1B22A700E4C5E3 /* IKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKLoginViewController.h; sourceTree = "<group>"; };
 		622E47DF1B1B22A700E4C5E3 /* IKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKLoginViewController.m; sourceTree = "<group>"; };
+		6232EAB01B1B8D9D000A7860 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		6232EAB11B1B8D9D000A7860 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		6232EAB31B1B9375000A7860 /* ProductsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsStore.h; sourceTree = "<group>"; };
+		6232EAB41B1B9375000A7860 /* ProductsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsStore.m; sourceTree = "<group>"; };
 		628930131B11E98100076F3F /* ARCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCHelper.h; sourceTree = "<group>"; };
 		628930151B11E98100076F3F /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
 		628930161B11E98100076F3F /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
@@ -354,6 +360,8 @@
 				6228FD2B1B02323600B0D759 /* WholeOrder.m */,
 				621741B41B14A0A200CFD754 /* UIDeviceHardware.h */,
 				621741B51B14A0A200CFD754 /* UIDeviceHardware.m */,
+				6232EAB31B1B9375000A7860 /* ProductsStore.h */,
+				6232EAB41B1B9375000A7860 /* ProductsStore.m */,
 			);
 			name = Singeltons;
 			sourceTree = "<group>";
@@ -365,6 +373,8 @@
 				6228FD221B02253200B0D759 /* OrderItem.m */,
 				6228FD271B0231E400B0D759 /* Order.h */,
 				6228FD281B0231E400B0D759 /* Order.m */,
+				6232EAB01B1B8D9D000A7860 /* Product.h */,
+				6232EAB11B1B8D9D000A7860 /* Product.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -892,6 +902,7 @@
 				622E47AB1B1B016A00E4C5E3 /* InstagramTag.m in Sources */,
 				62C77CF51AEE905200BB3D48 /* ELCAlbumPickerController.m in Sources */,
 				6229AE6E1B03964E00EE7FD4 /* CurrentThankYouViewController.m in Sources */,
+				6232EAB21B1B8D9D000A7860 /* Product.m in Sources */,
 				881CA39D1AF5307A0097FEBE /* GRDeleteRequest.m in Sources */,
 				881CA3A31AF5307A0097FEBE /* GRQueue.m in Sources */,
 				622E47D91B1B129500E4C5E3 /* IKCell.m in Sources */,
@@ -905,6 +916,7 @@
 				622E47CB1B1B01A100E4C5E3 /* AFURLSessionManager.m in Sources */,
 				622E47C71B1B01A100E4C5E3 /* AFSecurityPolicy.m in Sources */,
 				622E47A71B1B016A00E4C5E3 /* InstagramLocation.m in Sources */,
+				6232EAB51B1B9375000A7860 /* ProductsStore.m in Sources */,
 				62C77D151AEEA07700BB3D48 /* ShowImageTableViewCell.m in Sources */,
 				622E47D31B1B114C00E4C5E3 /* InstagramCollectionViewController.m in Sources */,
 				622E47C61B1B01A100E4C5E3 /* AFNetworkReachabilityManager.m in Sources */,

@@ -14,6 +14,7 @@
 @property (nonatomic,retain) OrderItem *curOrderItem ;
 
 -(void)storeProductName:(NSString*)productName ;
+-(void)storeProduct:(Product*)prod ;
 -(void)storeProductImages:(NSMutableArray*)productImages ;
 -(void)storeImagesCounts:(NSMutableArray*)imagecounts ;
 -(void)storeScales:(NSMutableArray*)imagesscales ; 

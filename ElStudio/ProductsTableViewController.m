@@ -8,6 +8,8 @@
 
 #import "ProductsTableViewController.h"
 #import "CurrentOrderManager.h"
+#import "ProductsStore.h"
+#import "Product.h"
 
 @interface ProductsTableViewController ()
 
@@ -20,11 +22,13 @@
     
     products = [[NSMutableArray alloc]init] ;
     
-    [products addObject:@"Product 1"] ;
+  /*  [products addObject:@"Product 1"] ;
     [products addObject:@"Product 2"];
     [products addObject:@"Product 3"];
     [products addObject:@"Product 4"];
-    [products addObject:@"Product 5"];
+    [products addObject:@"Product 5"];*/
+    
+    products = [[ProductsStore sharedManager]Products] ;
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -65,7 +69,11 @@
     }
     
     //OrderItem
-    [cell.textLabel setText:[products objectAtIndex:indexPath.row]];
+    
+    Product *product = [products objectAtIndex:indexPath.row] ;
+    
+   // [cell.textLabel setText:[products objectAtIndex:indexPath.row]];
+    [cell.textLabel setText:product.Product_name];
     
     // Configure the cell...
     
@@ -73,7 +81,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *productname = [products objectAtIndex:indexPath.row] ;
+    Product *product = [products objectAtIndex:indexPath.row] ;
+    NSString *productname = product.Product_name ;
     [[CurrentOrderManager sharedManager]storeProductName:productname] ;
     
      [self performSegueWithIdentifier: @"GoToPickImages" sender: self];
