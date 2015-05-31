@@ -67,8 +67,9 @@
     [textField resignFirstResponder];
     textField.text = @"";
 
-    
-    [[InstagramEngine sharedEngine] setAccessToken:@"613108632.8111161.56340f5e49384afd82fd760195debed2"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *accesstoken = [defaults objectForKey:@"instatoken"];
+    [[InstagramEngine sharedEngine] setAccessToken:accesstoken];
     InstagramEngine *sharedEngine = [InstagramEngine sharedEngine];
     
     
@@ -119,7 +120,7 @@
     [[InstagramEngine sharedEngine] getSelfUserDetailsWithSuccess:^(InstagramUser *userDetail) {
         NSLog(@"%@",userDetail);
         //NSLog(@"%@",userDetail.Id);
-        [self testLoadMediaForUser:userDetail] ; 
+        [self testLoadMediaForUser:userDetail] ;
     } failure:^(NSError *error, NSInteger statusCode) {
         
     }];

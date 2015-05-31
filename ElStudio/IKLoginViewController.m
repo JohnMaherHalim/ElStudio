@@ -20,6 +20,7 @@
 
 #import "IKLoginViewController.h"
 #import "IKCollectionViewController.h"
+#import "MakeOrderViewController.h"
 
 @implementation IKLoginViewController
 
@@ -52,14 +53,25 @@
             NSString *accessToken = [components lastObject];
             NSLog(@"ACCESS TOKEN = %@",accessToken);
             [[InstagramEngine sharedEngine] setAccessToken:accessToken];
-            
+            NSUserDefaults *defauls = [NSUserDefaults standardUserDefaults];
+            [defauls setObject:accessToken forKey:@"instatoken"];
+            [defauls synchronize] ; 
             [self dismissViewControllerAnimated:YES completion:^{
                 [self.collectionViewController reloadMedia];
             }];
         }
+        [self goToMyInstagramPhotos]; 
         return NO;
     }
     return YES;
+}
+
+-(void)goToMyInstagramPhotos {
+    int count = [self.navigationController.viewControllers count] ;
+    MakeOrderViewController *make = [self.navigationController.viewControllers objectAtIndex:count-2] ;
+    make.gotoinstagram = YES ;
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error

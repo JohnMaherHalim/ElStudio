@@ -8,7 +8,7 @@
 
 #import "MakeOrderViewController.h"
 #import "ShowImagesViewController.h"
-
+#import "InstagramKit.h" 
 
 @interface MakeOrderViewController ()
 
@@ -23,7 +23,26 @@
     [super viewDidLoad];
     
     imgarray = [[NSMutableArray alloc]init];
+    
+    
+    
+    
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults] ;
+    NSString *instagramtoken = [defaults objectForKey:@"instatoken"];
+    
+    if (!instagramtoken)
+        [self.InstLogOutBtn setHidden:YES] ;
+    else
+        [self.InstLogOutBtn setHidden:NO];
+    
+    if (self.gotoinstagram) {
+        [self Instagram:nil];
+        self.gotoinstagram = NO ; 
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,7 +112,7 @@
 
 
 -(IBAction)Instagram:(id)sender {
-    BOOL LoggedIn = true ;
+    BOOL LoggedIn = [[NSUserDefaults standardUserDefaults]objectForKey:@"instatoken"] ;
     
     if (!LoggedIn) {
         [self performSegueWithIdentifier:@"InstagramLogin" sender:nil];
@@ -102,6 +121,13 @@
     }
 }
 
+-(IBAction)InstagramLogOut:(id)sender{
+    [[InstagramEngine sharedEngine] logout];
+    NSUserDefaults *defaults=  [NSUserDefaults standardUserDefaults] ;
+    [defaults setObject:nil forKey:@"instatoken"];
+    UIButton *btn = (UIButton*)sender ;
+    [btn setHidden:YES] ;
+}
 
 - (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker {
     

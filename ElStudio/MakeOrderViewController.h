@@ -12,10 +12,13 @@
 @interface MakeOrderViewController : UIViewController <UIImagePickerControllerDelegate,ELCImagePickerControllerDelegate>
 
 @property (nonatomic) IBOutlet UIImageView *myimg ;
-@property (nonatomic) NSMutableArray *imgarray ; 
+@property (nonatomic) NSMutableArray *imgarray ;
+@property (nonatomic , retain) IBOutlet UIButton *InstLogOutBtn ;
+@property BOOL gotoinstagram ; 
 
 -(IBAction)upload ;
 -(IBAction)RealUpload:(id)sender;
 -(IBAction)Instagram:(id)sender;
+-(IBAction)InstagramLogOut:(id)sender;
 
 @end
