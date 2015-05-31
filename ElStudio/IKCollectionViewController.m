@@ -24,6 +24,7 @@
 #import "IKCell.h"
 #import "InstagramMedia.h"
 #import "InstagramUser.h"
+#import "ShowImagesViewController.h"
 //#import "IKLoginViewController.h"
 //#import "IKMediaViewController.h"
 
@@ -49,6 +50,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.selectedImages = [[NSMutableArray alloc]init] ;
+    [self.collectionView setAllowsMultipleSelection:YES] ;
+    
     [self loadMedia];
 }
 
@@ -244,23 +249,66 @@
     }
     else
         [cell.imageView setImage:nil];
+    
+    UIView *myBackView = [[UIView alloc] initWithFrame:cell.frame];
+    myBackView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:0.75 alpha:1];
+    cell.selectedBackgroundView = myBackView;
+    
     return cell;
 
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    
+    //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
+    
+    InstagramMedia *media = mediaArray[indexPath.row];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:media.thumbnailURL]];
+    [self.selectedImages addObject:image];
+    
+   // NSLog(@"Click");
+    
+   // [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 //    InstagramMedia *media = mediaArray[indexPath.row];
 //    [self testLoadMediaForUser:media.user];
     
-    if (self.currentPaginationInfo)
+   /* if (self.currentPaginationInfo)
     {
 //  Paginate on navigating to detail
 //either
 //        [self loadMedia];
 //or
 //        [self testPaginationRequest:self.currentPaginationInfo];
+    }*/
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    InstagramMedia *media = mediaArray[indexPath.row];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:media.thumbnailURL]];
+    NSData *checkImageData = UIImagePNGRepresentation(image);
+    
+    for (UIImage *img in self.selectedImages) {
+        NSData *propertyImageData = UIImagePNGRepresentation(img);
+        if ([checkImageData isEqualToData:propertyImageData]) {
+            //do sth
+            [self.selectedImages removeObject:img];
+            break; 
+        }
+    }
+    
+}
+
+-(IBAction)DoneChoosingImages:(id)sender {
+    [self performSegueWithIdentifier:@"InstaToShowImages" sender:nil];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"InstaToShowImages"]) {
+        ShowImagesViewController *showimgs = [segue destinationViewController] ;
+        [showimgs setImages:self.selectedImages];
     }
 }
 

@@ -21,5 +21,10 @@
 #import <UIKit/UIKit.h>
 
 @interface IKCollectionViewController : UICollectionViewController
+
+@property (nonatomic,retain) NSMutableArray *selectedImages ; 
+
 - (IBAction)reloadMedia;
+-(IBAction)DoneChoosingImages:(id)sender;
+
 @end

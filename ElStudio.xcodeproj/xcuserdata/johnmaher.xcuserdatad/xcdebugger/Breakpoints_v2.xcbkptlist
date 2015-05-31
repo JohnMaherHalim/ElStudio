@@ -201,22 +201,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ElStudio/IKCollectionViewController.m"
-            timestampString = "454763610.542246"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "-loadMedia"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ElStudio/IKLoginViewController.m"
             timestampString = "454767540.066712"
             startingColumnNumber = "9223372036854775807"
@@ -233,13 +217,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ElStudio/MakeOrderViewController.m"
-            timestampString = "454767169.037339"
+            filePath = "ElStudio/IKLoginViewController.m"
+            timestampString = "454767681.049682"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "-goToMyInstagramPhotos"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -249,13 +233,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ElStudio/IKLoginViewController.m"
-            timestampString = "454767681.049682"
+            filePath = "ElStudio/IKCollectionViewController.m"
+            timestampString = "454771515.297137"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-goToMyInstagramPhotos"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "-collectionView:didDeselectItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -186,7 +186,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iqx-iW-Xa3">
-                                            <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
+                                            <rect key="frame" x="8" y="8" width="90" height="90"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -202,7 +202,16 @@
                         </connections>
                     </collectionView>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="xAQ-8y-QnT"/>
+                    <navigationItem key="navigationItem" id="xAQ-8y-QnT">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="Xs5-z3-XvT">
+                            <connections>
+                                <action selector="DoneChoosingImages:" destination="bYl-fq-go3" id="jHB-xw-Fqe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="ynv-tx-TWD" kind="push" identifier="InstaToShowImages" id="Jnn-E7-rT7"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogl-Ei-Uwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -446,6 +455,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="okT-V5-Qxb"/>
+        <segue reference="Jnn-E7-rT7"/>
     </inferredMetricsTieBreakers>
 </document>
