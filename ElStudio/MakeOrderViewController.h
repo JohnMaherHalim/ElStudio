@@ -16,5 +16,6 @@
 
 -(IBAction)upload ;
 -(IBAction)RealUpload:(id)sender;
+-(IBAction)Instagram:(id)sender;
 
 @end

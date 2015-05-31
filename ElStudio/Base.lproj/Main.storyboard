@@ -131,6 +131,83 @@
             </objects>
             <point key="canvasLocation" x="-249" y="654"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="weh-Iu-oys">
+            <objects>
+                <viewController id="MTI-CC-woy" customClass="IKLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zKN-no-Gxe"/>
+                        <viewControllerLayoutGuide type="bottom" id="qAF-Or-z0s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Aa1-hr-hKP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="30b-l2-6mg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="MTI-CC-woy" id="c45-iy-fpl"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="yPB-mo-y5r"/>
+                    <connections>
+                        <outlet property="mWebView" destination="30b-l2-6mg" id="grY-2Z-HeB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AYy-EY-A96" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28" y="3"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="MCE-0f-uRh">
+            <objects>
+                <collectionViewController id="bYl-fq-go3" customClass="IKCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="1iB-kY-wtk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="mcQ-e2-cAL">
+                            <size key="itemSize" width="106" height="106"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CPCELL" id="sFv-wr-xUH" customClass="IKCell">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iqx-iW-Xa3">
+                                            <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="imageView" destination="iqx-iW-Xa3" id="bXH-h1-4eG"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="bYl-fq-go3" id="fRw-ai-9c2"/>
+                            <outlet property="delegate" destination="bYl-fq-go3" id="bFq-GJ-Fo2"/>
+                        </connections>
+                    </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="xAQ-8y-QnT"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogl-Ei-Uwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="589" y="-4"/>
+        </scene>
         <!--Make Order View Controller-->
         <scene sceneID="pUf-S1-LS3">
             <objects>
@@ -152,14 +229,14 @@
                                     <action selector="upload" destination="Otx-Jd-g8A" eventType="touchUpInside" id="v0p-zt-jxx"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WWM-bd-PoR">
-                                <rect key="frame" x="40" y="270" width="240" height="128"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z2Y-pz-hKu">
-                                <rect key="frame" x="135" y="425" width="51" height="30"/>
-                                <state key="normal" title="Update">
+                                <rect key="frame" x="108" y="98" width="105" height="30"/>
+                                <state key="normal" title="Instagram">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="Instagram:" destination="Otx-Jd-g8A" eventType="touchUpInside" id="pcN-ii-6G4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -167,8 +244,9 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="JpR-X3-nhr"/>
                     <connections>
-                        <outlet property="myimg" destination="WWM-bd-PoR" id="Swr-d0-sdX"/>
                         <segue destination="ynv-tx-TWD" kind="push" identifier="GoToImages" id="okT-V5-Qxb"/>
+                        <segue destination="MTI-CC-woy" kind="push" identifier="InstagramLogin" id="u3Z-RX-0HY"/>
+                        <segue destination="bYl-fq-go3" kind="push" identifier="InstagramShow" id="Oxm-nE-64E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pYd-wl-wR8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -358,6 +436,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VSM-OF-3rF"/>
+        <segue reference="okT-V5-Qxb"/>
     </inferredMetricsTieBreakers>
 </document>

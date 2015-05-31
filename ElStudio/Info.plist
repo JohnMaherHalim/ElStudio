@@ -43,5 +43,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>InstagramAppClientId</key>
+	<string>8111161cabd74b0e841e7a1c9e17fa84</string>
+	<key>InstagramAppRedirectURL</key>
+	<string>http://www.elstud.io</string>
 </dict>
 </plist>

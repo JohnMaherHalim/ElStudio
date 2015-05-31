@@ -92,6 +92,17 @@
 }
 
 
+-(IBAction)Instagram:(id)sender {
+    BOOL LoggedIn = true ;
+    
+    if (!LoggedIn) {
+        [self performSegueWithIdentifier:@"InstagramLogin" sender:nil];
+    } else {
+        [self performSegueWithIdentifier:@"InstagramShow" sender:nil];
+    }
+}
+
+
 - (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker {
     
 }
