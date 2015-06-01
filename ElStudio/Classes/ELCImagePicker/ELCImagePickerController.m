@@ -14,6 +14,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "ELCConsole.h"
+#import "CurrentOrderManager.h"
 
 @implementation ELCImagePickerController
 
@@ -67,7 +68,7 @@
 	}
 }
 
-- (BOOL)shouldSelectAsset:(ELCAsset *)asset previousCount:(NSUInteger)previousCount
+/*- (BOOL)shouldSelectAsset:(ELCAsset *)asset previousCount:(NSUInteger)previousCount
 {
     BOOL shouldSelect = previousCount < self.maximumImagesCount;
     if (!shouldSelect) {
@@ -80,6 +81,84 @@
                           otherButtonTitles:NSLocalizedString(@"Okay", nil), nil] show];
     }
     return shouldSelect;
+}*/
+
+- (BOOL)shouldSelectAsset:(ELCAsset *)asset previousCount:(NSUInteger)previousCount
+{
+   /* BOOL CheckBasic = previousCount < self.ProductBasicNumber;
+    BOOL CheckAddOn = previousCount % self.ProductAddOnNumber ;
+    if (!CheckBasic) {
+        NSUInteger hi = self.ProductBasicNumber + 1;
+        if (previousCount == hi) {
+            NSString *title = @"Warning" ;// [NSString stringWithFormat:NSLocalizedString(@"Only %d photos please!", nil), self.maximumImagesCount];
+            NSString *message = [NSString stringWithFormat:NSLocalizedString(@"You can only send %d photos at a time.", nil), self.maximumImagesCount];
+            [[[UIAlertView alloc] initWithTitle:title
+                                    message:message
+                                   delegate:nil
+                          cancelButtonTitle:nil
+                          otherButtonTitles:NSLocalizedString(@"Okay", nil), nil] show];
+        } else if (CheckAddOn == 0) {
+            NSString *title = @"Warning" ;// [NSString stringWithFormat:NSLocalizedString(@"Only %d photos please!", nil), self.maximumImagesCount];
+            NSString *message = @"You are about to cross the product Add-On" ;
+            [[[UIAlertView alloc] initWithTitle:title
+                                        message:message
+                                       delegate:nil
+                              cancelButtonTitle:nil
+                              otherButtonTitles:NSLocalizedString(@"Okay", nil), nil] show];
+        }
+    }*/
+    
+    NSInteger currentCount = previousCount + 1;
+    
+    if (currentCount < self.ProductBasicNumber) {
+        
+    } else if (currentCount == self.ProductBasicNumber) {
+        UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Basic" message:@"Done Basic" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [msg show];
+    } else {
+
+        NSInteger IndexAfter = currentCount - self.ProductBasicNumber ;
+        
+        /*if (IndexAfter > self.ProductAddOnNumber) {
+            IndexAfter = IndexAfter % self.ProductAddOnNumber ;
+        }
+        
+        if (IndexAfter == self.ProductAddOnNumber) {
+            UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"AddOn" message:@"Done AddOn" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [msg show];
+        }*/
+        
+        if (IndexAfter % self.ProductAddOnNumber == 0) {
+            UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"AddOn" message:@"Done AddOn" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [msg show];
+        }
+        
+        
+        
+        /* NSInteger checkAddOn = currentCount %  self.ProductAddOnNumber;
+        if (checkAddOn == 0) {
+            UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"AddOn" message:@"Done AddOn" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [msg show];
+        }*/
+    }
+    
+    if (currentCount >= self.ProductBasicNumber) {
+        [[[CurrentOrderManager sharedManager]curOrderItem]setBasicCheck:YES];
+        
+        NSInteger IndexAfter = currentCount - self.ProductBasicNumber ;
+        NSInteger divided = IndexAfter/self.ProductAddOnNumber ;
+        if (IndexAfter % self.ProductAddOnNumber != 0) {
+            divided++ ;
+        }
+        [[[CurrentOrderManager sharedManager]curOrderItem]setAddOns:divided];
+    }
+    else {
+         [[[CurrentOrderManager sharedManager]curOrderItem]setBasicCheck:NO];
+        [[[CurrentOrderManager sharedManager]curOrderItem]setAddOns:0];
+    }
+    
+    
+    return YES;
 }
 
 - (BOOL)shouldDeselectAsset:(ELCAsset *)asset previousCount:(NSUInteger)previousCount;

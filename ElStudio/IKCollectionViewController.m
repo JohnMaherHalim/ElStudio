@@ -25,6 +25,7 @@
 #import "InstagramMedia.h"
 #import "InstagramUser.h"
 #import "ShowImagesViewController.h"
+#import "CurrentOrderManager.h"
 //#import "IKLoginViewController.h"
 //#import "IKMediaViewController.h"
 
@@ -267,6 +268,47 @@
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:media.thumbnailURL]];
     [self.selectedImages addObject:image];
     
+    NSInteger currentCount = [self.selectedImages count];
+    Product *prod = [[[CurrentOrderManager sharedManager]curOrderItem]product];
+    NSInteger ProductBasicNumber = 3;//[prod.Product_basicNumber integerValue] ;
+    NSInteger ProductAddOnNumber = 2;//[prod.Product_addonNumber integerValue];
+    
+    if (currentCount < ProductBasicNumber) {
+        
+    } else if (currentCount == ProductBasicNumber) {
+        UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Basic" message:@"Done Basic" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [msg show];
+    } else {
+        
+        NSInteger IndexAfter = currentCount - ProductBasicNumber ;
+        NSInteger check = currentCount % ProductAddOnNumber ;
+        
+       /* if (IndexAfter > ProductAddOnNumber) {
+            IndexAfter = IndexAfter % ProductAddOnNumber ;
+        }
+        
+        if (IndexAfter == ProductAddOnNumber) {
+            UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"AddOn" message:@"Done AddOn" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [msg show];
+            
+        }*/
+        
+        if (IndexAfter % ProductAddOnNumber == 0) {
+            UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"AddOn" message:@"Done AddOn" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [msg show];
+        }
+        
+        
+        
+        
+        /* NSInteger checkAddOn = currentCount %  self.ProductAddOnNumber;
+         if (checkAddOn == 0) {
+         UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"AddOn" message:@"Done AddOn" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+         [msg show];
+         }*/
+    }
+    
+    [self refreshCurrentOrderData] ;
    // NSLog(@"Click");
     
    // [collectionView deselectItemAtIndexPath:indexPath animated:YES];
@@ -298,10 +340,46 @@
         }
     }
     
+    [self refreshCurrentOrderData] ;
+    
+}
+
+
+-(void)refreshCurrentOrderData {
+    NSInteger currentCount = [self.selectedImages count];
+    Product *prod = [[[CurrentOrderManager sharedManager]curOrderItem]product];
+    NSInteger ProductBasicNumber = 3;//[prod.Product_basicNumber integerValue] ;
+    NSInteger ProductAddOnNumber = 2;//[prod.Product_addonNumber integerValue];
+    if (currentCount >= ProductBasicNumber) {
+        [[[CurrentOrderManager sharedManager]curOrderItem]setBasicCheck:YES];
+        
+        NSInteger IndexAfter = currentCount - ProductBasicNumber ;
+        NSInteger divided = IndexAfter/ProductAddOnNumber ;
+        if (IndexAfter % ProductAddOnNumber != 0) {
+            divided++ ;
+        }
+        [[[CurrentOrderManager sharedManager]curOrderItem]setAddOns:divided];
+    }
+    else {
+        [[[CurrentOrderManager sharedManager]curOrderItem]setBasicCheck:NO];
+        [[[CurrentOrderManager sharedManager]curOrderItem]setAddOns:0];
+    }
+
 }
 
 -(IBAction)DoneChoosingImages:(id)sender {
-    [self performSegueWithIdentifier:@"InstaToShowImages" sender:nil];
+    BOOL BasicFlag = [[[CurrentOrderManager sharedManager]curOrderItem]BasicCheck];
+    
+    if (BasicFlag) {
+        [self performSegueWithIdentifier:@"InstaToShowImages"
+                                  sender:nil];
+    } else {
+        Product *myprod = [[[CurrentOrderManager sharedManager]curOrderItem]product];
+        NSString *msgtext = [NSString stringWithFormat:@"Choosing this product, you should choose at least %@ photos in order to complete your order",myprod.Product_basicNumber];
+        UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Not enough images" message:msgtext  delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [msg show] ;
+    }
+    //[self performSegueWithIdentifier:@"InstaToShowImages" sender:nil];
     
 }
 

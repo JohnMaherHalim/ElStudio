@@ -9,6 +9,8 @@
 #import "MakeOrderViewController.h"
 #import "ShowImagesViewController.h"
 #import "InstagramKit.h" 
+#import "Product.h"
+#import "CurrentOrderManager.h"
 
 @interface MakeOrderViewController ()
 
@@ -64,6 +66,11 @@
     
     ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initImagePicker];
     elcPicker.maximumImagesCount = 4; //Set the maximum number of images to select, defaults to 4
+    
+    Product *myprod = [[[CurrentOrderManager sharedManager]curOrderItem]product];
+    elcPicker.ProductBasicNumber = 2 ;//  [myprod.Product_basicNumber integerValue];
+    elcPicker.ProductAddOnNumber = 2 ; // [myprod.Product_addonNumber integerValue];
+    
     elcPicker.returnsOriginalImage = NO; //Only return the fullScreenImage, not the fullResolutionImage
     elcPicker.returnsImage = YES; //Return UIimage if YES. If NO, only return asset location information
     elcPicker.onOrder = YES; //For multiple image selection, display and return selected order of images
@@ -71,6 +78,7 @@
     
     //Present modally
     [self presentViewController:elcPicker animated:YES completion:nil];
+    //[self.navigationController pushViewController:elcPicker animated:YES];
     
     // Release if not using ARC
     
@@ -105,8 +113,19 @@
         [imgarray addObject:img];
     }
     
-    [self performSegueWithIdentifier:@"GoToImages"
-                              sender:nil];
+    BOOL BasicFlag = [[[CurrentOrderManager sharedManager]curOrderItem]BasicCheck];
+    
+    if (BasicFlag) {
+        [self performSegueWithIdentifier:@"GoToImages"
+                                  sender:nil];
+    } else {
+         Product *myprod = [[[CurrentOrderManager sharedManager]curOrderItem]product];
+        NSString *msgtext = [NSString stringWithFormat:@"Choosing this product, you should choose at least %@ photos in order to complete your order",myprod.Product_basicNumber];
+        UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Not enough images" message:msgtext  delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [msg show] ;
+    }
+    
+    
     
 }
 

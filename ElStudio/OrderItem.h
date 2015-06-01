@@ -13,6 +13,8 @@
 
 @property (nonatomic,retain) NSString *ProductName ;
 @property (nonatomic,retain) Product *product ;
+@property BOOL BasicCheck ;
+@property NSInteger AddOns ;
 @property (nonatomic,retain) NSMutableArray *ProductImages ;
 @property (nonatomic,retain) NSMutableArray *ImagesCounts ;
 @property (nonatomic,retain) NSMutableArray *ImagesScales ;
