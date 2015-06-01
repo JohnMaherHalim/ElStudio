@@ -17,6 +17,8 @@
 		6228FD2C1B02323600B0D759 /* WholeOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD2B1B02323600B0D759 /* WholeOrder.m */; };
 		6229AE6E1B03964E00EE7FD4 /* CurrentThankYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6229AE6D1B03964E00EE7FD4 /* CurrentThankYouViewController.m */; };
 		6229AE721B0398C900EE7FD4 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6229AE711B0398C900EE7FD4 /* HomeViewController.m */; };
+		622A28621B1CD4FF00B758DD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622A28611B1CD4FF00B758DD /* LoginViewController.m */; };
+		622A28651B1CDB2900B758DD /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622A28641B1CDB2900B758DD /* CreateAccountViewController.m */; };
 		622E47A51B1B016A00E4C5E3 /* InstagramEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E47941B1B016A00E4C5E3 /* InstagramEngine.m */; };
 		622E47A61B1B016A00E4C5E3 /* InstagramComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E47981B1B016A00E4C5E3 /* InstagramComment.m */; };
 		622E47A71B1B016A00E4C5E3 /* InstagramLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E479A1B1B016A00E4C5E3 /* InstagramLocation.m */; };
@@ -140,6 +142,10 @@
 		6229AE6D1B03964E00EE7FD4 /* CurrentThankYouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentThankYouViewController.m; sourceTree = "<group>"; };
 		6229AE701B0398C800EE7FD4 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		6229AE711B0398C900EE7FD4 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		622A28601B1CD4FF00B758DD /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		622A28611B1CD4FF00B758DD /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		622A28631B1CDB2900B758DD /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountViewController.h; sourceTree = "<group>"; };
+		622A28641B1CDB2900B758DD /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
 		622E47931B1B016A00E4C5E3 /* InstagramEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramEngine.h; sourceTree = "<group>"; };
 		622E47941B1B016A00E4C5E3 /* InstagramEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramEngine.m; sourceTree = "<group>"; };
 		622E47951B1B016A00E4C5E3 /* InstagramKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramKit.h; sourceTree = "<group>"; };
@@ -410,6 +416,17 @@
 				6229AE711B0398C900EE7FD4 /* HomeViewController.m */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		622A285F1B1CD4B800B758DD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				622A28601B1CD4FF00B758DD /* LoginViewController.h */,
+				622A28611B1CD4FF00B758DD /* LoginViewController.m */,
+				622A28631B1CDB2900B758DD /* CreateAccountViewController.h */,
+				622A28641B1CDB2900B758DD /* CreateAccountViewController.m */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		622E47911B1B016A00E4C5E3 /* InstagramKit */ = {
@@ -801,6 +818,7 @@
 		887437F11AED912D00D0BFD2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				622A285F1B1CD4B800B758DD /* Login */,
 				622F23C41B1C83F400BC77A4 /* CurrentItemPrice */,
 				622F23B61B1C42DB00BC77A4 /* ProductDetails */,
 				622E47CD1B1B03A000E4C5E3 /* Instagram */,
@@ -939,12 +957,14 @@
 				62C77D011AEE905200BB3D48 /* ELCImagePickerDemoAppDelegate.m in Sources */,
 				62C7C2E51AEF7B8700563DD6 /* AffineImageViewController.m in Sources */,
 				6228FD2C1B02323600B0D759 /* WholeOrder.m in Sources */,
+				622A28651B1CDB2900B758DD /* CreateAccountViewController.m in Sources */,
 				62C77CF71AEE905200BB3D48 /* ELCAssetCell.m in Sources */,
 				622F23C31B1C490C00BC77A4 /* SVProgressHUD.m in Sources */,
 				622F23C71B1C841800BC77A4 /* CurrentItemPriceViewController.m in Sources */,
 				628930581B11E98200076F3F /* zutil.c in Sources */,
 				881CA3A41AF5307A0097FEBE /* GRStreamInfo.m in Sources */,
 				622E47D01B1B03CE00E4C5E3 /* InstagramViewController.m in Sources */,
+				622A28621B1CD4FF00B758DD /* LoginViewController.m in Sources */,
 				622E47C91B1B01A100E4C5E3 /* AFURLRequestSerialization.m in Sources */,
 				62C77CFB1AEE905200BB3D48 /* ELCOverlayImageView.m in Sources */,
 				628930421B11E98100076F3F /* ioapi.c in Sources */,
