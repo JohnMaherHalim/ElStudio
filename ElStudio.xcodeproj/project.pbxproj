@@ -41,6 +41,10 @@
 		622E47DA1B1B129500E4C5E3 /* IKMediaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E47D81B1B129500E4C5E3 /* IKMediaCell.m */; };
 		622E47DD1B1B1EDF00E4C5E3 /* IKCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E47DC1B1B1EDF00E4C5E3 /* IKCollectionViewController.m */; };
 		622E47E01B1B22A700E4C5E3 /* IKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E47DF1B1B22A700E4C5E3 /* IKLoginViewController.m */; };
+		622F23B91B1C42FB00BC77A4 /* ProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622F23B81B1C42FB00BC77A4 /* ProductDetailsViewController.m */; };
+		622F23C11B1C490C00BC77A4 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 622F23BC1B1C490C00BC77A4 /* SVIndefiniteAnimatedView.m */; };
+		622F23C21B1C490C00BC77A4 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 622F23BE1B1C490C00BC77A4 /* SVProgressHUD.bundle */; };
+		622F23C31B1C490C00BC77A4 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 622F23C01B1C490C00BC77A4 /* SVProgressHUD.m */; };
 		6232EAB21B1B8D9D000A7860 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 6232EAB11B1B8D9D000A7860 /* Product.m */; };
 		6232EAB51B1B9375000A7860 /* ProductsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6232EAB41B1B9375000A7860 /* ProductsStore.m */; };
 		628930421B11E98100076F3F /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930161B11E98100076F3F /* ioapi.c */; };
@@ -185,6 +189,14 @@
 		622E47DC1B1B1EDF00E4C5E3 /* IKCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKCollectionViewController.m; sourceTree = "<group>"; };
 		622E47DE1B1B22A700E4C5E3 /* IKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKLoginViewController.h; sourceTree = "<group>"; };
 		622E47DF1B1B22A700E4C5E3 /* IKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKLoginViewController.m; sourceTree = "<group>"; };
+		622F23B71B1C42FB00BC77A4 /* ProductDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailsViewController.h; sourceTree = "<group>"; };
+		622F23B81B1C42FB00BC77A4 /* ProductDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailsViewController.m; sourceTree = "<group>"; };
+		622F23BB1B1C490C00BC77A4 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		622F23BC1B1C490C00BC77A4 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		622F23BD1B1C490C00BC77A4 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		622F23BE1B1C490C00BC77A4 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		622F23BF1B1C490C00BC77A4 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		622F23C01B1C490C00BC77A4 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		6232EAB01B1B8D9D000A7860 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		6232EAB11B1B8D9D000A7860 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		6232EAB31B1B9375000A7860 /* ProductsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsStore.h; sourceTree = "<group>"; };
@@ -492,6 +504,28 @@
 			path = "CollectionView Cells";
 			sourceTree = "<group>";
 		};
+		622F23B61B1C42DB00BC77A4 /* ProductDetails */ = {
+			isa = PBXGroup;
+			children = (
+				622F23B71B1C42FB00BC77A4 /* ProductDetailsViewController.h */,
+				622F23B81B1C42FB00BC77A4 /* ProductDetailsViewController.m */,
+			);
+			name = ProductDetails;
+			sourceTree = "<group>";
+		};
+		622F23BA1B1C490C00BC77A4 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				622F23BB1B1C490C00BC77A4 /* SVIndefiniteAnimatedView.h */,
+				622F23BC1B1C490C00BC77A4 /* SVIndefiniteAnimatedView.m */,
+				622F23BD1B1C490C00BC77A4 /* SVProgressHUD-Prefix.pch */,
+				622F23BE1B1C490C00BC77A4 /* SVProgressHUD.bundle */,
+				622F23BF1B1C490C00BC77A4 /* SVProgressHUD.h */,
+				622F23C01B1C490C00BC77A4 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		628930121B11E98100076F3F /* ARCHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -631,6 +665,7 @@
 		62C77CD81AEE905100BB3D48 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				622F23BA1B1C490C00BC77A4 /* SVProgressHUD */,
 				622E47AD1B1B01A100E4C5E3 /* AFNetworking */,
 				622E47911B1B016A00E4C5E3 /* InstagramKit */,
 				628930121B11E98100076F3F /* ARCHelper */,
@@ -754,6 +789,7 @@
 		887437F11AED912D00D0BFD2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				622F23B61B1C42DB00BC77A4 /* ProductDetails */,
 				622E47CD1B1B03A000E4C5E3 /* Instagram */,
 				622307A71B04B538009973AD /* Cart */,
 				6229AE6F1B03989E00EE7FD4 /* Home */,
@@ -860,6 +896,7 @@
 				62C77D161AEEA07700BB3D48 /* ShowImageTableViewCell.xib in Resources */,
 				62C77CFF1AEE905200BB3D48 /* Overlay.png in Resources */,
 				62C2ACB31AE8FF5B008393DE /* Main.storyboard in Resources */,
+				622F23C21B1C490C00BC77A4 /* SVProgressHUD.bundle in Resources */,
 				62C2ACB81AE8FF5B008393DE /* LaunchScreen.xib in Resources */,
 				62C77D001AEE905200BB3D48 /* Overlay@2x.png in Resources */,
 				62C2ACB51AE8FF5B008393DE /* Images.xcassets in Resources */,
@@ -890,6 +927,7 @@
 				62C7C2E51AEF7B8700563DD6 /* AffineImageViewController.m in Sources */,
 				6228FD2C1B02323600B0D759 /* WholeOrder.m in Sources */,
 				62C77CF71AEE905200BB3D48 /* ELCAssetCell.m in Sources */,
+				622F23C31B1C490C00BC77A4 /* SVProgressHUD.m in Sources */,
 				628930581B11E98200076F3F /* zutil.c in Sources */,
 				881CA3A41AF5307A0097FEBE /* GRStreamInfo.m in Sources */,
 				622E47D01B1B03CE00E4C5E3 /* InstagramViewController.m in Sources */,
@@ -922,6 +960,7 @@
 				622E47C61B1B01A100E4C5E3 /* AFNetworkReachabilityManager.m in Sources */,
 				628930551B11E98200076F3F /* inftrees.c in Sources */,
 				6289304C1B11E98200076F3F /* crc32.c in Sources */,
+				622F23C11B1C490C00BC77A4 /* SVIndefiniteAnimatedView.m in Sources */,
 				6228FD1E1B021FF300B0D759 /* ProductsTableViewController.m in Sources */,
 				622E47C31B1B01A100E4C5E3 /* AFHTTPRequestOperation.m in Sources */,
 				881CA39F1AF5307A0097FEBE /* GRListingRequest.m in Sources */,
@@ -956,6 +995,7 @@
 				622E47CA1B1B01A100E4C5E3 /* AFURLResponseSerialization.m in Sources */,
 				628930491B11E98200076F3F /* ZipWriteStream.m in Sources */,
 				62C77D111AEEA04A00BB3D48 /* ShowImagesViewController.m in Sources */,
+				622F23B91B1C42FB00BC77A4 /* ProductDetailsViewController.m in Sources */,
 				622E47AC1B1B016A00E4C5E3 /* InstagramUser.m in Sources */,
 				881CA3A11AF5307A0097FEBE /* GRUploadRequest.m in Sources */,
 				622E47DD1B1B1EDF00E4C5E3 /* IKCollectionViewController.m in Sources */,

@@ -9,7 +9,8 @@
 #import "ProductsTableViewController.h"
 #import "CurrentOrderManager.h"
 #import "ProductsStore.h"
-#import "Product.h"
+
+#import "ProductDetailsViewController.h"
 
 @interface ProductsTableViewController ()
 
@@ -84,8 +85,16 @@
     Product *product = [products objectAtIndex:indexPath.row] ;
     NSString *productname = product.Product_name ;
     [[CurrentOrderManager sharedManager]storeProductName:productname] ;
-    
-     [self performSegueWithIdentifier: @"GoToPickImages" sender: self];
+    [[CurrentOrderManager sharedManager]storeProduct:product]; 
+    globalprod = product ;
+     [self performSegueWithIdentifier: @"GoToProductDetails" sender: self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"GoToProductDetails"]) {
+        ProductDetailsViewController *productDetails = [segue destinationViewController] ;
+        [productDetails setMyproduct:globalprod] ;
+    }
 }
 
 

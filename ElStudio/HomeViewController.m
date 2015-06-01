@@ -10,6 +10,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "Product.h"
 #import "ProductsStore.h"
+#import "SVProgressHUD.h"
 
 @interface HomeViewController ()
 
@@ -42,6 +43,7 @@
 }
 
 -(void)getGlobalData {
+    [SVProgressHUD show];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:@"http://ws.elstud.io/api/global/getglobal" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
@@ -63,9 +65,13 @@
             [[[ProductsStore sharedManager]Products]addObject:myprod];
            // [ProductsObjects addObject:myprod];
         }
+        [SVProgressHUD dismiss];
        // [ProductsStore sharedManager]
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [SVProgressHUD dismiss];
+        UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Network Error" message:@"Error getting data" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [msg show] ;
     }];
     
 }

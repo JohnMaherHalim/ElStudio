@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Product.h"
 
 @interface ProductsTableViewController : UITableViewController{
-    NSMutableArray *products ; 
+    NSMutableArray *products ;
+    Product *globalprod ; 
 }
 
 @end

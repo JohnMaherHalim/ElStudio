@@ -20,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33o-mN-lby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1026" y="676"/>
+            <point key="canvasLocation" x="-1597" y="696"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="cY7-gW-JGY">
@@ -60,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wE8-BL-vZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-651" y="654"/>
+            <point key="canvasLocation" x="-1151" y="696"/>
         </scene>
         <!--Cart-->
         <scene sceneID="jdX-tL-2yO">
@@ -124,12 +124,80 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="jH4-BA-hYe"/>
                     <connections>
-                        <segue destination="Otx-Jd-g8A" kind="push" identifier="GoToPickImages" id="IWQ-N0-bsf"/>
+                        <segue destination="ETm-QV-g5H" kind="push" identifier="GoToProductDetails" id="1O1-p3-sDt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5n-F3-Z7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-249" y="654"/>
+            <point key="canvasLocation" x="-765" y="696"/>
+        </scene>
+        <!--Product Details View Controller-->
+        <scene sceneID="wc4-1l-Uis">
+            <objects>
+                <viewController id="ETm-QV-g5H" customClass="ProductDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K2l-NG-JO6"/>
+                        <viewControllerLayoutGuide type="bottom" id="ciR-sy-oQr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oEn-Gk-u3U">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEl-jN-jlL">
+                                <rect key="frame" x="25" y="8" width="267" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUK-UA-Wmn">
+                                <rect key="frame" x="25" y="80" width="267" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqd-Im-POI">
+                                <rect key="frame" x="27" y="44" width="267" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jj-4O-Efn">
+                                <rect key="frame" x="27" y="116" width="267" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhD-DS-wl9">
+                                <rect key="frame" x="25" y="152" width="267" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Upv-AH-YLU">
+                                <rect key="frame" x="16" y="237" width="278" height="30"/>
+                                <state key="normal" title="Select">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Otx-Jd-g8A" kind="push" id="CNG-qL-nq5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="BVt-3n-Lqk"/>
+                    <connections>
+                        <outlet property="AddOnNumber" destination="0jj-4O-Efn" id="psA-Uy-NeD"/>
+                        <outlet property="AddOnPrice" destination="bhD-DS-wl9" id="GVz-t5-ufq"/>
+                        <outlet property="BasicNumber" destination="iqd-Im-POI" id="9zJ-1K-mjz"/>
+                        <outlet property="BasicPrice" destination="gUK-UA-Wmn" id="s4r-PQ-08D"/>
+                        <outlet property="Resolution" destination="CEl-jN-jlL" id="Hzu-XP-x7R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lq6-VH-oQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-313" y="665"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="weh-Iu-oys">
@@ -161,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYy-EY-A96" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28" y="3"/>
+            <point key="canvasLocation" x="168" y="-89"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="MCE-0f-uRh">
@@ -215,7 +283,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogl-Ei-Uwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="589" y="-4"/>
+            <point key="canvasLocation" x="688" y="-64"/>
         </scene>
         <!--Make Order View Controller-->
         <scene sceneID="pUf-S1-LS3">
