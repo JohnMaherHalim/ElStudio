@@ -90,9 +90,21 @@
     if (self.editbool) {
         OrderItem *OrderItemtobemodified = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:self.editnumberflag];
         OrderItemtobemodified.ImagesCounts = self.counts ;
+        NSInteger sum = [self getSumOfImages:self.counts];
+        [OrderItemtobemodified modifyItemPrice:sum];
         [[[[WholeOrder sharedManager]myOrder]OrderItems]replaceObjectAtIndex:self.editnumberflag withObject:OrderItemtobemodified];
         [[WholeOrder sharedManager]SaveMyOrder] ;
     }
+}
+
+-(NSInteger)getSumOfImages:(NSMutableArray*)CountsArray {
+    NSInteger sum = 0 ;
+    
+    for (NSNumber *num in CountsArray) {
+        sum += [num integerValue] ;
+    }
+    
+    return  sum ;
 }
 
 -(void)PlusOne:(NSInteger)index {
@@ -100,6 +112,11 @@
     int value = [number intValue];
     number = [NSNumber numberWithInt:value + 1];
     [self.counts replaceObjectAtIndex:index withObject:number];
+    
+    if (!self.editbool) {
+        NSInteger sum = [self getSumOfImages:self.counts];
+        [[CurrentOrderManager sharedManager]refreshOrderWithNumberOfImages:sum];
+    }
     
     [self modifyCountstoEditedOrder] ;
     
@@ -113,6 +130,11 @@
     int value = [number intValue];
     number = [NSNumber numberWithInt:value - 1];
     [self.counts replaceObjectAtIndex:index withObject:number];
+    
+    if (!self.editbool) {
+        NSInteger sum = [self getSumOfImages:self.counts];
+        [[CurrentOrderManager sharedManager]refreshOrderWithNumberOfImages:sum];
+    }
     
     [self modifyCountstoEditedOrder] ;
     
@@ -227,14 +249,6 @@
         [[CurrentOrderManager sharedManager]storeProductImages:images];
         [[CurrentOrderManager sharedManager]storeImagesCounts:self.counts];
 		[[CurrentOrderManager sharedManager]storeScales:self.scales];
-        OrderItem *orderitem = [[OrderItem alloc]init];
-        orderitem.ProductName = [[[CurrentOrderManager sharedManager]curOrderItem]ProductName];
-        orderitem.product = [[[CurrentOrderManager sharedManager]curOrderItem]product];
-        orderitem.ProductImages = [[[CurrentOrderManager sharedManager]curOrderItem]ProductImages];
-        orderitem.ImagesCounts = [[[CurrentOrderManager sharedManager]curOrderItem]ImagesCounts];
-		orderitem.ImagesScales = [[[CurrentOrderManager sharedManager]curOrderItem]ImagesScales];
-        [[WholeOrder sharedManager]addtoOrderItems:orderitem];
-		[[WholeOrder sharedManager]SaveMyOrder]; 
     }
     
     

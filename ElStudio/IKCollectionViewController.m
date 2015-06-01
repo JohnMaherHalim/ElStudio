@@ -308,7 +308,7 @@
          }*/
     }
     
-    [self refreshCurrentOrderData] ;
+    [[CurrentOrderManager sharedManager]refreshOrderWithNumberOfImages:[self.selectedImages count]];
    // NSLog(@"Click");
     
    // [collectionView deselectItemAtIndexPath:indexPath animated:YES];
@@ -340,7 +340,7 @@
         }
     }
     
-    [self refreshCurrentOrderData] ;
+    [[CurrentOrderManager sharedManager]refreshOrderWithNumberOfImages:[self.selectedImages count]];
     
 }
 

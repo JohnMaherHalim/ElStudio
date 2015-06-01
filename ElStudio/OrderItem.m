@@ -35,4 +35,19 @@
 	return self;
 }
 
+-(void)modifyItemPrice :(NSInteger)currentCount {
+    NSInteger Sum = 0 ;
+    Sum += [self.product.Product_basicNumber integerValue] ;
+    
+    NSInteger IndexAfter = currentCount - [self.product.Product_basicNumber integerValue];
+    NSInteger divided = IndexAfter/[self.product.Product_addonNumber integerValue] ;
+    if (IndexAfter % [self.product.Product_addonNumber integerValue] != 0) {
+        divided++ ;
+    }
+    [self setAddOns:divided];
+    
+    Sum += self.AddOns * [self.product.Product_addonNumber integerValue];
+    self.ItemPrice = Sum;
+}
+
 @end

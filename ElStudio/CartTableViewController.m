@@ -45,6 +45,13 @@
     
     orderItems = [[[WholeOrder sharedManager]myOrder]OrderItems];
     
+    NSInteger OrderTotalPrice = 0 ;
+    for (OrderItem *item in orderItems) {
+        OrderTotalPrice += item.ItemPrice ;
+    }
+    NSString *TotalPticeString = [NSString stringWithFormat:@"Total Price is : $ %ld",(long)OrderTotalPrice];
+    [self.totalPrice setText:TotalPticeString] ; 
+    
     [self.tableView reloadData] ;
     
 }

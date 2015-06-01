@@ -11,6 +11,7 @@
 #import "Product.h"
 #import "ProductsStore.h"
 #import "SVProgressHUD.h"
+#import "WholeOrder.h"
 
 @interface HomeViewController ()
 
@@ -74,6 +75,16 @@
         [msg show] ;
     }];
     
+}
+
+-(IBAction)GoToCart:(id)sender{
+    NSMutableArray *items = [[[WholeOrder sharedManager]myOrder]OrderItems];
+    if (items.count == 0) {
+        UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Sorry!" message:@"You don't have any products in your cart yet" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [msg show] ;
+    } else if (items.count > 0) {
+        [self performSegueWithIdentifier:@"GoToCart" sender:nil];
+    }
 }
 
 /*

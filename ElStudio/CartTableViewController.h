@@ -17,6 +17,7 @@
 
 @property (nonatomic , retain) IBOutlet UITableView *tableView ;
 @property (nonatomic, strong) GRRequestsManager *requestsManager;
+@property (nonatomic , retain) IBOutlet UILabel *totalPrice ; 
 
 -(IBAction)UploadOrder:(id)sender;
 

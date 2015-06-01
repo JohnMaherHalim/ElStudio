@@ -15,9 +15,12 @@
 @property (nonatomic,retain) Product *product ;
 @property BOOL BasicCheck ;
 @property NSInteger AddOns ;
+@property NSInteger ItemPrice ; 
 @property (nonatomic,retain) NSMutableArray *ProductImages ;
 @property (nonatomic,retain) NSMutableArray *ImagesCounts ;
 @property (nonatomic,retain) NSMutableArray *ImagesScales ;
+
+-(void)modifyItemPrice :(NSInteger)currentCount ;
 
 -(id)init ;
 

@@ -142,7 +142,9 @@
         }*/
     }
     
-    if (currentCount >= self.ProductBasicNumber) {
+    [[CurrentOrderManager sharedManager]refreshOrderWithNumberOfImages:currentCount];
+    
+    /*if (currentCount >= self.ProductBasicNumber) {
         [[[CurrentOrderManager sharedManager]curOrderItem]setBasicCheck:YES];
         
         NSInteger IndexAfter = currentCount - self.ProductBasicNumber ;
@@ -155,7 +157,8 @@
     else {
          [[[CurrentOrderManager sharedManager]curOrderItem]setBasicCheck:NO];
         [[[CurrentOrderManager sharedManager]curOrderItem]setAddOns:0];
-    }
+    }*/
+    
     
     
     return YES;

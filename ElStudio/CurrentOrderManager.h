@@ -18,6 +18,7 @@
 -(void)storeProductImages:(NSMutableArray*)productImages ;
 -(void)storeImagesCounts:(NSMutableArray*)imagecounts ;
 -(void)storeScales:(NSMutableArray*)imagesscales ; 
+-(void)refreshOrderWithNumberOfImages:(NSInteger)currentCount;
 
 + (id)sharedManager;
 

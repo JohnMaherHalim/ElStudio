@@ -11,6 +11,8 @@
 @interface HomeViewController : UIViewController
 
 @property BOOL jumpflag ;
-@property BOOL Productflag ; 
+@property BOOL Productflag ;
+
+-(IBAction)GoToCart:(id)sender;
 
 @end
