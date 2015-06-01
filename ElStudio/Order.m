@@ -20,10 +20,12 @@
 
 - (void) encodeWithCoder:(NSCoder *)encoder {
 	[encoder encodeObject:self.OrderItems forKey:@"OrderItems"];
+    [encoder encodeObject:self.totalPrice forKey:@"totalPrice"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
 	self.OrderItems = [decoder decodeObjectForKey:@"OrderItems"];
+    self.totalPrice = [decoder decodeObjectForKey:@"totalPrice"];
 	return self; 
 }
 

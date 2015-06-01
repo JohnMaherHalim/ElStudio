@@ -11,6 +11,7 @@
 @interface Order : NSObject<NSCoding>
 
 @property (nonatomic, retain) NSMutableArray *OrderItems ;
+@property  (nonatomic,retain) NSNumber * totalPrice ;
 
 -(id)init ;
 
