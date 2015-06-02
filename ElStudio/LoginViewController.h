@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic,retain) IBOutlet UITextField* UserName ;
 @property (nonatomic,retain) IBOutlet UITextField *Password ;

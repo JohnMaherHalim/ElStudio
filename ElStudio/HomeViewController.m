@@ -36,6 +36,17 @@
         self.Productflag = NO ;
         [self performSegueWithIdentifier:@"GoToProducts" sender:nil];
     }
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults] ;
+    NSString *currentUser = [defaults objectForKey:@"UserName"];
+    
+    if (currentUser) {
+        [self.LogIn setHidden:YES];
+        [self.LogOut setHidden:NO];
+    } else {
+        [self.LogIn setHidden:NO];
+        [self.LogOut setHidden:YES] ; 
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,6 +89,11 @@
 }
 
 -(IBAction)GoToCart:(id)sender{
+    
+    NSUserDefaults *dafaults = [NSUserDefaults standardUserDefaults] ;
+    NSString *currentuser = [dafaults objectForKey:@"UserName"];
+    
+    if (currentuser) {
     NSMutableArray *items = [[[WholeOrder sharedManager]myOrder]OrderItems];
     if (items.count == 0) {
         UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Sorry!" message:@"You don't have any products in your cart yet" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
@@ -85,6 +101,22 @@
     } else if (items.count > 0) {
         [self performSegueWithIdentifier:@"GoToCart" sender:nil];
     }
+    } else {
+        [self performSegueWithIdentifier:@"GoToLogin" sender:nil];
+    }
+}
+
+-(IBAction)LogOut:(id)sender {
+    [self.LogOut setHidden:YES];
+    [self.LogIn setHidden:NO] ;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:nil forKey:@"UserEmail"];
+    [defaults setObject:nil forKey:@"UserName"];
+    [defaults setObject:nil forKey:@"UserAddress"];
+    [defaults setObject:nil forKey:@"UserPhone"];
+    [defaults synchronize] ;
+
 }
 
 /*

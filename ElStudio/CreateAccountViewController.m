@@ -28,6 +28,18 @@
 
 -(IBAction)CreateAccount:(id)sender {
     
+    BOOL textempty = NO ;
+    BOOL flag = NO ;
+    for (UITextField *tfield in self.view.subviews) {
+        if ([tfield isKindOfClass:[UITextField class]]) {
+            flag = [self checktextfield:tfield];
+            if (flag)
+                textempty = YES;
+        }
+    }
+    
+    if (!textempty) {
+    
     if ([self.Password.text isEqualToString:self.ConfirmPassword.text]) {
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -37,12 +49,12 @@
     [parameters setObject:self.Password.text forKey:@"password"];
     [parameters setObject:self.Address.text forKey:@"address"];
     [parameters setObject:self.PhoneNumber.text forKey:@"phone"];
-        NSMutableDictionary *parameters1 = [[NSMutableDictionary alloc]init];
-        [parameters1 setObject:parameters forKey:@"user"];
         [SVProgressHUD show];
-    [manager POST:@"http://ws.elstud.io/api/user/signup" parameters:parameters1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    [manager POST:@"http://ws.elstud.io/api/user/signup" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         [SVProgressHUD dismiss] ;
+        [self login:responseObject]; 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Network Error" message:@"Error getting data" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -53,6 +65,51 @@
         UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Sorry" message:@"Make sure that your password matches in both text fields" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [msg show];
     }
+    } else {
+        UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Sorry" message:@"You should fullfill all the fields" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [msg show] ;
+    }
+}
+
+
+-(void)login:(id)responseObject {
+    NSString *UserEmail = [responseObject objectForKey:@"email"];
+    NSString *userName = [responseObject objectForKey:@"name"];
+    NSString *userAddress = [responseObject objectForKey:@"address"];
+    NSString *userPhone = [responseObject objectForKey:@"phone"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:UserEmail forKey:@"UserEmail"];
+    [defaults setObject:userName forKey:@"UserName"];
+    [defaults setObject:userAddress forKey:@"UserAddress"];
+    [defaults setObject:userPhone forKey:@"UserPhone"];
+    [defaults synchronize] ;
+    [self.navigationController popToRootViewControllerAnimated:YES] ;
+}
+
+
+-(BOOL) checktextfield:(UITextField*)tfield {
+    
+    NSString *rawString = [tfield text];
+    NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSString *trimmed = [rawString stringByTrimmingCharactersInSet:whitespace];
+    
+    if ([tfield.text length] > 0 || [trimmed length] != 0 || [tfield.text isEqual:@""] == FALSE)
+    {
+        NSLog(@"%@",tfield.text);
+        NSString *hoo = tfield.text ;
+        return NO ;
+        //do your work
+    }
+    else
+    {
+        return YES ;
+        //through error
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
 
 /*

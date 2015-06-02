@@ -3,6 +3,7 @@ dependencies: /Users/johnmaher/ElStudio/ElStudio/AppDelegate.m \
   /Users/johnmaher/ElStudio/ElStudio/WholeOrder.h \
   /Users/johnmaher/ElStudio/ElStudio/Order.h \
   /Users/johnmaher/ElStudio/ElStudio/OrderItem.h \
+  /Users/johnmaher/ElStudio/ElStudio/Product.h \
   /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/InstagramKit.h \
   /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Engine/InstagramEngine.h \
   /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Models/InstagramComment.h \

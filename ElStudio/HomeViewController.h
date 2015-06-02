@@ -13,6 +13,10 @@
 @property BOOL jumpflag ;
 @property BOOL Productflag ;
 
+@property (nonatomic, retain) IBOutlet UIButton *LogIn ;
+@property (nonatomic ,retain) IBOutlet UIButton *LogOut ; 
+
 -(IBAction)GoToCart:(id)sender;
+-(IBAction)LogOut:(id)sender;
 
 @end

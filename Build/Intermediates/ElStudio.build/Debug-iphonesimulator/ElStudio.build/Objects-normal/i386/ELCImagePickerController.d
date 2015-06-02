@@ -7,4 +7,7 @@ dependencies: \
   /Users/johnmaher/ElStudio/ElStudio/Classes/ELCImagePicker/ELCAssetTablePicker.h \
   /Users/johnmaher/ElStudio/ElStudio/Classes/ELCImagePicker/ELCAssetPickerFilterDelegate.h \
   /Users/johnmaher/ElStudio/ElStudio/Classes/ELCImagePicker/ELCAlbumPickerController.h \
-  /Users/johnmaher/ElStudio/ElStudio/Classes/ELCImagePicker/ELCConsole.h
+  /Users/johnmaher/ElStudio/ElStudio/Classes/ELCImagePicker/ELCConsole.h \
+  /Users/johnmaher/ElStudio/ElStudio/CurrentOrderManager.h \
+  /Users/johnmaher/ElStudio/ElStudio/OrderItem.h \
+  /Users/johnmaher/ElStudio/ElStudio/Product.h

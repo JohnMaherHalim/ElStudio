@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CreateAccountViewController : UIViewController
+@interface CreateAccountViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic,retain) IBOutlet UITextField *UserName ;
 @property (nonatomic,retain) IBOutlet UITextField *Email ;

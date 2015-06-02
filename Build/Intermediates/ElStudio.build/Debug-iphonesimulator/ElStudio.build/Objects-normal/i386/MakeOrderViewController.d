@@ -5,4 +5,16 @@ dependencies: \
   /Users/johnmaher/ElStudio/ElStudio/Classes/ELCImagePicker/ELCAssetSelectionDelegate.h \
   /Users/johnmaher/ElStudio/ElStudio/ShowImagesViewController.h \
   /Users/johnmaher/ElStudio/ElStudio/Classes/Sources/GRRequestsManager.h \
-  /Users/johnmaher/ElStudio/ElStudio/Classes/Sources/GRRequestsManagerProtocol.h
+  /Users/johnmaher/ElStudio/ElStudio/Classes/Sources/GRRequestsManagerProtocol.h \
+  /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/InstagramKit.h \
+  /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Engine/InstagramEngine.h \
+  /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Models/InstagramComment.h \
+  /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Models/InstagramModel.h \
+  /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Models/InstagramMedia.h \
+  /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Models/InstagramUser.h \
+  /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Models/InstagramTag.h \
+  /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Models/InstagramPaginationInfo.h \
+  /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Models/InstagramLocation.h \
+  /Users/johnmaher/ElStudio/ElStudio/Product.h \
+  /Users/johnmaher/ElStudio/ElStudio/CurrentOrderManager.h \
+  /Users/johnmaher/ElStudio/ElStudio/OrderItem.h
