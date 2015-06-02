@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface LoginViewController : UIViewController <UITextFieldDelegate>
+@interface LoginViewController : UIViewController <UITextFieldDelegate,FBSDKLoginButtonDelegate>
 
 @property (nonatomic,retain) IBOutlet UITextField* UserName ;
 @property (nonatomic,retain) IBOutlet UITextField *Password ;

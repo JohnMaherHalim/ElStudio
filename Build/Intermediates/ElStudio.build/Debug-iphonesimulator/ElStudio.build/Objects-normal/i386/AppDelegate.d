@@ -12,4 +12,25 @@ dependencies: /Users/johnmaher/ElStudio/ElStudio/AppDelegate.m \
   /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Models/InstagramUser.h \
   /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Models/InstagramTag.h \
   /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Models/InstagramPaginationInfo.h \
-  /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Models/InstagramLocation.h
+  /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Models/InstagramLocation.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestDataAttachment.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKGraphErrorRecoveryProcessor.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKAppLinkResolver.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKButton.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKUtility.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKTestUsersManager.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKSettings.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKProfilePictureView.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKProfile.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKMutableCopying.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKGraphRequest.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKConstants.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKApplicationDelegate.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKAppLinkUtility.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKAppEvents.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKMacros.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestConnection.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKCopying.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKAccessToken.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Modules/module.modulemap

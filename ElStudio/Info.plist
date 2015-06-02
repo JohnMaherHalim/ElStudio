@@ -47,5 +47,18 @@
 	<string>8111161cabd74b0e841e7a1c9e17fa84</string>
 	<key>InstagramAppRedirectURL</key>
 	<string>http://www.elstud.io</string>
+	<key>FacebookAppID</key>
+	<string>1596257990663758</string>
+	<key>FacebookDisplayName</key>
+	<string>ElStudio</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1596257990663758</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

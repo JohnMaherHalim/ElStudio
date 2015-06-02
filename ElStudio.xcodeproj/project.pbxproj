@@ -19,6 +19,9 @@
 		6229AE721B0398C900EE7FD4 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6229AE711B0398C900EE7FD4 /* HomeViewController.m */; };
 		622A28621B1CD4FF00B758DD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622A28611B1CD4FF00B758DD /* LoginViewController.m */; };
 		622A28651B1CDB2900B758DD /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622A28641B1CDB2900B758DD /* CreateAccountViewController.m */; };
+		622C64E01B1DB3E70059FA67 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622C64DD1B1DB3E70059FA67 /* FBSDKCoreKit.framework */; };
+		622C64E11B1DB3E70059FA67 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622C64DE1B1DB3E70059FA67 /* FBSDKLoginKit.framework */; };
+		622C64E21B1DB3E70059FA67 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622C64DF1B1DB3E70059FA67 /* FBSDKMessengerShareKit.framework */; };
 		622E47A51B1B016A00E4C5E3 /* InstagramEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E47941B1B016A00E4C5E3 /* InstagramEngine.m */; };
 		622E47A61B1B016A00E4C5E3 /* InstagramComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E47981B1B016A00E4C5E3 /* InstagramComment.m */; };
 		622E47A71B1B016A00E4C5E3 /* InstagramLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E479A1B1B016A00E4C5E3 /* InstagramLocation.m */; };
@@ -146,6 +149,9 @@
 		622A28611B1CD4FF00B758DD /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		622A28631B1CDB2900B758DD /* CreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAccountViewController.h; sourceTree = "<group>"; };
 		622A28641B1CDB2900B758DD /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
+		622C64DD1B1DB3E70059FA67 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		622C64DE1B1DB3E70059FA67 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		622C64DF1B1DB3E70059FA67 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
 		622E47931B1B016A00E4C5E3 /* InstagramEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramEngine.h; sourceTree = "<group>"; };
 		622E47941B1B016A00E4C5E3 /* InstagramEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramEngine.m; sourceTree = "<group>"; };
 		622E47951B1B016A00E4C5E3 /* InstagramKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramKit.h; sourceTree = "<group>"; };
@@ -332,7 +338,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				622C64E21B1DB3E70059FA67 /* FBSDKMessengerShareKit.framework in Frameworks */,
 				6225C06F1B1602B400DFE492 /* CFNetwork.framework in Frameworks */,
+				622C64E01B1DB3E70059FA67 /* FBSDKCoreKit.framework in Frameworks */,
+				622C64E11B1DB3E70059FA67 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +367,9 @@
 		6225C06E1B1600FD00DFE492 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				622C64DD1B1DB3E70059FA67 /* FBSDKCoreKit.framework */,
+				622C64DE1B1DB3E70059FA67 /* FBSDKLoginKit.framework */,
+				622C64DF1B1DB3E70059FA67 /* FBSDKMessengerShareKit.framework */,
 				6225C06C1B16008200DFE492 /* CFNetwork.framework */,
 			);
 			name = Frameworks;
@@ -1163,6 +1175,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ElStudio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1174,6 +1190,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ElStudio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
