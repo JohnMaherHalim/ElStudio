@@ -114,6 +114,9 @@
     [self.LogOut setHidden:YES];
     [self.LogIn setHidden:NO] ;
     
+    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+    [loginManager logOut];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:nil forKey:@"UserEmail"];
     [defaults setObject:nil forKey:@"UserName"];

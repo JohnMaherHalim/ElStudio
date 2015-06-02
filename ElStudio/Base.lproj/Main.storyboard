@@ -388,6 +388,94 @@
             </objects>
             <point key="canvasLocation" x="-313" y="665"/>
         </scene>
+        <!--Face Book Albums View Controller-->
+        <scene sceneID="jFe-xX-Eea">
+            <objects>
+                <viewController id="xfq-oB-Ohh" customClass="FaceBookAlbumsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q6i-Pd-mKU"/>
+                        <viewControllerLayoutGuide type="bottom" id="3dI-e3-3H7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7VL-uI-Wsl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mxW-Y8-cC0">
+                                <rect key="frame" x="0.0" y="-8" width="320" height="512"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="L7g-BT-RV4">
+                                    <size key="itemSize" width="106" height="106"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CPCELL" id="zOz-6c-2VK" customClass="IKCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="106" height="106"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ecp-jU-Lbg">
+                                                    <rect key="frame" x="0.0" y="8" width="106" height="106"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="imageView" destination="ecp-jU-Lbg" id="t6N-aK-ltL"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="xfq-oB-Ohh" id="n5W-ki-KEk"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="Gey-2u-QaB"/>
+                    <connections>
+                        <outlet property="collectionView" destination="mxW-Y8-cC0" id="KcV-Cq-y6x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mtq-sk-B32" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-630" y="-4"/>
+        </scene>
+        <!--Face Book Albums Table View Controller-->
+        <scene sceneID="Ufh-BC-4lI">
+            <objects>
+                <tableViewController id="lfC-z9-Ykl" customClass="FaceBookAlbumsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uhZ-FH-4L7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XHc-Q5-AbC">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XHc-Q5-AbC" id="DCb-pn-NhX">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lfC-z9-Ykl" id="zzr-A2-PJ7"/>
+                            <outlet property="delegate" destination="lfC-z9-Ykl" id="OMU-es-tgN"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="y9T-RJ-9Bz"/>
+                    <connections>
+                        <segue destination="xfq-oB-Ohh" kind="push" identifier="GoToFaceBookAlbum" id="02b-tG-YrT"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y9Y-Ad-o8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-220" y="12"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="weh-Iu-oys">
             <objects>
@@ -511,6 +599,15 @@
                                 </state>
                                 <connections>
                                     <action selector="InstagramLogOut:" destination="Otx-Jd-g8A" eventType="touchUpInside" id="76N-ha-Ljd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6u-j8-DsV">
+                                <rect key="frame" x="122" y="313" width="76" height="30"/>
+                                <state key="normal" title="Facebook">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="lfC-z9-Ykl" kind="push" id="AAl-sg-H8Q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -759,6 +856,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="VSM-OF-3rF"/>
+        <segue reference="Jnn-E7-rT7"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -22,11 +22,11 @@
     [super viewDidLoad];
     
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends",@"user_photos"];
     loginButton.delegate = self ;
     loginButton.center = self.view.center;
     [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileUpdated:) name:FBSDKProfileDidChangeNotification object:nil];
+   // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileUpdated:) name:FBSDKProfileDidChangeNotification object:nil];
 
     [self.view addSubview:loginButton];
     // Do any additional setup after loading the view.
@@ -36,34 +36,42 @@
     NSLog(@"User name: %@",[FBSDKProfile currentProfile].name);
     NSLog(@"User ID: %@",[FBSDKProfile currentProfile].userID);
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    /* NSDictionary *parameters = @{@"email": self.UserName.text,@"password":self.Password.text,@"isFacebook":@NO};*/
-    NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
-    [parameters setObject:[FBSDKProfile currentProfile].name forKey:@"email"];
-    [parameters setObject:@"" forKey:@"password"];
-    [parameters setObject:@YES forKey:@"isFacebook"];
-    [SVProgressHUD show];
-    [manager POST:@"http://ws.elstud.io/api/user/login" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        NSString *UserEmail = [responseObject objectForKey:@"email"];
-        NSString *userName = [responseObject objectForKey:@"name"];
-        NSString *userAddress = [responseObject objectForKey:@"address"];
-        NSString *userPhone = [responseObject objectForKey:@"phone"];
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:UserEmail forKey:@"UserEmail"];
-        [defaults setObject:userName forKey:@"UserName"];
-        [defaults setObject:userAddress forKey:@"UserAddress"];
-        [defaults setObject:userPhone forKey:@"UserPhone"];
-        [defaults synchronize] ;
-        [SVProgressHUD dismiss];
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        [SVProgressHUD dismiss];
-        UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Login Error" message:@"Wrong UserName or Password" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [msg show];
-    }];
+    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+     startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+         
+         if (!error) {
+             AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+             /* NSDictionary *parameters = @{@"email": self.UserName.text,@"password":self.Password.text,@"isFacebook":@NO};*/
+             NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+             [parameters setObject:result[@"email"] forKey:@"email"];
+             [parameters setObject:@"" forKey:@"password"];
+             [parameters setObject:@YES forKey:@"isFacebook"];
+             [SVProgressHUD show];
+             [manager POST:@"http://ws.elstud.io/api/user/login" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 NSLog(@"JSON: %@", responseObject);
+                 NSString *UserEmail = [responseObject objectForKey:@"email"];
+                 NSString *userName = [responseObject objectForKey:@"name"];
+                 NSString *userAddress = [responseObject objectForKey:@"address"];
+                 NSString *userPhone = [responseObject objectForKey:@"phone"];
+                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                 [defaults setObject:UserEmail forKey:@"UserEmail"];
+                 [defaults setObject:userName forKey:@"UserName"];
+                 [defaults setObject:userAddress forKey:@"UserAddress"];
+                 [defaults setObject:userPhone forKey:@"UserPhone"];
+                 [defaults synchronize] ;
+                 [SVProgressHUD dismiss];
+                 [self.navigationController popToRootViewControllerAnimated:YES];
+             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 NSLog(@"Error: %@", error);
+                 [SVProgressHUD dismiss];
+                 UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Login Error" message:@"Wrong UserName or Password" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                 [msg show];
+             }];
 
+         }
+     }];
+    
+    
     
 }
 
@@ -79,7 +87,10 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     }
     else {
         // Navigate to other view
-        //[self.navigationController popToRootViewControllerAnimated:YES];
+       /* NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:@"1" forKey:@"UserName"];
+        [defaults synchronize]; 
+        [self.navigationController popToRootViewControllerAnimated:YES];*/
     }
 }
 

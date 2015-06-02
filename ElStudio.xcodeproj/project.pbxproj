@@ -22,6 +22,9 @@
 		622C64E01B1DB3E70059FA67 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622C64DD1B1DB3E70059FA67 /* FBSDKCoreKit.framework */; };
 		622C64E11B1DB3E70059FA67 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622C64DE1B1DB3E70059FA67 /* FBSDKLoginKit.framework */; };
 		622C64E21B1DB3E70059FA67 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622C64DF1B1DB3E70059FA67 /* FBSDKMessengerShareKit.framework */; };
+		622C64E61B1DE0A90059FA67 /* FaceBookAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622C64E51B1DE0A90059FA67 /* FaceBookAlbumsViewController.m */; };
+		622C64E91B1DE4120059FA67 /* FaceBookAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 622C64E81B1DE4120059FA67 /* FaceBookAlbum.m */; };
+		622C64EC1B1DE4600059FA67 /* FaceBookAlbumsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622C64EB1B1DE4600059FA67 /* FaceBookAlbumsTableViewController.m */; };
 		622E47A51B1B016A00E4C5E3 /* InstagramEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E47941B1B016A00E4C5E3 /* InstagramEngine.m */; };
 		622E47A61B1B016A00E4C5E3 /* InstagramComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E47981B1B016A00E4C5E3 /* InstagramComment.m */; };
 		622E47A71B1B016A00E4C5E3 /* InstagramLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 622E479A1B1B016A00E4C5E3 /* InstagramLocation.m */; };
@@ -152,6 +155,12 @@
 		622C64DD1B1DB3E70059FA67 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		622C64DE1B1DB3E70059FA67 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		622C64DF1B1DB3E70059FA67 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		622C64E41B1DE0A90059FA67 /* FaceBookAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceBookAlbumsViewController.h; sourceTree = "<group>"; };
+		622C64E51B1DE0A90059FA67 /* FaceBookAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceBookAlbumsViewController.m; sourceTree = "<group>"; };
+		622C64E71B1DE4120059FA67 /* FaceBookAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceBookAlbum.h; sourceTree = "<group>"; };
+		622C64E81B1DE4120059FA67 /* FaceBookAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceBookAlbum.m; sourceTree = "<group>"; };
+		622C64EA1B1DE4600059FA67 /* FaceBookAlbumsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceBookAlbumsTableViewController.h; sourceTree = "<group>"; };
+		622C64EB1B1DE4600059FA67 /* FaceBookAlbumsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceBookAlbumsTableViewController.m; sourceTree = "<group>"; };
 		622E47931B1B016A00E4C5E3 /* InstagramEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramEngine.h; sourceTree = "<group>"; };
 		622E47941B1B016A00E4C5E3 /* InstagramEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramEngine.m; sourceTree = "<group>"; };
 		622E47951B1B016A00E4C5E3 /* InstagramKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramKit.h; sourceTree = "<group>"; };
@@ -408,6 +417,8 @@
 				6228FD281B0231E400B0D759 /* Order.m */,
 				6232EAB01B1B8D9D000A7860 /* Product.h */,
 				6232EAB11B1B8D9D000A7860 /* Product.m */,
+				622C64E71B1DE4120059FA67 /* FaceBookAlbum.h */,
+				622C64E81B1DE4120059FA67 /* FaceBookAlbum.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -439,6 +450,17 @@
 				622A28641B1CDB2900B758DD /* CreateAccountViewController.m */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		622C64E31B1DE08C0059FA67 /* FaceBookAlbums */ = {
+			isa = PBXGroup;
+			children = (
+				622C64E41B1DE0A90059FA67 /* FaceBookAlbumsViewController.h */,
+				622C64E51B1DE0A90059FA67 /* FaceBookAlbumsViewController.m */,
+				622C64EA1B1DE4600059FA67 /* FaceBookAlbumsTableViewController.h */,
+				622C64EB1B1DE4600059FA67 /* FaceBookAlbumsTableViewController.m */,
+			);
+			name = FaceBookAlbums;
 			sourceTree = "<group>";
 		};
 		622E47911B1B016A00E4C5E3 /* InstagramKit */ = {
@@ -830,6 +852,7 @@
 		887437F11AED912D00D0BFD2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				622C64E31B1DE08C0059FA67 /* FaceBookAlbums */,
 				622A285F1B1CD4B800B758DD /* Login */,
 				622F23C41B1C83F400BC77A4 /* CurrentItemPrice */,
 				622F23B61B1C42DB00BC77A4 /* ProductDetails */,
@@ -969,6 +992,7 @@
 				62C77D011AEE905200BB3D48 /* ELCImagePickerDemoAppDelegate.m in Sources */,
 				62C7C2E51AEF7B8700563DD6 /* AffineImageViewController.m in Sources */,
 				6228FD2C1B02323600B0D759 /* WholeOrder.m in Sources */,
+				622C64E91B1DE4120059FA67 /* FaceBookAlbum.m in Sources */,
 				622A28651B1CDB2900B758DD /* CreateAccountViewController.m in Sources */,
 				62C77CF71AEE905200BB3D48 /* ELCAssetCell.m in Sources */,
 				622F23C31B1C490C00BC77A4 /* SVProgressHUD.m in Sources */,
@@ -1045,8 +1069,10 @@
 				622E47AC1B1B016A00E4C5E3 /* InstagramUser.m in Sources */,
 				881CA3A11AF5307A0097FEBE /* GRUploadRequest.m in Sources */,
 				622E47DD1B1B1EDF00E4C5E3 /* IKCollectionViewController.m in Sources */,
+				622C64EC1B1DE4600059FA67 /* FaceBookAlbumsTableViewController.m in Sources */,
 				628930471B11E98200076F3F /* ZipFile.m in Sources */,
 				628930461B11E98200076F3F /* ZipException.m in Sources */,
+				622C64E61B1DE0A90059FA67 /* FaceBookAlbumsViewController.m in Sources */,
 				62C2ACAA1AE8FF5B008393DE /* main.m in Sources */,
 				62C77D021AEE905200BB3D48 /* ELCImagePickerDemoViewController.m in Sources */,
 				881CA39C1AF5307A0097FEBE /* GRCreateDirectoryRequest.m in Sources */,
