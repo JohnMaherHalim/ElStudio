@@ -11,6 +11,8 @@
 #import "ZipFile.h"
 #import "ZipWriteStream.h"
 #import "UIDeviceHardware.h"
+#import "AFHTTPRequestOperationManager.h"
+#import "SVProgressHUD.h"
 
 @interface CartTableViewController ()
 
@@ -138,6 +140,97 @@
 }
 
 -(IBAction)UploadOrder:(id)sender {
+   
+    NSUserDefaults *defautls = [NSUserDefaults standardUserDefaults] ;
+    NSString *Phone = @""; //[defautls objectForKey:@"phone"];
+    
+    NSString *rawString = Phone;
+    NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSString *trimmed = [rawString stringByTrimmingCharactersInSet:whitespace];
+    
+    if ([Phone isEqualToString:@""] || Phone == nil || trimmed.length == 0) {
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Phone Missing"
+                                                              message:@"Plz Enter Your Phone First" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [myAlertView show];
+    } else {
+        [self Send];
+    }
+   
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    //NSLog(@"%@", [alertView textFieldAtIndex:0].text);
+    if (buttonIndex == 1) {
+    UITextField *textfield = [alertView textFieldAtIndex:0];
+    
+    //NSUserDefaults *defautls = [NSUserDefaults standardUserDefaults] ;
+    NSString *Phone = textfield.text; //[defautls objectForKey:@"phone"];
+    
+    NSString *rawString = Phone;
+    NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSString *trimmed = [rawString stringByTrimmingCharactersInSet:whitespace];
+    
+    if ([Phone isEqualToString:@""] || Phone == nil || trimmed.length == 0) {
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Sorry"
+                                                              message:@"You didn't enter a phone number yet" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        //myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [myAlertView show];
+    } else {
+        [self UpdatePhoneNumber:Phone];
+    }
+    }
+    
+}
+
+
+-(void)UpdatePhoneNumber:(NSString*)PhoneNumber {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults] ;
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+    [parameters setObject:[defaults objectForKey:@"UserName"] forKey:@"name"];
+    [parameters setObject:[defaults objectForKey:@"UserEmail"] forKey:@"email"];
+    [parameters setObject:[defaults objectForKey:@"UserPassword"] forKey:@"password"];
+    [parameters setObject:[defaults objectForKey:@"UserAddress"] forKey:@"address"];
+    [parameters setObject:PhoneNumber forKey:@"phone"];
+    [SVProgressHUD show];
+    
+    [manager POST:@"http://ws.elstud.io/api/user/updateuserinfo" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        [SVProgressHUD dismiss] ;
+        [self login:responseObject];
+        [self Send];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Network Error" message:@"Error getting data" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [msg show] ;
+        [SVProgressHUD dismiss];
+    }];
+
+}
+
+-(void)login:(id)responseObject {
+    NSNumber *UserID = [responseObject objectForKey:@"userId"];
+    NSString *UserEmail = [responseObject objectForKey:@"email"];
+    NSString *userName = [responseObject objectForKey:@"name"];
+    NSString *userAddress = [responseObject objectForKey:@"address"];
+    NSString *userPassword = [responseObject objectForKey:@"password"];
+    NSString *userPhone = [responseObject objectForKey:@"phone"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:UserID forKey:@"UserID"];
+    [defaults setObject:UserEmail forKey:@"UserEmail"];
+    [defaults setObject:userName forKey:@"UserName"];
+    [defaults setObject:userAddress forKey:@"UserAddress"];
+    [defaults setObject:userPassword forKey:@"UserPassword"];
+    [defaults setObject:userPhone forKey:@"UserPhone"];
+    [defaults synchronize] ;
+    [self.navigationController popToRootViewControllerAnimated:YES] ;
+}
+
+
+-(void)Send {
     OrderItem *OrderItemtobemodified = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:0];
     
     
@@ -176,14 +269,14 @@
     NSString *OrderDirectory = @"ws.elstud.io/UserIDOrderID" ;
     NSString *ProductName = @"ws.elstud.io/UserIDOrderID/Product1" ;  //[NSString stringWithFormat:@"%@/%@",OrderDirectory, OrderItemtobemodified.ProductName];
     NSString *Images = [NSString stringWithFormat:@"%@/%@",ProductName,ZipFileName];
-   // [self.requestsManager addRequestForDownloadFileAtRemotePath:@"ws.elstud.io/Web.config" toLocalPath:WebConfigtrial];
+    // [self.requestsManager addRequestForDownloadFileAtRemotePath:@"ws.elstud.io/Web.config" toLocalPath:WebConfigtrial];
     //[self.requestsManager addRequestForCreateDirectoryAtPath:OrderDirectory];
     //[self.requestsManager addRequestForCreateDirectoryAtPath:ProductName];
     //[self.requestsManager addRequestForCreateDirectoryAtPath:Images];
     [self.requestsManager addRequestForUploadFileAtLocalPath:ImagesZipFile toRemotePath:Images];
     [self.requestsManager startProcessingRequests];
-   
 }
+
 
 -(UIImage*)ModifyTheImage:(UIImage*)firstimg inHeightInches:(int)height andWidthInches:(int)width {
     UIImage *img = [[UIImage alloc]init];

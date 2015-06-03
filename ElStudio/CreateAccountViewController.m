@@ -78,12 +78,14 @@
     NSString *userName = [responseObject objectForKey:@"name"];
     NSString *userAddress = [responseObject objectForKey:@"address"];
     NSString *userPhone = [responseObject objectForKey:@"phone"];
+    NSString *userPassword = [responseObject objectForKey:@"password"];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:UserID forKey:@"UserID"];
     [defaults setObject:UserEmail forKey:@"UserEmail"];
     [defaults setObject:userName forKey:@"UserName"];
     [defaults setObject:userAddress forKey:@"UserAddress"];
     [defaults setObject:userPhone forKey:@"UserPhone"];
+    [defaults setObject:userPassword forKey:@"UserPassword"];
     [defaults synchronize] ;
     [self.navigationController popToRootViewControllerAnimated:YES] ;
 }

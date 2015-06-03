@@ -10,14 +10,15 @@
 #import "WholeOrder.h"
 #import "GRRequestsManager.h"
 
-@interface CartTableViewController : UITableViewController<GRRequestsManagerDelegate> {
+@interface CartTableViewController : UITableViewController<GRRequestsManagerDelegate,UIAlertViewDelegate> {
     NSMutableArray *orderItems ;
     NSInteger globalindex ;
 }
 
 @property (nonatomic , retain) IBOutlet UITableView *tableView ;
 @property (nonatomic, strong) GRRequestsManager *requestsManager;
-@property (nonatomic , retain) IBOutlet UILabel *totalPrice ; 
+@property (nonatomic , retain) IBOutlet UILabel *totalPrice ;
+@property (nonatomic ,retain) UITextField *PhoneNumberField ; 
 
 -(IBAction)UploadOrder:(id)sender;
 
