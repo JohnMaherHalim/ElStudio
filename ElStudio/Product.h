@@ -20,6 +20,7 @@
 @property (nonatomic,retain) NSNumber *Product_addonPrice ;
 @property (nonatomic,retain) NSNumber *Product_imagewidth ;
 @property (nonatomic,retain) NSNumber *Product_imageheight ;
+@property (nonatomic,retain) NSMutableArray *Product_SubProducts ; 
 
 -(id)init;
 

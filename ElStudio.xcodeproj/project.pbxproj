@@ -56,6 +56,7 @@
 		622F23C71B1C841800BC77A4 /* CurrentItemPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622F23C61B1C841800BC77A4 /* CurrentItemPriceViewController.m */; };
 		6232EAB21B1B8D9D000A7860 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 6232EAB11B1B8D9D000A7860 /* Product.m */; };
 		6232EAB51B1B9375000A7860 /* ProductsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6232EAB41B1B9375000A7860 /* ProductsStore.m */; };
+		62402C041B1F2A9500F64337 /* SubProductsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62402C031B1F2A9500F64337 /* SubProductsTableViewController.m */; };
 		628930421B11E98100076F3F /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930161B11E98100076F3F /* ioapi.c */; };
 		628930431B11E98200076F3F /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 628930181B11E98100076F3F /* unzip.c */; };
 		628930441B11E98200076F3F /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 6289301A1B11E98100076F3F /* zip.c */; };
@@ -225,6 +226,8 @@
 		6232EAB11B1B8D9D000A7860 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		6232EAB31B1B9375000A7860 /* ProductsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsStore.h; sourceTree = "<group>"; };
 		6232EAB41B1B9375000A7860 /* ProductsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsStore.m; sourceTree = "<group>"; };
+		62402C021B1F2A9500F64337 /* SubProductsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubProductsTableViewController.h; sourceTree = "<group>"; };
+		62402C031B1F2A9500F64337 /* SubProductsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubProductsTableViewController.m; sourceTree = "<group>"; };
 		628930131B11E98100076F3F /* ARCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCHelper.h; sourceTree = "<group>"; };
 		628930151B11E98100076F3F /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
 		628930161B11E98100076F3F /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
@@ -589,6 +592,15 @@
 			name = CurrentItemPrice;
 			sourceTree = "<group>";
 		};
+		62402C011B1F2A7800F64337 /* SubProducts */ = {
+			isa = PBXGroup;
+			children = (
+				62402C021B1F2A9500F64337 /* SubProductsTableViewController.h */,
+				62402C031B1F2A9500F64337 /* SubProductsTableViewController.m */,
+			);
+			name = SubProducts;
+			sourceTree = "<group>";
+		};
 		628930121B11E98100076F3F /* ARCHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -852,6 +864,7 @@
 		887437F11AED912D00D0BFD2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				62402C011B1F2A7800F64337 /* SubProducts */,
 				622C64E31B1DE08C0059FA67 /* FaceBookAlbums */,
 				622A285F1B1CD4B800B758DD /* Login */,
 				622F23C41B1C83F400BC77A4 /* CurrentItemPrice */,
@@ -1038,6 +1051,7 @@
 				628930501B11E98200076F3F /* gzread.c in Sources */,
 				6289304A1B11E98200076F3F /* adler32.c in Sources */,
 				881CA3A21AF5307A0097FEBE /* GRError.m in Sources */,
+				62402C041B1F2A9500F64337 /* SubProductsTableViewController.m in Sources */,
 				62C77CF91AEE905200BB3D48 /* ELCConsole.m in Sources */,
 				622E47C81B1B01A100E4C5E3 /* AFURLConnectionOperation.m in Sources */,
 				628930431B11E98200076F3F /* unzip.c in Sources */,

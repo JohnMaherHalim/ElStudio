@@ -314,6 +314,7 @@
                     <navigationItem key="navigationItem" id="jH4-BA-hYe"/>
                     <connections>
                         <segue destination="ETm-QV-g5H" kind="push" identifier="GoToProductDetails" id="1O1-p3-sDt"/>
+                        <segue destination="X3S-wr-eDr" kind="push" identifier="ProductsToSub" id="bXK-CD-OT7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l5n-F3-Z7J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -387,6 +388,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lq6-VH-oQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-313" y="665"/>
+        </scene>
+        <!--Sub Products Table View Controller-->
+        <scene sceneID="sSq-Be-nzu">
+            <objects>
+                <tableViewController id="X3S-wr-eDr" customClass="SubProductsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="h7y-Gs-dSO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0dO-vN-GXA">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0dO-vN-GXA" id="zgO-3p-yoR">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="X3S-wr-eDr" id="xbP-lS-Eeo"/>
+                            <outlet property="delegate" destination="X3S-wr-eDr" id="LEV-Rm-mAr"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="lL3-SX-wMF"/>
+                    <connections>
+                        <segue destination="ETm-QV-g5H" kind="push" identifier="SubToDetails" id="EW5-Hl-3zl"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BCp-ma-7Z0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1026" y="42"/>
         </scene>
         <!--Face Book Albums View Controller-->
         <scene sceneID="jFe-xX-Eea">
@@ -865,6 +897,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="EW5-Hl-3zl"/>
         <segue reference="okT-V5-Qxb"/>
     </inferredMetricsTieBreakers>
 </document>

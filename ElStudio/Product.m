@@ -14,7 +14,7 @@
 -(id)init {
     if (self = [super init])
     {
-    
+        self.Product_SubProducts = [[NSMutableArray alloc]init] ;
     }
     return self;
 }
@@ -31,6 +31,7 @@
     [encoder encodeObject:self.Product_addonPrice forKey:@"Product_addonPrice"];
     [encoder encodeObject:self.Product_imagewidth forKey:@"Product_imagewidth"];
     [encoder encodeObject:self.Product_imageheight forKey:@"Product_imageheight"];
+    [encoder encodeObject:self.Product_SubProducts forKey:@"Product_SubProducts"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -44,6 +45,7 @@
     self.Product_imagewidth = [decoder decodeObjectForKey:@"Product_imagewidth"];
     self.Product_imageheight = [decoder decodeObjectForKey:@"Product_imageheight"];
     self.Product_ParentId = [decoder decodeObjectForKey:@"Product_ParentId"];
+    self.Product_SubProducts = [decoder decodeObjectForKey:@"Product_SubProducts"];
     return self;
 }
 

@@ -26,7 +26,7 @@
     loginButton.delegate = self ;
     loginButton.center = self.view.center;
     [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileUpdated:) name:FBSDKProfileDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileUpdated:) name:FBSDKProfileDidChangeNotification object:nil];
 
     CGRect fbframe = loginButton.frame ;
     fbframe.origin.y += 100 ;
@@ -54,6 +54,7 @@
              [parameters setObject:@"" forKey:@"password"];
              [parameters setObject:@YES forKey:@"isFacebook"];
              [SVProgressHUD show];
+             NSLog(@"Login Json : %@", parameters) ;
              [manager POST:@"http://ws.elstud.io/api/user/login" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                  NSLog(@"JSON: %@", responseObject);
                  NSNumber *UserID = [responseObject objectForKey:@"userId"];

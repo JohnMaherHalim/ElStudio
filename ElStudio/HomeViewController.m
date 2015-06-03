@@ -66,7 +66,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:@"http://ws.elstud.io/api/global/getglobal" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
-        
+        NSMutableArray *allProducts = [[NSMutableArray alloc]init] ;
         NSArray *products = [responseObject objectForKey:@"products"];
         NSMutableArray *ProductsObjects = [[NSMutableArray alloc]init];
         for (NSDictionary *prod in products) {
@@ -81,9 +81,12 @@
             myprod.Product_addonPrice = [prod objectForKey:@"addOnPrice"];
             myprod.Product_imageheight = [prod objectForKey:@"imageHeight"];
             myprod.Product_imagewidth = [prod objectForKey:@"imageWidth"];
-            [[[ProductsStore sharedManager]Products]addObject:myprod];
+            [allProducts addObject:myprod];
+            
+            //[[[ProductsStore sharedManager]Products]addObject:myprod];
            // [ProductsObjects addObject:myprod];
         }
+        [self FilterAndSaveMyProducts:allProducts];
         [SVProgressHUD dismiss];
        // [ProductsStore sharedManager]
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -92,6 +95,33 @@
         UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Network Error" message:@"Error getting data" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [msg show] ;
     }];
+    
+}
+
+-(void)FilterAndSaveMyProducts:(NSMutableArray*)AllProducts {
+    
+    NSMutableArray *Parents = [[NSMutableArray alloc]init];
+    
+    for (Product *ParentProduct in AllProducts) {
+        if ([ParentProduct.Product_ParentId isKindOfClass:[NSNull class]])
+            [Parents addObject:ParentProduct];
+    }
+    
+    for (Product *product in AllProducts) {
+        if (![product.Product_ParentId isKindOfClass:[NSNull class]]) {
+            for (Product *ParentProd in Parents) {
+                int prodid = [product.Product_ParentId intValue];
+                int parentprodid = [ParentProd.Product_id intValue];
+                
+                if (prodid == parentprodid) {
+                    [ParentProd.Product_SubProducts addObject:product];
+                }
+            }
+        }
+    }
+    
+   // [[[ProductsStore sharedManager]Products]addObject:myprod];
+    [[ProductsStore sharedManager]setProducts:Parents];
     
 }
 

@@ -9,7 +9,7 @@
 #import "ProductsTableViewController.h"
 #import "CurrentOrderManager.h"
 #import "ProductsStore.h"
-
+#import "SubProductsTableViewController.h"
 #import "ProductDetailsViewController.h"
 
 @interface ProductsTableViewController ()
@@ -87,6 +87,11 @@
     [[CurrentOrderManager sharedManager]storeProductName:productname] ;
     [[CurrentOrderManager sharedManager]storeProduct:product]; 
     globalprod = product ;
+    
+    
+    if (product.Product_SubProducts.count >0)
+         [self performSegueWithIdentifier: @"ProductsToSub" sender: self];
+        else
      [self performSegueWithIdentifier: @"GoToProductDetails" sender: self];
 }
 
@@ -94,6 +99,9 @@
     if ([segue.identifier isEqualToString:@"GoToProductDetails"]) {
         ProductDetailsViewController *productDetails = [segue destinationViewController] ;
         [productDetails setMyproduct:globalprod] ;
+    } else if([segue.identifier isEqualToString:@"ProductsToSub"]) {
+        SubProductsTableViewController *sub = [segue destinationViewController];
+        [sub setProducts:globalprod.Product_SubProducts];
     }
 }
 
