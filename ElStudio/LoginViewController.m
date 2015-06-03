@@ -28,7 +28,14 @@
     [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileUpdated:) name:FBSDKProfileDidChangeNotification object:nil];
 
+    CGRect fbframe = loginButton.frame ;
+    fbframe.origin.y += 100 ;
+    [loginButton setFrame:fbframe] ;
+    
     [self.view addSubview:loginButton];
+    
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -49,11 +56,13 @@
              [SVProgressHUD show];
              [manager POST:@"http://ws.elstud.io/api/user/login" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                  NSLog(@"JSON: %@", responseObject);
+                 NSNumber *UserID = [responseObject objectForKey:@"userId"];
                  NSString *UserEmail = [responseObject objectForKey:@"email"];
                  NSString *userName = [responseObject objectForKey:@"name"];
                  NSString *userAddress = [responseObject objectForKey:@"address"];
                  NSString *userPhone = [responseObject objectForKey:@"phone"];
                  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                 [defaults setObject:UserID forKey:@"UserID"];
                  [defaults setObject:UserEmail forKey:@"UserEmail"];
                  [defaults setObject:userName forKey:@"UserName"];
                  [defaults setObject:userAddress forKey:@"UserAddress"];
@@ -87,10 +96,10 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     }
     else {
         // Navigate to other view
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        /*NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:@"1" forKey:@"UserName"];
         [defaults synchronize]; 
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self.navigationController popToRootViewControllerAnimated:YES];*/
     }
 }
 
@@ -121,11 +130,13 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
         [SVProgressHUD show];
     [manager POST:@"http://ws.elstud.io/api/user/login" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        NSNumber *UserID = [responseObject objectForKey:@"userId"];
         NSString *UserEmail = [responseObject objectForKey:@"email"];
         NSString *userName = [responseObject objectForKey:@"name"];
         NSString *userAddress = [responseObject objectForKey:@"address"];
         NSString *userPhone = [responseObject objectForKey:@"phone"];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:UserID forKey:@"UserID"];
         [defaults setObject:UserEmail forKey:@"UserEmail"];
         [defaults setObject:userName forKey:@"UserName"];
         [defaults setObject:userAddress forKey:@"UserAddress"];

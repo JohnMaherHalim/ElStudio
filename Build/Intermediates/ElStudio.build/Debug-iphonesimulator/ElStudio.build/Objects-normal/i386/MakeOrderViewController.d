@@ -17,4 +17,33 @@ dependencies: \
   /Users/johnmaher/ElStudio/ElStudio/Classes/InstagramKit/Models/InstagramLocation.h \
   /Users/johnmaher/ElStudio/ElStudio/Product.h \
   /Users/johnmaher/ElStudio/ElStudio/CurrentOrderManager.h \
-  /Users/johnmaher/ElStudio/ElStudio/OrderItem.h
+  /Users/johnmaher/ElStudio/ElStudio/OrderItem.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestDataAttachment.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKGraphErrorRecoveryProcessor.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKAppLinkResolver.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKButton.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKUtility.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKTestUsersManager.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKSettings.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKProfilePictureView.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKProfile.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKMutableCopying.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKGraphRequest.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKConstants.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKApplicationDelegate.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKAppLinkUtility.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKAppEvents.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKMacros.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestConnection.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKCopying.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKAccessToken.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h \
+  /Users/johnmaher/ElStudio/FBSDKCoreKit.framework/Modules/module.modulemap \
+  /Users/johnmaher/ElStudio/FBSDKLoginKit.framework/Headers/FBSDKLoginTooltipView.h \
+  /Users/johnmaher/ElStudio/FBSDKLoginKit.framework/Headers/FBSDKLoginManagerLoginResult.h \
+  /Users/johnmaher/ElStudio/FBSDKLoginKit.framework/Headers/FBSDKLoginConstants.h \
+  /Users/johnmaher/ElStudio/FBSDKLoginKit.framework/Headers/FBSDKTooltipView.h \
+  /Users/johnmaher/ElStudio/FBSDKLoginKit.framework/Headers/FBSDKLoginManager.h \
+  /Users/johnmaher/ElStudio/FBSDKLoginKit.framework/Headers/FBSDKLoginButton.h \
+  /Users/johnmaher/ElStudio/FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h \
+  /Users/johnmaher/ElStudio/FBSDKLoginKit.framework/Modules/module.modulemap

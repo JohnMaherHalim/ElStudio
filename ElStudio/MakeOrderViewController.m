@@ -11,6 +11,8 @@
 #import "InstagramKit.h" 
 #import "Product.h"
 #import "CurrentOrderManager.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface MakeOrderViewController ()
 
@@ -45,6 +47,12 @@
         [self Instagram:nil];
         self.gotoinstagram = NO ; 
     }
+    
+    if([FBSDKProfile currentProfile])
+        [self.FBAlbumBtn setHidden:NO];
+    else
+        [self.FBAlbumBtn setHidden:YES] ; 
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -610,8 +610,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6u-j8-DsV">
-                                <rect key="frame" x="122" y="313" width="76" height="30"/>
-                                <state key="normal" title="Facebook">
+                                <rect key="frame" x="97" y="314" width="126" height="30"/>
+                                <state key="normal" title="My FB Albums">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -624,6 +624,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="JpR-X3-nhr"/>
                     <connections>
+                        <outlet property="FBAlbumBtn" destination="Z6u-j8-DsV" id="qMS-ut-5O7"/>
                         <outlet property="InstLogOutBtn" destination="zR3-9k-Mjc" id="3Nj-aj-A1t"/>
                         <segue destination="ynv-tx-TWD" kind="push" identifier="GoToImages" id="okT-V5-Qxb"/>
                         <segue destination="MTI-CC-woy" kind="push" identifier="InstagramLogin" id="u3Z-RX-0HY"/>
@@ -864,6 +865,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fr6-tc-WWZ"/>
+        <segue reference="okT-V5-Qxb"/>
     </inferredMetricsTieBreakers>
 </document>

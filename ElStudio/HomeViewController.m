@@ -45,7 +45,7 @@
     
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults] ;
-    NSString *currentUser = [defaults objectForKey:@"UserName"];
+    NSString *currentUser = [defaults objectForKey:@"UserID"];
     
     if (currentUser) {
         [self.LogIn setHidden:YES];
@@ -98,7 +98,7 @@
 -(IBAction)GoToCart:(id)sender{
     
     NSUserDefaults *dafaults = [NSUserDefaults standardUserDefaults] ;
-    NSString *currentuser = [dafaults objectForKey:@"UserName"];
+    NSString *currentuser = [dafaults objectForKey:@"UserID"];
     
     if (currentuser) {
     NSMutableArray *items = [[[WholeOrder sharedManager]myOrder]OrderItems];
@@ -121,6 +121,7 @@
     [loginManager logOut];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:nil forKey:@"UserID"];
     [defaults setObject:nil forKey:@"UserEmail"];
     [defaults setObject:nil forKey:@"UserName"];
     [defaults setObject:nil forKey:@"UserAddress"];
