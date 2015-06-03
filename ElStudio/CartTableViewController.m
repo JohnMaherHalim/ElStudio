@@ -154,7 +154,7 @@
         myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
         [myAlertView show];
     } else {
-        [self Send];
+        [self MakeTheOrder];
     }
    
 }
@@ -190,18 +190,21 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+    [parameters setObject:[defaults objectForKey:@"UserID"] forKey:@"userId"];
     [parameters setObject:[defaults objectForKey:@"UserName"] forKey:@"name"];
     [parameters setObject:[defaults objectForKey:@"UserEmail"] forKey:@"email"];
     [parameters setObject:[defaults objectForKey:@"UserPassword"] forKey:@"password"];
     [parameters setObject:[defaults objectForKey:@"UserAddress"] forKey:@"address"];
     [parameters setObject:PhoneNumber forKey:@"phone"];
+    NSLog(@"Update Json : %@",parameters);
     [SVProgressHUD show];
     
     [manager POST:@"http://ws.elstud.io/api/user/updateuserinfo" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         [SVProgressHUD dismiss] ;
         [self login:responseObject];
-        [self Send];
+       // [self Send];
+        [self MakeTheOrder];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Network Error" message:@"Error getting data" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -226,7 +229,38 @@
     [defaults setObject:userPassword forKey:@"UserPassword"];
     [defaults setObject:userPhone forKey:@"UserPhone"];
     [defaults synchronize] ;
-    [self.navigationController popToRootViewControllerAnimated:YES] ;
+    //[self.navigationController popToRootViewControllerAnimated:YES] ;
+}
+
+-(void)MakeTheOrder {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults] ;
+    
+    NSMutableArray *ProductIDs = [[NSMutableArray alloc]init];
+    Order *myorder = [[WholeOrder sharedManager]myOrder];
+    for (OrderItem *item in myorder.OrderItems) {
+        [ProductIDs addObject:item.product.Product_id];
+    }
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+    NSNumber *userid = [defaults objectForKey:@"UserID"];
+    [parameters setObject:userid forKey:@"userId"];
+    [parameters setObject:[NSDate date] forKey:@"date"];
+    [parameters setObject:ProductIDs forKey:@"productsIds"];
+    [SVProgressHUD show];
+    
+    [manager POST:@"http://ws.elstud.io/api/order/makeorder" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        [SVProgressHUD dismiss] ;
+       // [self login:responseObject];
+       // [self Send];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Network Error" message:@"Error getting data" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [msg show] ;
+        [SVProgressHUD dismiss];
+    }];
+
 }
 
 
