@@ -14,7 +14,10 @@
 
 @property (nonatomic,retain) NSString *AlbumId ;
 @property (nonatomic ,retain) NSMutableArray *ImagesSources ;
+@property (nonatomic,retain) NSMutableArray *selectedImages ;
 
 @property(nonatomic ,retain) IBOutlet UICollectionView *collectionView ;
+
+-(IBAction)DoneChoosingImages:(id)sender;
 
 @end

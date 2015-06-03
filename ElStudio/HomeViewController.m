@@ -24,6 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSLog(@"User name: %@",[FBSDKProfile currentProfile].name);
+    NSLog(@"User ID: %@",[FBSDKProfile currentProfile].userID);
+    
     [self getGlobalData];
     // Do any additional setup after loading the view.
 }

@@ -26,7 +26,7 @@
     loginButton.delegate = self ;
     loginButton.center = self.view.center;
     [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
-   // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileUpdated:) name:FBSDKProfileDidChangeNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileUpdated:) name:FBSDKProfileDidChangeNotification object:nil];
 
     [self.view addSubview:loginButton];
     // Do any additional setup after loading the view.
@@ -87,10 +87,10 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     }
     else {
         // Navigate to other view
-       /* NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:@"1" forKey:@"UserName"];
         [defaults synchronize]; 
-        [self.navigationController popToRootViewControllerAnimated:YES];*/
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
 

@@ -9,6 +9,8 @@
 #import "FaceBookAlbumsViewController.h"
 #import "IKCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "CurrentOrderManager.h"
+#import "ShowImagesViewController.h"
 
 
 @interface FaceBookAlbumsViewController ()
@@ -21,6 +23,8 @@
     [super viewDidLoad];
     
     self.ImagesSources = [[NSMutableArray alloc]init];
+    self.selectedImages = [[NSMutableArray alloc]init];
+    [self.collectionView setAllowsMultipleSelection:YES] ;
     
     NSString *CertainAlbum = [NSString stringWithFormat:@"/%@/photos",self.AlbumId];
     
@@ -71,6 +75,117 @@
     
     return cell;
     
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
+    
+    //InstagramMedia *media = mediaArray[indexPath.row];
+    NSString *imagelinkstring = [self.ImagesSources objectAtIndex:indexPath.row];
+    NSURL *imagelink = [NSURL URLWithString:imagelinkstring];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imagelink]];
+    [self.selectedImages addObject:image];
+    
+    NSInteger currentCount = [self.selectedImages count];
+    Product *prod = [[[CurrentOrderManager sharedManager]curOrderItem]product];
+    NSInteger ProductBasicNumber = 3;//[prod.Product_basicNumber integerValue] ;
+    NSInteger ProductAddOnNumber = 2;//[prod.Product_addonNumber integerValue];
+    
+    if (currentCount < ProductBasicNumber) {
+        
+    } else if (currentCount == ProductBasicNumber) {
+        UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Basic" message:@"Done Basic" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [msg show];
+    } else {
+        
+        NSInteger IndexAfter = currentCount - ProductBasicNumber ;
+        NSInteger check = currentCount % ProductAddOnNumber ;
+        
+        /* if (IndexAfter > ProductAddOnNumber) {
+         IndexAfter = IndexAfter % ProductAddOnNumber ;
+         }
+         
+         if (IndexAfter == ProductAddOnNumber) {
+         UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"AddOn" message:@"Done AddOn" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+         [msg show];
+         
+         }*/
+        
+        if (IndexAfter % ProductAddOnNumber == 0) {
+            UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"AddOn" message:@"Done AddOn" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [msg show];
+        }
+        
+        
+        
+        
+        /* NSInteger checkAddOn = currentCount %  self.ProductAddOnNumber;
+         if (checkAddOn == 0) {
+         UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"AddOn" message:@"Done AddOn" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+         [msg show];
+         }*/
+    }
+    
+    [[CurrentOrderManager sharedManager]refreshOrderWithNumberOfImages:[self.selectedImages count]];
+    // NSLog(@"Click");
+    
+    // [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    //    InstagramMedia *media = mediaArray[indexPath.row];
+    //    [self testLoadMediaForUser:media.user];
+    
+    /* if (self.currentPaginationInfo)
+     {
+     //  Paginate on navigating to detail
+     //either
+     //        [self loadMedia];
+     //or
+     //        [self testPaginationRequest:self.currentPaginationInfo];
+     }*/
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *imagelinkstring = [self.ImagesSources objectAtIndex:indexPath.row];
+    NSURL *imagelink = [NSURL URLWithString:imagelinkstring];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imagelink]];
+   // [self.selectedImages addObject:image];
+    NSData *checkImageData = UIImagePNGRepresentation(image);
+    
+    for (UIImage *img in self.selectedImages) {
+        NSData *propertyImageData = UIImagePNGRepresentation(img);
+        if ([checkImageData isEqualToData:propertyImageData]) {
+            //do sth
+            [self.selectedImages removeObject:img];
+            break;
+        }
+    }
+    
+    [[CurrentOrderManager sharedManager]refreshOrderWithNumberOfImages:[self.selectedImages count]];
+    
+}
+
+-(IBAction)DoneChoosingImages:(id)sender {
+    BOOL BasicFlag = [[[CurrentOrderManager sharedManager]curOrderItem]BasicCheck];
+    
+    if (BasicFlag) {
+        [self performSegueWithIdentifier:@"FromFaceBookToShowImages"
+                                  sender:nil];
+    } else {
+        Product *myprod = [[[CurrentOrderManager sharedManager]curOrderItem]product];
+        NSString *msgtext = [NSString stringWithFormat:@"Choosing this product, you should choose at least %@ photos in order to complete your order",myprod.Product_basicNumber];
+        UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Not enough images" message:msgtext  delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [msg show] ;
+    }
+    //[self performSegueWithIdentifier:@"InstaToShowImages" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"FromFaceBookToShowImages"]) {
+        ShowImagesViewController *showimgs = [segue destinationViewController] ;
+        [showimgs setImages:self.selectedImages];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

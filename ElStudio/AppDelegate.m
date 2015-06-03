@@ -27,7 +27,8 @@
 	[[WholeOrder sharedManager]loadMyOrder];
     
     
-    return YES;
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                           didFinishLaunchingWithOptions:launchOptions];;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
