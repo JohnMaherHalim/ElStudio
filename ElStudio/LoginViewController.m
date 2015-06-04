@@ -50,9 +50,10 @@
              AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
              /* NSDictionary *parameters = @{@"email": self.UserName.text,@"password":self.Password.text,@"isFacebook":@NO};*/
              NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
-             [parameters setObject:result[@"email"] forKey:@"email"];
-             [parameters setObject:@"" forKey:@"password"];
-             [parameters setObject:@YES forKey:@"isFacebook"];
+             NSString *myemail = result[@"email"];
+             NSString *password = [[NSString alloc]init];
+             [parameters setObject:myemail forKey:@"email"];
+             [parameters setObject:password forKey:@"password"];
              [SVProgressHUD show];
              NSLog(@"Login Json : %@", parameters) ;
              [manager POST:@"http://ws.elstud.io/api/user/login" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -63,6 +64,14 @@
                  NSString *userAddress = [responseObject objectForKey:@"address"];
                  NSString *userPhone = [responseObject objectForKey:@"phone"];
                  NSString *userPassword = [responseObject objectForKey:@"password"];
+                 
+                 if ([userName isKindOfClass:[NSNull class]])
+                     userName = @"" ;
+                 if ([userAddress isKindOfClass:[NSNull class]])
+                     userAddress = @"" ;
+                 if ([userPhone isKindOfClass:[NSNull class]])
+                     userPhone = @"" ;
+                 
                  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                  [defaults setObject:UserID forKey:@"UserID"];
                  [defaults setObject:UserEmail forKey:@"UserEmail"];
@@ -129,7 +138,6 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
     [parameters setObject:self.UserName.text forKey:@"email"];
     [parameters setObject:self.Password.text forKey:@"password"];
-    [parameters setObject:@NO forKey:@"isFacebook"];
         [SVProgressHUD show];
     [manager POST:@"http://ws.elstud.io/api/user/login" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);

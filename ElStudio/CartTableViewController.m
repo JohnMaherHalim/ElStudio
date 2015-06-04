@@ -23,7 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    FTPUploadError = false ;
+    
 	self.tableView.allowsMultipleSelectionDuringEditing = NO ;
+    
+    filepaths = [[NSMutableArray alloc]init];
+    MyproductsIds = [[NSArray alloc]init];
     
     self.requestsManager = [[GRRequestsManager alloc] initWithHostname:@"ws.elstud.io"
                                                                   user:@"elstudioproject"
@@ -142,7 +147,7 @@
 -(IBAction)UploadOrder:(id)sender {
    
     NSUserDefaults *defautls = [NSUserDefaults standardUserDefaults] ;
-    NSString *Phone = @""; //[defautls objectForKey:@"phone"];
+    NSString *Phone = @"test"; //[defautls objectForKey:@"phone"];
     
     NSString *rawString = Phone;
     NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
@@ -253,6 +258,9 @@
         NSLog(@"JSON: %@", responseObject);
         NSString *orderId = [responseObject objectForKey:@"orderId"];
         NSArray *productsIds = [responseObject objectForKey:@"productsIds"];
+        
+        MyorderId = orderId ;
+        MyproductsIds = productsIds ;
         [SVProgressHUD dismiss] ;
         [self Send:orderId andProductsIDs:productsIds];
         
@@ -317,6 +325,9 @@
         
        // NSString *ProductName = @"ws.elstud.io/UserIDOrderID/Product1" ;  //[NSString stringWithFormat:@"%@/%@",OrderDirectory, OrderItemtobemodified.ProductName];
         NSString *Images = [NSString stringWithFormat:@"%@/%@",OrderDirectory,ZipFileName];
+        NSString *WholeLink = [NSString stringWithFormat:@"ftp://elstud.io/%@",Images];
+        
+        [filepaths addObject:WholeLink];
         // [self.requestsManager addRequestForDownloadFileAtRemotePath:@"ws.elstud.io/Web.config" toLocalPath:WebConfigtrial];
         
         //[self.requestsManager addRequestForCreateDirectoryAtPath:ProductName];
@@ -403,6 +414,7 @@
  */
 - (void)requestsManager:(id<GRRequestsManagerProtocol>)requestsManager didFailRequest:(id<GRRequestProtocol>)request withError:(NSError *)error {
     NSLog(@"error") ;
+    FTPUploadError = true ;
 }
 
 - (void)requestsManager:(id<GRRequestsManagerProtocol>)requestsManager didCompleteDownloadRequest:(id<GRDataExchangeRequestProtocol>)request {
@@ -412,9 +424,44 @@
 
 
 - (void)requestsManagerDidCompleteQueue:(id<GRRequestsManagerProtocol>)requestsManager {
-    NSLog(@"Queue done") ;
+    //NSLog(@"Queue done") ;
     [SVProgressHUD dismiss];
+    if (!FTPUploadError)
+        [self UpdateFilePaths:filepaths];
+    
 }
+
+-(void)UpdateFilePaths:(NSMutableArray*)paths {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
+    [parameters setObject:MyorderId forKey:@"orderId"];
+    [parameters setObject:MyproductsIds forKey:@"productsIds"];
+    [parameters setObject:paths forKey:@"folderPaths"];
+    NSLog(@"Update Json : %@",parameters);
+    [SVProgressHUD show];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [manager POST:@"http://ws.elstud.io/api/order/updatefolderpaths" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        [SVProgressHUD dismiss] ;
+        if (FTPUploadError) {
+            UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Sorry, an error has occured while sending" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [msg show];
+        } else {
+            UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Success" message:@"Your images have been sent successfully" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [msg show];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        UIAlertView *msg = [[UIAlertView alloc]initWithTitle:@"Network Error" message:@"Error sending data" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [msg show] ;
+        [SVProgressHUD dismiss];
+    }];
+
+}
+
+
 
 /*
 // Override to support conditional editing of the table view.

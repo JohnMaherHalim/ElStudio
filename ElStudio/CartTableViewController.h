@@ -13,6 +13,11 @@
 @interface CartTableViewController : UITableViewController<GRRequestsManagerDelegate,UIAlertViewDelegate> {
     NSMutableArray *orderItems ;
     NSInteger globalindex ;
+    BOOL FTPUploadError ;
+    
+    NSMutableArray *filepaths ;
+    NSString *MyorderId ;
+    NSArray *MyproductsIds ;
 }
 
 @property (nonatomic , retain) IBOutlet UITableView *tableView ;
