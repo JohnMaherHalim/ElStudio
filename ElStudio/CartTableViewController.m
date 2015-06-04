@@ -251,7 +251,11 @@
     
     [manager POST:@"http://ws.elstud.io/api/order/makeorder" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        NSString *orderId = [responseObject objectForKey:@"orderId"];
+        NSArray *productsIds = [responseObject objectForKey:@"productsIds"];
         [SVProgressHUD dismiss] ;
+        [self Send:orderId andProductsIDs:productsIds];
+        
        // [self login:responseObject];
        // [self Send];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -264,51 +268,67 @@
 }
 
 
--(void)Send {
-    OrderItem *OrderItemtobemodified = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:0];
+-(void)Send:(NSString*)orderId andProductsIDs:(NSArray*)productsIds {
+  //  OrderItem *OrderItemtobemodified = [[[[WholeOrder sharedManager]myOrder]OrderItems]objectAtIndex:0];
     
+    [SVProgressHUD show];
     
-    NSString *ZipFileName = @"test3.zip" ;
+    NSString *OrderDirectory = [NSString stringWithFormat:@"ws.elstud.io/orders/%@",orderId]; //@"ws.elstud.io/UserIDOrderID" ;
+    [self.requestsManager addRequestForCreateDirectoryAtPath:OrderDirectory];
     
-    NSString *cacheDirectory 	= [self getChacheDirectoryPath];
-    NSString *ImagesZipFile		= [cacheDirectory stringByAppendingPathComponent:ZipFileName];
-    NSString *WebConfigtrial = [cacheDirectory stringByAppendingPathComponent:@"Web.config"];
-    
-    [[NSFileManager defaultManager]createFileAtPath:ImagesZipFile contents:nil attributes:nil];
-    
-    ZipFile *zipFile= [[ZipFile alloc] initWithFileName:ImagesZipFile mode:ZipFileModeCreate];
-    int counter = 0 ;
-    //int imagestosendcounter = 0 ;
-    
-    
-    for (UIImage* img in OrderItemtobemodified.ProductImages) {
-        NSNumber *thisimagescalea = [OrderItemtobemodified.ImagesScales objectAtIndex:counter] ;
-        float thisimagescale = [thisimagescalea floatValue] ;
-        UIImage *croppedimage = [self imageByCroppingImage:img toSize:CGSizeMake(img.size.width/thisimagescale, img.size.height/thisimagescale)];
-        UIImage *modifiedimage = [self ModifyTheImage:croppedimage inHeightInches:2 andWidthInches:2];
-        //NSData *pngData = UIImagePNGRepresentation(modifiedimage);
-        NSData *jpgData = UIImageJPEGRepresentation(modifiedimage, 1);
-        NSString *varstring = [NSString stringWithFormat:@"%d.jpg",counter];
-        ZipWriteStream *stream= [zipFile writeFileInZipWithName:varstring compressionLevel:ZipCompressionLevelBest];
-        //if (counter == 0) {
-        [stream writeData:jpgData];
-        [stream finishedWriting];
-        //}
-        counter++ ;
+    NSMutableArray *OrderItems = [[[WholeOrder sharedManager]myOrder]OrderItems];
+    NSInteger count = 0 ;
+    for (OrderItem *OrderItemtobemodified in OrderItems) {
+        NSString *ProductID = [productsIds objectAtIndex:count];
+        
+        NSString *ZipFileName = [NSString stringWithFormat:@"%@.zip",ProductID]; //@"test3.zip" ;
+        
+        NSString *cacheDirectory 	= [self getChacheDirectoryPath];
+        NSString *ImagesZipFile		= [cacheDirectory stringByAppendingPathComponent:ZipFileName];
+        NSString *WebConfigtrial = [cacheDirectory stringByAppendingPathComponent:@"Web.config"];
+        
+        [[NSFileManager defaultManager]createFileAtPath:ImagesZipFile contents:nil attributes:nil];
+        
+        ZipFile *zipFile= [[ZipFile alloc] initWithFileName:ImagesZipFile mode:ZipFileModeCreate];
+        int counter = 0 ;
+        //int imagestosendcounter = 0 ;
+        
+        
+        for (UIImage* img in OrderItemtobemodified.ProductImages) {
+            NSNumber *thisimagescalea = [OrderItemtobemodified.ImagesScales objectAtIndex:counter] ;
+            float thisimagescale = [thisimagescalea floatValue] ;
+            UIImage *croppedimage = [self imageByCroppingImage:img toSize:CGSizeMake(img.size.width/thisimagescale, img.size.height/thisimagescale)];
+            UIImage *modifiedimage = [self ModifyTheImage:croppedimage inHeightInches:2 andWidthInches:2];
+            //NSData *pngData = UIImagePNGRepresentation(modifiedimage);
+            NSData *jpgData = UIImageJPEGRepresentation(modifiedimage, 1);
+            NSString *varstring = [NSString stringWithFormat:@"%@-%d.jpg",ProductID, counter];
+            ZipWriteStream *stream= [zipFile writeFileInZipWithName:varstring compressionLevel:ZipCompressionLevelBest];
+            //if (counter == 0) {
+            [stream writeData:jpgData];
+            [stream finishedWriting];
+            //}
+            counter++ ;
+        }
+        
+        [zipFile close] ;
+        
+        
+        
+        
+       // NSString *ProductName = @"ws.elstud.io/UserIDOrderID/Product1" ;  //[NSString stringWithFormat:@"%@/%@",OrderDirectory, OrderItemtobemodified.ProductName];
+        NSString *Images = [NSString stringWithFormat:@"%@/%@",OrderDirectory,ZipFileName];
+        // [self.requestsManager addRequestForDownloadFileAtRemotePath:@"ws.elstud.io/Web.config" toLocalPath:WebConfigtrial];
+        
+        //[self.requestsManager addRequestForCreateDirectoryAtPath:ProductName];
+        //[self.requestsManager addRequestForCreateDirectoryAtPath:Images];
+        [self.requestsManager addRequestForUploadFileAtLocalPath:ImagesZipFile toRemotePath:Images];
+        
+        count++;
     }
     
-    [zipFile close] ;
-    
-    
-    NSString *OrderDirectory = @"ws.elstud.io/UserIDOrderID" ;
-    NSString *ProductName = @"ws.elstud.io/UserIDOrderID/Product1" ;  //[NSString stringWithFormat:@"%@/%@",OrderDirectory, OrderItemtobemodified.ProductName];
-    NSString *Images = [NSString stringWithFormat:@"%@/%@",ProductName,ZipFileName];
-    // [self.requestsManager addRequestForDownloadFileAtRemotePath:@"ws.elstud.io/Web.config" toLocalPath:WebConfigtrial];
-    //[self.requestsManager addRequestForCreateDirectoryAtPath:OrderDirectory];
-    //[self.requestsManager addRequestForCreateDirectoryAtPath:ProductName];
-    //[self.requestsManager addRequestForCreateDirectoryAtPath:Images];
-    [self.requestsManager addRequestForUploadFileAtLocalPath:ImagesZipFile toRemotePath:Images];
     [self.requestsManager startProcessingRequests];
+    
+    
 }
 
 
@@ -387,6 +407,13 @@
 
 - (void)requestsManager:(id<GRRequestsManagerProtocol>)requestsManager didCompleteDownloadRequest:(id<GRDataExchangeRequestProtocol>)request {
     NSLog(@"Download Success") ; 
+}
+
+
+
+- (void)requestsManagerDidCompleteQueue:(id<GRRequestsManagerProtocol>)requestsManager {
+    NSLog(@"Queue done") ;
+    [SVProgressHUD dismiss];
 }
 
 /*
