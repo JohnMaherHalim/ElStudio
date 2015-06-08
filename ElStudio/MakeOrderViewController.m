@@ -13,6 +13,7 @@
 #import "CurrentOrderManager.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "ProductsStore.h"
 
 @interface MakeOrderViewController ()
 
@@ -38,6 +39,9 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults] ;
     NSString *instagramtoken = [defaults objectForKey:@"instatoken"];
     
+    
+    
+    
     if (!instagramtoken)
         [self.InstLogOutBtn setHidden:YES] ;
     else
@@ -51,8 +55,27 @@
     if([FBSDKProfile currentProfile])
         [self.FBAlbumBtn setHidden:NO];
     else
-        [self.FBAlbumBtn setHidden:YES] ; 
+        [self.FBAlbumBtn setHidden:YES] ;
     
+    [self CheckAdminFlags];
+    
+}
+
+-(void)CheckAdminFlags {
+    Admin *myAdmin = [[ProductsStore sharedManager]myAdmin];
+    
+    if (myAdmin.Admin_fbEnabled)
+        [self.FBAlbumBtn setHidden:NO];
+    else
+        [self.FBAlbumBtn setHidden:YES];
+    
+    if (myAdmin.Admin_instaEnabled) {
+        [self.InstagramBtn setHidden:NO];
+        [self.InstLogOutBtn setHidden:NO] ;
+    } else {
+        [self.InstagramBtn setHidden:YES];
+        [self.InstLogOutBtn setHidden:YES] ;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

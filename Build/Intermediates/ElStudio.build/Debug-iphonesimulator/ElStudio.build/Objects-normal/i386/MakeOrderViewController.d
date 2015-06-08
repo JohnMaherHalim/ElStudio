@@ -46,4 +46,6 @@ dependencies: \
   /Users/johnmaher/ElStudio/FBSDKLoginKit.framework/Headers/FBSDKLoginManager.h \
   /Users/johnmaher/ElStudio/FBSDKLoginKit.framework/Headers/FBSDKLoginButton.h \
   /Users/johnmaher/ElStudio/FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h \
-  /Users/johnmaher/ElStudio/FBSDKLoginKit.framework/Modules/module.modulemap
+  /Users/johnmaher/ElStudio/FBSDKLoginKit.framework/Modules/module.modulemap \
+  /Users/johnmaher/ElStudio/ElStudio/ProductsStore.h \
+  /Users/johnmaher/ElStudio/ElStudio/Admin.h

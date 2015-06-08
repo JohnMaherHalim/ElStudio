@@ -13,6 +13,7 @@
 
 @property (nonatomic) IBOutlet UIImageView *myimg ;
 @property (nonatomic) NSMutableArray *imgarray ;
+@property (nonatomic , retain) IBOutlet UIButton *InstagramBtn ;
 @property (nonatomic , retain) IBOutlet UIButton *InstLogOutBtn ;
 @property (nonatomic , retain) IBOutlet UIButton *FBAlbumBtn ; 
 @property BOOL gotoinstagram ; 

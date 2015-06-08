@@ -827,6 +827,7 @@
                     <connections>
                         <outlet property="FBAlbumBtn" destination="Z6u-j8-DsV" id="qMS-ut-5O7"/>
                         <outlet property="InstLogOutBtn" destination="zR3-9k-Mjc" id="3Nj-aj-A1t"/>
+                        <outlet property="InstagramBtn" destination="z2Y-pz-hKu" id="26e-ta-khU"/>
                         <segue destination="ynv-tx-TWD" kind="push" identifier="GoToImages" id="okT-V5-Qxb"/>
                         <segue destination="MTI-CC-woy" kind="push" identifier="InstagramLogin" id="u3Z-RX-0HY"/>
                         <segue destination="bYl-fq-go3" kind="push" identifier="InstagramShow" id="Oxm-nE-64E"/>
