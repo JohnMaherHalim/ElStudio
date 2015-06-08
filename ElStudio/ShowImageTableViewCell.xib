@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqQ-zV-EvS">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqQ-zV-EvS">
                         <rect key="frame" x="65" y="17" width="201" height="155"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="39f-P4-fYM">
@@ -23,13 +24,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="155" id="FBb-eh-veW"/>
+                            <constraint firstAttribute="width" constant="201" id="HdV-t4-IRo"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Mrr-a0-0s4" appends="YES" id="wdB-SF-hmk"/>
                         </connections>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcS-aD-S9V">
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcS-aD-S9V">
                         <rect key="frame" x="244" y="8" width="37" height="30"/>
                         <color key="backgroundColor" red="0.86666666670000003" green="0.0" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="37" id="DjN-yv-4ct"/>
+                            <constraint firstAttribute="height" constant="30" id="r3w-iW-A69"/>
+                        </constraints>
                         <state key="normal" title="+">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -37,9 +46,13 @@
                             <action selector="IncreaseCount:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WcT-L4-stE"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4H-hK-0Q3">
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4H-hK-0Q3">
                         <rect key="frame" x="40" y="8" width="37" height="30"/>
                         <color key="backgroundColor" red="0.86666666670000003" green="0.0" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="37" id="iWH-Qu-udW"/>
+                            <constraint firstAttribute="height" constant="30" id="kiB-vL-rMp"/>
+                        </constraints>
                         <state key="normal" title="-">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -47,14 +60,28 @@
                             <action selector="DecreaseCount:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TWU-B4-Vuh"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccT-SZ-Yoh">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccT-SZ-Yoh">
                         <rect key="frame" x="133" y="10" width="64" height="21"/>
                         <color key="backgroundColor" red="0.86666666670000003" green="0.0" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="i9q-37-O3e"/>
+                            <constraint firstAttribute="width" constant="64" id="tDF-SR-m1V"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerX" secondItem="dqQ-zV-EvS" secondAttribute="centerX" id="8jn-UF-bGQ"/>
+                    <constraint firstItem="ccT-SZ-Yoh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="9mn-OI-A9r"/>
+                    <constraint firstItem="dqQ-zV-EvS" firstAttribute="centerX" secondItem="ccT-SZ-Yoh" secondAttribute="centerX" constant="0.5" id="Oc1-VA-V4R"/>
+                    <constraint firstItem="CcS-aD-S9V" firstAttribute="leading" secondItem="ccT-SZ-Yoh" secondAttribute="trailing" constant="47" id="jqr-Aa-k6u"/>
+                    <constraint firstItem="ccT-SZ-Yoh" firstAttribute="leading" secondItem="m4H-hK-0Q3" secondAttribute="trailing" constant="56" id="mUd-Tv-3D5"/>
+                    <constraint firstItem="CcS-aD-S9V" firstAttribute="centerY" secondItem="ccT-SZ-Yoh" secondAttribute="centerY" constant="2.5" id="oAq-r5-GFW"/>
+                    <constraint firstItem="dqQ-zV-EvS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="ufp-SS-5eK"/>
+                    <constraint firstItem="m4H-hK-0Q3" firstAttribute="centerY" secondItem="ccT-SZ-Yoh" secondAttribute="centerY" constant="2.5" id="vTo-sJ-Xo1"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="container" destination="dqQ-zV-EvS" id="e73-Xf-ymK"/>
