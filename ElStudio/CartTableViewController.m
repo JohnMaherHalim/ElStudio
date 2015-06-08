@@ -131,7 +131,7 @@
 		[orderItems removeObjectAtIndex:indexPath.row];
 		[self.tableView reloadData] ;
 		
-		[[[[WholeOrder sharedManager]myOrder]OrderItems]removeObjectAtIndex:indexPath.row];
+		//[[[[WholeOrder sharedManager]myOrder]OrderItems]removeObjectAtIndex:indexPath.row];
 		[[WholeOrder sharedManager]SaveMyOrder] ;
 		//NSLog(@"Hi") ;
 		//add code here for when you hit delete
