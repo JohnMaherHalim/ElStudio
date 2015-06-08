@@ -10,6 +10,10 @@
 		621741B61B14A0A200CFD754 /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 621741B51B14A0A200CFD754 /* UIDeviceHardware.m */; };
 		622307AA1B04B574009973AD /* CartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622307A91B04B574009973AD /* CartTableViewController.m */; };
 		6225C06F1B1602B400DFE492 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6225C06C1B16008200DFE492 /* CFNetwork.framework */; };
+		622726681B25C2C600B8AA46 /* Admin.m in Sources */ = {isa = PBXBuildFile; fileRef = 622726671B25C2C600B8AA46 /* Admin.m */; };
+		6227266C1B25C68D00B8AA46 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6227266B1B25C68D00B8AA46 /* AboutUsViewController.m */; };
+		622726701B25C96E00B8AA46 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6227266F1B25C96E00B8AA46 /* FeedbackViewController.m */; };
+		622726741B25CCA500B8AA46 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622726731B25CCA500B8AA46 /* InfoViewController.m */; };
 		6228FD1E1B021FF300B0D759 /* ProductsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD1D1B021FF300B0D759 /* ProductsTableViewController.m */; };
 		6228FD231B02253300B0D759 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD221B02253200B0D759 /* OrderItem.m */; };
 		6228FD261B0226D100B0D759 /* CurrentOrderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6228FD251B0226D100B0D759 /* CurrentOrderManager.m */; };
@@ -135,6 +139,14 @@
 		622307A81B04B574009973AD /* CartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableViewController.h; sourceTree = "<group>"; };
 		622307A91B04B574009973AD /* CartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableViewController.m; sourceTree = "<group>"; };
 		6225C06C1B16008200DFE492 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		622726661B25C2C600B8AA46 /* Admin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Admin.h; sourceTree = "<group>"; };
+		622726671B25C2C600B8AA46 /* Admin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Admin.m; sourceTree = "<group>"; };
+		6227266A1B25C68D00B8AA46 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		6227266B1B25C68D00B8AA46 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		6227266E1B25C96E00B8AA46 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		6227266F1B25C96E00B8AA46 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		622726721B25CCA500B8AA46 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		622726731B25CCA500B8AA46 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		6228FD1C1B021FF300B0D759 /* ProductsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductsTableViewController.h; sourceTree = "<group>"; };
 		6228FD1D1B021FF300B0D759 /* ProductsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductsTableViewController.m; sourceTree = "<group>"; };
 		6228FD211B02253200B0D759 /* OrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItem.h; sourceTree = "<group>"; };
@@ -387,6 +399,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		622726691B25C66600B8AA46 /* About Us */ = {
+			isa = PBXGroup;
+			children = (
+				6227266A1B25C68D00B8AA46 /* AboutUsViewController.h */,
+				6227266B1B25C68D00B8AA46 /* AboutUsViewController.m */,
+			);
+			name = "About Us";
+			sourceTree = "<group>";
+		};
+		6227266D1B25C94F00B8AA46 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				6227266E1B25C96E00B8AA46 /* FeedbackViewController.h */,
+				6227266F1B25C96E00B8AA46 /* FeedbackViewController.m */,
+			);
+			name = Feedback;
+			sourceTree = "<group>";
+		};
+		622726711B25CC9200B8AA46 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				622726721B25CCA500B8AA46 /* InfoViewController.h */,
+				622726731B25CCA500B8AA46 /* InfoViewController.m */,
+			);
+			name = Info;
+			sourceTree = "<group>";
+		};
 		6228FD1B1B021F8300B0D759 /* ProductsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +461,8 @@
 				6232EAB11B1B8D9D000A7860 /* Product.m */,
 				622C64E71B1DE4120059FA67 /* FaceBookAlbum.h */,
 				622C64E81B1DE4120059FA67 /* FaceBookAlbum.m */,
+				622726661B25C2C600B8AA46 /* Admin.h */,
+				622726671B25C2C600B8AA46 /* Admin.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -864,6 +905,9 @@
 		887437F11AED912D00D0BFD2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				622726711B25CC9200B8AA46 /* Info */,
+				6227266D1B25C94F00B8AA46 /* Feedback */,
+				622726691B25C66600B8AA46 /* About Us */,
 				62402C011B1F2A7800F64337 /* SubProducts */,
 				622C64E31B1DE08C0059FA67 /* FaceBookAlbums */,
 				622A285F1B1CD4B800B758DD /* Login */,
@@ -999,6 +1043,7 @@
 			files = (
 				628930571B11E98200076F3F /* uncompr.c in Sources */,
 				628930521B11E98200076F3F /* infback.c in Sources */,
+				622726741B25CCA500B8AA46 /* InfoViewController.m in Sources */,
 				622E47A91B1B016A00E4C5E3 /* InstagramModel.m in Sources */,
 				628930451B11E98200076F3F /* FileInZipInfo.m in Sources */,
 				628930481B11E98200076F3F /* ZipReadStream.m in Sources */,
@@ -1028,10 +1073,12 @@
 				881CA3A31AF5307A0097FEBE /* GRQueue.m in Sources */,
 				622E47D91B1B129500E4C5E3 /* IKCell.m in Sources */,
 				62C77CFA1AEE905200BB3D48 /* ELCImagePickerController.m in Sources */,
+				622726701B25C96E00B8AA46 /* FeedbackViewController.m in Sources */,
 				881CA39B1AF5307A0097FEBE /* README.md in Sources */,
 				622E47AA1B1B016A00E4C5E3 /* InstagramPaginationInfo.m in Sources */,
 				6289304D1B11E98200076F3F /* deflate.c in Sources */,
 				628930541B11E98200076F3F /* inflate.c in Sources */,
+				6227266C1B25C68D00B8AA46 /* AboutUsViewController.m in Sources */,
 				6228FD231B02253300B0D759 /* OrderItem.m in Sources */,
 				628930561B11E98200076F3F /* trees.c in Sources */,
 				622E47CB1B1B01A100E4C5E3 /* AFURLSessionManager.m in Sources */,
@@ -1072,6 +1119,7 @@
 				887437F51AED917F00D0BFD2 /* MakeOrderViewController.m in Sources */,
 				6229AE721B0398C900EE7FD4 /* HomeViewController.m in Sources */,
 				628930511B11E98200076F3F /* gzwrite.c in Sources */,
+				622726681B25C2C600B8AA46 /* Admin.m in Sources */,
 				621741B61B14A0A200CFD754 /* UIDeviceHardware.m in Sources */,
 				881CA39A1AF5307A0097FEBE /* GRRequestsManager.m in Sources */,
 				62C2ACAD1AE8FF5B008393DE /* AppDelegate.m in Sources */,

@@ -66,6 +66,16 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:@"http://ws.elstud.io/api/global/getglobal" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        Admin *myAdmin = [[Admin alloc]init];
+        NSDictionary *ServerAdmin = [responseObject objectForKey:@"admin"];
+        myAdmin.Admin_id = [ServerAdmin objectForKey:@"id"];
+        myAdmin.Admin_fbEnabled = [[ServerAdmin objectForKey:@"facebookEnabled"]boolValue];
+        myAdmin.Admin_instaEnabled = [[ServerAdmin objectForKey:@"instagramEnabled"]boolValue];
+        myAdmin.Admin_AboutUs = [ServerAdmin objectForKey:@"aboutUs"];
+        myAdmin.Admin_Name = [ServerAdmin objectForKey:@"name"];
+        myAdmin.Admin_Address = [ServerAdmin objectForKey:@"address"];
+        myAdmin.Admin_Phone = [ServerAdmin objectForKey:@"phone"];
+        
         NSMutableArray *allProducts = [[NSMutableArray alloc]init] ;
         NSArray *products = [responseObject objectForKey:@"products"];
         NSMutableArray *ProductsObjects = [[NSMutableArray alloc]init];
@@ -87,6 +97,7 @@
            // [ProductsObjects addObject:myprod];
         }
         [self FilterAndSaveMyProducts:allProducts];
+        [[ProductsStore sharedManager]setMyAdmin:myAdmin];
         [SVProgressHUD dismiss];
        // [ProductsStore sharedManager]
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

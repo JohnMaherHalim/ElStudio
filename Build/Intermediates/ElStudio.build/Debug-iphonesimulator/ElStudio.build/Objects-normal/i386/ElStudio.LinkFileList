@@ -1,5 +1,6 @@
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/uncompr.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/infback.o
+/Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/InfoViewController.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/InstagramModel.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/FileInZipInfo.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/ZipReadStream.o
@@ -29,9 +30,11 @@
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/GRQueue.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/IKCell.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/ELCImagePickerController.o
+/Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/FeedbackViewController.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/InstagramPaginationInfo.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/deflate.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/inflate.o
+/Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/AboutUsViewController.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/OrderItem.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/trees.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/AFURLSessionManager.o
@@ -72,6 +75,7 @@
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/MakeOrderViewController.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/HomeViewController.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/gzwrite.o
+/Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/Admin.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/UIDeviceHardware.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/GRRequestsManager.o
 /Users/johnmaher/ElStudio/Build/Intermediates/ElStudio.build/Debug-iphonesimulator/ElStudio.build/Objects-normal/i386/AppDelegate.o

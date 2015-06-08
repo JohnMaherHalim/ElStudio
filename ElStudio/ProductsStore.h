@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Admin.h"
 
 @interface ProductsStore : NSObject
 
+
+@property (nonatomic,retain) Admin *myAdmin ;
 @property (nonatomic,retain) NSMutableArray *Products ; 
 
 + (id)sharedManager;
